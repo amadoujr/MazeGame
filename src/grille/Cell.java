@@ -1,11 +1,6 @@
 package grille;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.random.*;
-
+import java.util.*;
 
 
 public class Cell {
@@ -30,7 +25,6 @@ public class Cell {
 	     this.murs.put(Direction.OUEST, true);
 	     this.murs.put(Direction.NORD, true);
 	     this.murs.put(Direction.SUD, true);
-	     
 	}
 	
 	@Override

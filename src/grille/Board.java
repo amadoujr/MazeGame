@@ -1,5 +1,4 @@
 package grille;
-import java.util.* ;
 
 public class Board {
 	private Cell[][] tab ;
