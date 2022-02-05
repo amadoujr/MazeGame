@@ -40,11 +40,11 @@ public class Board {
 	/**
 	 * @param x the position in the cell
 	 * @param y the position in the cell
-	 * @return
+	 * @return the cell at position (x,y)
 	 */
 	public Cell getCell(int x , int y) {
 		
-		return this.board[x][y];
+		return this.board[x][y-1];
 	}
 	
 	
@@ -56,13 +56,34 @@ public class Board {
 		for(int i = 0 ; i<rows ; i++) {
 			System.out.println() ;
 			for(int j = 0 ; j< cols ;j++) {
-				System.out.print(" | "+ this.board[i][j].toString()+ " | ");
+				if(this.board[i][j].get_Wall(Direction.NORD)) {
+					System.out.print("+---");
+				}
+				else {
+					System.out.print("+   ");
+				}
+			}
+			System.out.println("+");
+			for (int j = 0 ; j< cols ;j++) {
+				if(this.board[i][j].get_Wall(Direction.OUEST)) {
+					System.out.print("|   ");
+				}
+				else {
+					System.out.print("    ");
+				}
 				
 			}
+			System.out.print("|");
 			
 			
 		}
 		System.out.println();
+		for(int j=0; j<cols; j++) {
+			System.out.print("+---");
+		}
+		System.out.println("+");
+		
+		
 	}
 	
 	
