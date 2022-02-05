@@ -14,6 +14,7 @@ public class Cell {
 	private Map<Direction, Boolean> walls ;
 	private List<Cell> neigbors ; 
 	private boolean isVisited = false ; 
+	private Board board;
 	//private Cell currentCell ;
 	 
 	
@@ -75,6 +76,21 @@ public class Cell {
 		return false ; 
 	}
 	
+	public void addNeigbors(Cell n) {
+		if(n.walls.get(Direction.NORD)&& n.hasUnvisitedNeigbor()) {
+			neigbors.add(this.board.getCell(n.getX() - 1, n.getY()));
+		}
+		if(n.walls.get(Direction.EST)&& n.hasUnvisitedNeigbor()) {
+			neigbors.add(this.board.getCell(n.getX(), n.getY() + 1));
+		}
+		if(n.walls.get(Direction.SUD)&& n.hasUnvisitedNeigbor()) {
+			neigbors.add(this.board.getCell(n.getX() + 1, n.getY()));
+		}
+		if(n.walls.get(Direction.NORD)&& n.hasUnvisitedNeigbor()) {
+			neigbors.add(this.board.getCell(n.getX() , n.getY() - 1));
+		}
+		
+	}
 	
 	
 	/**
@@ -106,7 +122,9 @@ public class Cell {
 	}
 	
 	
-	
+	public Board getBoard() {
+		return this.board;
+	}
 	/**
 	 * @return x position
 	 */
