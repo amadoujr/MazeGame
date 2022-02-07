@@ -1,17 +1,12 @@
 # l2s4-projet-2022
 
-Vous devez *forker* ce projet dans votre espace de travail Gitlab (bouton `Fork`) et vidéo sur le [portail](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents)
-Un unique fork doit être réalisé par équipe.
-
-Une fois cela réalisé supprimer ces premières lignes et remplissez les noms des membres de votre équipe.
-N'oubliez pas d'ajouter les autres membres de votre équipe aux membres du projet, ainsi que votre enseignant·e.
 
 # Equipe
 
-- prénom1 NOM1
-- prénom2 NOM2
-- prénom3 NOM3
-- prénom4 NOM4
+- Amadou Barro
+- Malika Boubacar
+- Lo Mané
+- Mikou Youssef
 
 # Sujet
 
@@ -48,6 +43,12 @@ N'oubliez pas d'ajouter les autres membres de votre équipe aux membres du proje
 ## Semaine 1
 
 ## Semaine 2
+
+Cette semaine on a fait le choix d'implementer un algorithme récursive afin de
+représenter le labyrinthe.
+Pour implementer cet algorithme, on a utilisé deux classes: *"Board"*,*"Cell"* et un *Enum*.
+Nous avons aussi implementer pas mal de méthodes qui permettent soit : **Ajouter des cellules**, **supprimer le mur entre deux cellules**, **verifier si une cellule a des cellules voisines** ,etc...
+Vous pourrez avoir un aperçu du labyrinthe en éxécutant le main contenu dans Boardmain .
 
 ## Semaine 3
 
