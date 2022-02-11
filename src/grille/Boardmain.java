@@ -3,11 +3,13 @@ package grille;
 public class Boardmain {
 
 	public static void main(String[] args) {
-		Board b = new Board(7,6);
+		Board b = new Board(4,5);
 		//b.Display();
-		b.getCell(2, 3).set_Wall(Direction.OUEST,false);
+		//b.getCell(2, 2).set_Wall(Direction.NORD,false);
+		//b.Display();
+	
 		b.Display();
-
+		
 
 
 

@@ -87,10 +87,10 @@ public class Cell {
 		 int ycoord = next.getY()- current.getY();
 		 
 		 if (xcoord == 1) {
-			 current.walls.put(Direction.OUEST,false);
-			 next.walls.put(Direction.EST,false);
+			 next.walls.put(Direction.OUEST,false);
+			 current.walls.put(Direction.EST,false);
 		 }
-		 else if (ycoord == -1) {
+		 else if (xcoord == -1) {
 			 current.walls.put(Direction.EST, false);
 			 next.walls.put(Direction.OUEST,false);
 		 }

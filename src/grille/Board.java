@@ -44,7 +44,11 @@ public class Board {
 	 */
 	public Cell getCell(int x , int y) {
 		
-		return this.board[x][y-1];
+		return this.board[x][y];
+	}
+	
+	public Cell [][] getBoard(){
+		return this.board;
 	}
 	
 	
@@ -56,7 +60,7 @@ public class Board {
 		for(int i = 0 ; i<rows ; i++) {
 			System.out.println() ;
 			for(int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.NORD)) {
+				if(this.board[i][j].get_Wall(Direction.SUD)) {
 					System.out.print("+---");
 				}
 				else {
@@ -65,11 +69,11 @@ public class Board {
 			}
 			System.out.println("+");
 			for (int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.OUEST)) {
+				if(this.board[i][j].get_Wall(Direction.EST)) {
 					System.out.print("|   ");
 				}
 				else {
-					System.out.print("    ");
+					System.out.print("   ");
 				}
 				
 			}
