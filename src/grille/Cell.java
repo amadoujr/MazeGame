@@ -50,6 +50,8 @@ public class Cell {
 	}
 
 
+	
+	
 	/**
 	 * @param bool the boolean value to set
 	 */

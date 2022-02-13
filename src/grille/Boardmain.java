@@ -13,6 +13,8 @@ public class Boardmain {
 		b.Display();
 
 
+		
+		
 
 
 	}

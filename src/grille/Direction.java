@@ -16,4 +16,7 @@ public enum Direction {EST(5),SUD(5) ;
 	return this.coord ; 
 }
  
+ 
+ 
+ 
 }
