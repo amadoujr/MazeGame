@@ -14,7 +14,7 @@ public class Cell {
 	private Map<Direction, Boolean> walls ;
 	private List<Cell> neigbors ; 
 	private boolean isVisited = false ; 
-	private Board board;
+	
 	//private Cell currentCell ;
 	 
 	
@@ -26,8 +26,7 @@ public class Cell {
 	 */
 	public Cell(int x ,int y) {
 		this.x = x ;
-		this.y = y ;
-		
+		this.y = y ;		
 		this.neigbors = new ArrayList<Cell>();
 		
 		this.walls = new HashMap<>();
@@ -76,20 +75,25 @@ public class Cell {
 		return false ; 
 	}
 	
-	public void addNeigbors(Cell n) {
-		if(n.walls.get(Direction.NORD)&& n.hasUnvisitedNeigbor()) {
-			neigbors.add(this.board.getCell(n.getX() - 1, n.getY()));
-		}
-		if(n.walls.get(Direction.EST)&& n.hasUnvisitedNeigbor()) {
-			neigbors.add(this.board.getCell(n.getX(), n.getY() + 1));
-		}
-		if(n.walls.get(Direction.SUD)&& n.hasUnvisitedNeigbor()) {
-			neigbors.add(this.board.getCell(n.getX() + 1, n.getY()));
-		}
-		if(n.walls.get(Direction.NORD)&& n.hasUnvisitedNeigbor()) {
-			neigbors.add(this.board.getCell(n.getX() , n.getY() - 1));
-		}
+	public void addNeigbors(Cell n){
 		
+
+		if (n.getX() > 0 ) {
+			n.neigbors.add(new Cell(n.getX()-1, n.getY()));
+		}
+		if (n.getX() < 10 ) {
+			n.neigbors.add(new Cell(n.getX()+1, n.getY()));
+		}
+		if(n.getY() > 0) {
+			n.neigbors.add(new Cell(n.getX(), n.getY()-1));
+		}
+		if (n.getY() < 10) {
+			n.neigbors.add(new Cell(n.getX(), n.getY()+1));
+		}
+
+		if (n.getX()<0 && n.getY() <0) {
+			throw new IndexOutOfBoundsException("pas de voisins accessibles");
+		}
 	}
 	
 	
@@ -122,9 +126,6 @@ public class Cell {
 	}
 	
 	
-	public Board getBoard() {
-		return this.board;
-	}
 	/**
 	 * @return x position
 	 */

@@ -37,6 +37,12 @@ public class Board {
 	
 	
 
+	public Board() {
+		
+	}
+
+
+
 	/**
 	 * @param x the position in the cell
 	 * @param y the position in the cell
@@ -49,6 +55,14 @@ public class Board {
 	
 	public Cell [][] getBoard(){
 		return this.board;
+	}
+	
+	public int getrows() {
+		return this.rows;
+	}
+	
+	public int getcols() {
+		return this.cols;
 	}
 	
 	
