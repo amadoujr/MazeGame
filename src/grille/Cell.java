@@ -13,11 +13,7 @@ public class Cell {
 	private Map<Direction, Boolean> walls ;
 	private List<Cell> neigbours ; 
 	private boolean isVisited = false ; 
-	
-	 
-	
-	
-	
+
 	/**
 	 * @param x position of the Cell
 	 * @param y position of the cell
@@ -75,6 +71,10 @@ public class Cell {
 		return false ; 
 	}
 	
+	public void addNeigbors(Cell n) {
+		
+		
+	}
 	
 	
 	/**
@@ -104,7 +104,6 @@ public class Cell {
 			 next.walls.put(Direction.SUD,false);
 		 }
 	}
-	
 	
 	
 	/**
