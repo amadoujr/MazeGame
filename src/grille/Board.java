@@ -1,9 +1,5 @@
 package grille;
 
-/**
- * @author amadouu
- *
- */
 public class Board {
 	private Cell[][] board ;
 	private int rows ;
@@ -12,11 +8,6 @@ public class Board {
 	
 	
 	
-	/**
-	 * Initializing the board
-	 * @param rows of the board
-	 * @param cols of the board
-	 */
 	public Board(int rows ,int cols) {
 		this.rows = rows ;
 		this.cols = cols; 
@@ -62,7 +53,7 @@ public class Board {
 		for(int i = 0 ; i<rows ; i++) {
 			System.out.println() ;
 			for(int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.NORD)) {
+				if(this.board[i][j].get_Wall(Direction.SUD)) {
 					System.out.print("+---");
 				}
 				else {
@@ -71,7 +62,7 @@ public class Board {
 			}
 			System.out.println("+");
 			for (int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.OUEST)) {
+				if(this.board[i][j].get_Wall(Direction.EST)) {
 					System.out.print("|   ");
 				}
 				else {

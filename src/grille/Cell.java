@@ -31,8 +31,6 @@ public class Cell {
 
 		this.walls = new HashMap<>();
 	     this.walls.put(Direction.EST, true);
-	     this.walls.put(Direction.OUEST, true);
-	     this.walls.put(Direction.NORD, true);
 	     this.walls.put(Direction.SUD, true);
 	   
 	}
@@ -82,25 +80,25 @@ public class Cell {
 	 * @param current the current cell of the player
 	 * @param next the next cell of the player
 	 */
-	public void removeWall(Cell current, Cell next) {
-		 int xcoord = next.getX()- current.getX();
-		 int ycoord = next.getY()- current.getY();
+	public void removeWall(Cell next) {
+		 int xcoord = next.getX()- this.getX();
+		 int ycoord = next.getY()- this.getY();
 		 
 		 if (xcoord == 1) {
-			 current.walls.put(Direction.OUEST,false);
+		
 			 next.walls.put(Direction.EST,false);
 		 }
 		 else if (ycoord == -1) {
-			 current.walls.put(Direction.EST, false);
-			 next.walls.put(Direction.OUEST,false);
+			
+			 next.walls.put(Direction.EST,false);
 		 }
 		 
 		 if( ycoord == 1) {
-			 current.walls.put(Direction.SUD,false);
-			 next.walls.put(Direction.NORD,false);
+			
+			 next.walls.put(Direction.SUD,false);
 		 }
 		 else if( ycoord == -1) {
-			 current.walls.put(Direction.NORD,false);
+			
 			 next.walls.put(Direction.SUD,false);
 		 }
 	}
@@ -144,7 +142,7 @@ public class Cell {
 	 * @return true if it's the case or false if not */
 	 
 	public boolean is_there_a_closed_cell() {
-	     if (this.walls.get(Direction.EST) && this.walls.get(Direction.OUEST) && this.walls.get(Direction.NORD) && this.walls.get(Direction.SUD)) {
+	     if (this.walls.get(Direction.EST)  && this.walls.get(Direction.SUD)) {
 	    	 return true;
 	     }
 	     return false;
