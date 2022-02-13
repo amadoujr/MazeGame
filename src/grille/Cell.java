@@ -4,54 +4,50 @@ import java.util.*;
 
 
 
-/**
- * @author amadouu
- *
- */
+
+
+
 public class Cell {
 	private final int x ;
 	private  final int y ; 
 	private Map<Direction, Boolean> walls ;
-	private List<Cell> neigbors ; 
-	private boolean isVisited = false ; 
-	
-	//private Cell currentCell ;
-	 
-	
-	
-	
+	private List<Cell> neigbours ; 
+	private boolean isVisited = false ;
+
 	/**
 	 * @param x position of the Cell
 	 * @param y position of the cell
 	 */
 	public Cell(int x ,int y) {
 		this.x = x ;
-		this.y = y ;		
-		this.neigbors = new ArrayList<Cell>();
+		this.y = y ;
+				
+		this.neigbours = new ArrayList<Cell>();
 		
+
 		this.walls = new HashMap<>();
 	     this.walls.put(Direction.EST, true);
-	     this.walls.put(Direction.OUEST, true);
-	     this.walls.put(Direction.NORD, true);
 	     this.walls.put(Direction.SUD, true);
-	     
+	   
 	}
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
+	
 		return "*";
 	}
 	     
 
 	/**
-	 * @return list of neighbourns in the Board
+	 * @return list of neighbours in the Board
 	 */
-	public List<Cell> getNeigbor(){
-		return this.neigbors ;
+	public List<Cell> getNeigbour(){
+		return this.neigbours ;
 	}
 
 
+	
+	
 	/**
 	 * @param bool the boolean value to set
 	 */
@@ -62,12 +58,12 @@ public class Cell {
 	
 	/**
 	 * check if the cell which were we are had an
-	 * unvisited neighbourn 
+	 * unvisited neighbours
 	 * @return true if  it's the case of false if not
 	 */
 	public boolean hasUnvisitedNeigbor() {
-		for (Cell neigbor : this.neigbors) {
-			if(!neigbor.isVisited) {
+		for (Cell neigbour : this.neigbours) {
+			if(!neigbour.isVisited) {
 				return true ;
 			}
 			
@@ -75,26 +71,11 @@ public class Cell {
 		return false ; 
 	}
 	
-	public void addNeigbors(Cell n){
-		
-
-		if (n.getX() > 0 ) {
-			n.neigbors.add(new Cell(n.getX()-1, n.getY()));
-		}
-		if (n.getX() < 10 ) {
-			n.neigbors.add(new Cell(n.getX()+1, n.getY()));
-		}
-		if(n.getY() > 0) {
-			n.neigbors.add(new Cell(n.getX(), n.getY()-1));
-		}
-		if (n.getY() < 10) {
-			n.neigbors.add(new Cell(n.getX(), n.getY()+1));
-		}
-
-		if (n.getX()<0 && n.getY() <0) {
-			throw new IndexOutOfBoundsException("pas de voisins accessibles");
-		}
+	public void addNeigbors(Cell n) {
+	
+	
 	}
+	
 	
 	
 	/**
@@ -102,25 +83,23 @@ public class Cell {
 	 * @param current the current cell of the player
 	 * @param next the next cell of the player
 	 */
-	public void removeWall(Cell current, Cell next) {
-		 int xcoord = next.getX()- current.getX();
-		 int ycoord = next.getY()- current.getY();
+	public void removeWall(Cell next) {
+		 int xcoord = next.getX()- this.getX();
+		 int ycoord = next.getY()- this.getY();
 		 
 		 if (xcoord == 1) {
-			 next.walls.put(Direction.OUEST,false);
-			 current.walls.put(Direction.EST,false);
+			 this.walls.put(Direction.EST,false);
 		 }
 		 else if (xcoord == -1) {
-			 current.walls.put(Direction.EST, false);
-			 next.walls.put(Direction.OUEST,false);
+			 next.walls.put(Direction.EST,false);
 		 }
 		 
 		 if( ycoord == 1) {
-			 current.walls.put(Direction.SUD,false);
-			 next.walls.put(Direction.NORD,false);
+			
+			 this.walls.put(Direction.SUD,false);
 		 }
 		 else if( ycoord == -1) {
-			 current.walls.put(Direction.NORD,false);
+			
 			 next.walls.put(Direction.SUD,false);
 		 }
 	}
@@ -163,7 +142,7 @@ public class Cell {
 	 * @return true if it's the case or false if not */
 	 
 	public boolean is_there_a_closed_cell() {
-	     if (this.walls.get(Direction.EST) && this.walls.get(Direction.OUEST) && this.walls.get(Direction.NORD) && this.walls.get(Direction.SUD)) {
+	     if (this.walls.get(Direction.EST)  && this.walls.get(Direction.SUD)) {
 	    	 return true;
 	     }
 	     return false;

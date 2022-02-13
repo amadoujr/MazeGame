@@ -52,6 +52,9 @@ Vous pourrez avoir un aperçu du labyrinthe en éxécutant le main contenu dans 
 
 ## Semaine 3
 
+ * Suppression de deux murs(NORD ET OUEST)
+ * Ajouts de constructeurs et d'une méthode dans l'Enum direction 
+ 
 ## Semaine 4
 
 ## Semaine 5

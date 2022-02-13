@@ -1,9 +1,5 @@
 package grille;
 
-/**
- * @author amadouu
- *
- */
 public class Board {
 	private Cell[][] board ;
 	private int rows ;
@@ -12,11 +8,6 @@ public class Board {
 	
 	
 	
-	/**
-	 * Initializing the board
-	 * @param rows of the board
-	 * @param cols of the board
-	 */
 	public Board(int rows ,int cols) {
 		this.rows = rows ;
 		this.cols = cols; 
@@ -36,12 +27,6 @@ public class Board {
 	}
 	
 	
-
-	public Board() {
-		
-	}
-
-
 
 	/**
 	 * @param x the position in the cell
@@ -64,6 +49,15 @@ public class Board {
 	public int getcols() {
 		return this.cols;
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
