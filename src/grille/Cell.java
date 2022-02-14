@@ -39,14 +39,39 @@ public class Cell {
 	     
 
 	/**
-	 * @return list of neighbours in the Board
+	 * @return list of neighbors in the Board
 	 */
 	public List<Cell> getNeigbour(){
-		return this.neigbours ;
+		//return this.neigbours ;
+		for (Cell i : this.neigbours) {
+			System.out.println("(" + i.getX() +" " + i.getY()+")");
+		}
+		return this.neigbours;
 	}
 
 
+	/**
+	 * @param n the cell that we are searching neighbors
+	 * @param heigth the height (rows) of the board
+	 * @param width the  width (cols) of the board
+	 */
+	public void addNeigbors(Cell n ,int heigth,int width) {
 	
+		if (n.getX() > 0) {
+			this.neigbours.add(new Cell(x-1,y));
+		}
+		if (n.getY() > 0) {
+			this.neigbours.add(new Cell(x,y-1));
+		}
+		if (n.getX() < heigth-1) {
+				this.neigbours.add(new Cell(x+1,y));
+			}
+		if (n.getY() < width-1) {
+			this.neigbours.add(new Cell(x,y+1));
+		}
+		
+		
+	}
 	
 	/**
 	 * @param bool the boolean value to set
@@ -58,7 +83,7 @@ public class Cell {
 	
 	/**
 	 * check if the cell which were we are had an
-	 * unvisited neighbours
+	 * unvisited neighbors
 	 * @return true if  it's the case of false if not
 	 */
 	public boolean hasUnvisitedNeigbor() {
@@ -71,9 +96,16 @@ public class Cell {
 		return false ; 
 	}
 	
-	public void addNeigbors(Cell n) {
-	
-	
+	public Cell chooseRandomCell () {
+		Cell randcell = null;
+		Random rand = new Random();
+		int position = rand.nextInt(this.neigbours.size());
+		randcell = this.neigbours.get(position);
+		
+		System.out.println("("+randcell.getX()+" "+randcell.getY()+")");
+		return randcell;
+		
+		
 	}
 	
 	
@@ -87,20 +119,20 @@ public class Cell {
 		 int xcoord = next.getX()- this.getX();
 		 int ycoord = next.getY()- this.getY();
 		 
-		 if (xcoord == 1) {
-			 this.walls.put(Direction.EST,false);
+		 if (xcoord == 1 && next.getY()== this.getY() ) {
+			 next.walls.put(Direction.SUD,false);
 		 }
-		 else if (xcoord == -1) {
-			 next.walls.put(Direction.EST,false);
-		 }
-		 
-		 if( ycoord == 1) {
-			
+		 else if (xcoord == -1 && next.getY()== this.getY() ) {
 			 this.walls.put(Direction.SUD,false);
 		 }
-		 else if( ycoord == -1) {
+		 
+		 if( ycoord == 1 && next.getX()== this.getX()) {
 			
-			 next.walls.put(Direction.SUD,false);
+			 next.walls.put(Direction.EST,false);
+		 }
+		 else if( ycoord == -1 && next.getX()== this.getX()) {
+			
+			 this.walls.put(Direction.EST,false);
 		 }
 	}
 	

@@ -3,14 +3,13 @@ package grille;
 public class Boardmain {
 
 	public static void main(String[] args) {
-		Board b = new Board(3,5);
+		Board b = new Board(4,5);
 		//b.Display();
 		//b.getCell(2,4 ).set_Wall(Direction.SUD,false);
-		//b.Display();
-		Cell current = b.getCell(2, 3);
-		Cell next = b.getCell(2,4 );
-		current.removeWall(next);
 		b.Display();
+		Cell test = b.getCell(2,2 );
+	    test.getNeigbour();
+		
 
 
 		

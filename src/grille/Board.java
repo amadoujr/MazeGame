@@ -15,8 +15,16 @@ public class Board {
 		for(int i = 0 ; i < rows ; i++ ) {
 			for(int j = 0 ; j< cols ; j++) {
 				this.board[i][j] = new Cell(i,j);
+				
 			}
 		}
+		
+		for(int i = 0 ; i < rows ; i++ ) {
+			for(int j = 0 ; j< cols ; j++) {
+				this.board[i][j].addNeigbors(this.board[i][j],rows,cols);
+			}
+		}
+		
 		
 		// set currentcell as the first cell
 		Cell curentCell = this.board[0][0];
@@ -52,15 +60,6 @@ public class Board {
 	
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * display the board
 	 */
@@ -81,7 +80,7 @@ public class Board {
 					System.out.print("|   ");
 				}
 				else {
-					System.out.print("   ");
+					System.out.print("    ");
 				}
 				
 			}
@@ -94,7 +93,6 @@ public class Board {
 			System.out.print("+---");
 		}
 		System.out.println("+");
-		
 		
 	}
 	
