@@ -54,8 +54,8 @@ Vous pourrez avoir un aperçu du labyrinthe en éxécutant le main contenu dans 
 
  * Pour cette semaine , Malika Boubacar s'est chargé d'apporter les modifications nécessaires 
  * tels que : Suppression de deux murs(NORD ET OUEST), Ajouts de constructeurs et d'une méthode dans l'Enum direction 
- * De mon coté ( Amadou Barro) je me suis chargé d'apporter des modifications à la méthode **addNeighbor** faîtes par 
- * Mané Lo.
+ * De mon coté ( Amadou Barro) je me suis chargé d'apporter des modifications à la méthode **addNeighbor** faîtes par Mané Lo et initialisé toutes 
+ * les cellules avec leurs cellules voisines respectives  
  * Pour la semaine prochaine, nous allons entamer la derniére étape afin de génerer le labyrinthe finale.
  
 ## Semaine 4
