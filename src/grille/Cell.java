@@ -1,15 +1,11 @@
 package grille;
-
 import java.util.*;
-
-
-
-
 
 
 public class Cell {
 	private final int x ;
 	private  final int y ; 
+	List<Cell> allunvisitedCell = new ArrayList<>();
 	private Map<Direction, Boolean> walls ;
 	private List<Cell> neigbours ; 
 	private boolean isVisited = false ;
@@ -34,7 +30,7 @@ public class Cell {
 	@Override
 	public String toString() {
 	
-		return "*";
+		return "("+ this.x + " " + this.y+")";
 	}
 	     
 
@@ -43,9 +39,6 @@ public class Cell {
 	 */
 	public List<Cell> getNeigbour(){
 		//return this.neigbours ;
-		for (Cell i : this.neigbours) {
-			System.out.println("(" + i.getX() +" " + i.getY()+")");
-		}
 		return this.neigbours;
 	}
 
@@ -95,18 +88,23 @@ public class Cell {
 		}
 		return false ; 
 	}
+	// pas tout à fait bon
 	
-	public Cell chooseRandomCell () {
+	public int chooseRandomCell() {
 		Cell randcell = null;
+		
+		for (Cell neigh : this.getNeigbour()) {
+			if(!neigh.isVisited) {
+				allunvisitedCell.add(neigh);
+			}
+			
+		}
 		Random rand = new Random();
-		int position = rand.nextInt(this.neigbours.size());
-		randcell = this.neigbours.get(position);
-		
-		System.out.println("("+randcell.getX()+" "+randcell.getY()+")");
-		return randcell;
-		
-		
+		int pos = (allunvisitedCell.size());
+		//randcell = allunvisitedCell.get(pos);
+		return pos;
 	}
+	
 	
 	
 	
