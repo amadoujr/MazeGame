@@ -7,7 +7,7 @@ public class Cell {
 	private  final int y ; 
 	List<Cell> allunvisitedCell = new ArrayList<>();
 	private Map<Direction, Boolean> walls ;
-	private List<Cell> neigbours ; 
+	private List<Cell> neigbours; 
 	private boolean isVisited = false ;
 
 	/**

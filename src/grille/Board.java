@@ -7,7 +7,7 @@ public class Board {
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
-	private Cell currentCell;
+	private Cell currentCell ;
 	
 	public Board(int rows ,int cols) {
 		this.finished= false;
