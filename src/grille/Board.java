@@ -7,7 +7,6 @@ public class Board {
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
-	private Cell currentCell ;
 	
 	public Board(int rows ,int cols) {
 		this.finished= false;
@@ -20,7 +19,7 @@ public class Board {
 				
 			}
 		}
-		currentCell = this.board[0][0];
+		Cell currentCell = this.board[0][0];
 		currentCell.set_isVisited(true);
 		
 		
