@@ -34,7 +34,7 @@ public class Cell {
 	@Override
 	public String toString() {
 	
-		return "*";
+		return "(" + this.x + " " + this.y+ ")" ;
 	}
 	     
 
@@ -96,19 +96,32 @@ public class Cell {
 		return false ; 
 	}
 	
-	public Cell chooseRandomCell () {
-		Cell randcell = null;
-		Random rand = new Random();
-		int position = rand.nextInt(this.neigbours.size());
-		randcell = this.neigbours.get(position);
+	public Cell chooseRandomCell(){
+		    Cell randcell = null   ;
+		  	
+		    if(this.hasUnvisitedNeigbor()) {
+		    	Random rand = new Random();
+				int position = rand.nextInt(this.neigbours.size());
+				
+				randcell = this.neigbours.get(position);
+				
+				
+				
+		   
+		    	
+		    }
+			
+				
 		
-		System.out.println("("+randcell.getX()+" "+randcell.getY()+")");
 		return randcell;
+				
+			
+		}
+			
 		
-		
-	}
 	
-	
+
+
 	
 	/**
 	 * remove wall between the current cell and the next cell
@@ -179,5 +192,8 @@ public class Cell {
 	     }
 	     return false;
 	}	
-			
+	
+	
+	
+	
 }

@@ -7,8 +7,10 @@ public class Boardmain {
 		//b.Display();
 		//b.getCell(2,4 ).set_Wall(Direction.SUD,false);
 		b.Display();
-		Cell test = b.getCell(2,2 );
-	    test.getNeigbour();
+		Cell test = b.getCell(0,1);
+	    //test.getNeigbour();
+		System.out.println(test.chooseRandomCell());
+		
 		
 
 
