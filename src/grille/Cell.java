@@ -5,10 +5,10 @@ import java.util.*;
 public class Cell {
 	private final int x ;
 	private  final int y ; 
-	List<Cell> allunvisitedCell = new ArrayList<>();
+	private List<Cell> allunvisitedCell ;
 	private Map<Direction, Boolean> walls ;
 	private List<Cell> neigbours ; 
-	private boolean isVisited = false ;
+	private boolean visited = false ;
 
 	/**
 	 * @param x position of the Cell
@@ -19,6 +19,7 @@ public class Cell {
 		this.y = y ;
 				
 		this.neigbours = new ArrayList<Cell>();
+		this.allunvisitedCell = new ArrayList<>();
 		
 
 		this.walls = new HashMap<>();
@@ -66,11 +67,15 @@ public class Cell {
 		
 	}
 	
+	public boolean isVisited() {
+		return this.visited;
+	}
+	
 	/**
 	 * @param bool the boolean value to set
 	 */
-	public void set_isVisited(boolean bool) {
-		this.isVisited = bool ;
+	public void setVisited(boolean bool) {
+		this.visited = bool ;
 	}
 	
 	
@@ -81,7 +86,7 @@ public class Cell {
 	 */
 	public boolean hasUnvisitedNeigbor() {
 		for (Cell neigbour : this.neigbours) {
-			if(!neigbour.isVisited) {
+			if(!neigbour.visited) {
 				return true ;
 			}
 			
@@ -90,19 +95,19 @@ public class Cell {
 	}
 	// pas tout à fait bon
 	
-	public int chooseRandomCell() {
-		Cell randcell = null;
+	public List<Cell> chooseRandomCell() {
+		//Cell randcell = null;
 		
 		for (Cell neigh : this.getNeigbour()) {
-			if(!neigh.isVisited) {
-				allunvisitedCell.add(neigh);
+			if(!neigh.isVisited()) {
+				this.allunvisitedCell.add(neigh);
 			}
 			
 		}
-		Random rand = new Random();
-		int pos = (allunvisitedCell.size());
+		//Random rand = new Random();
+		//int pos = this.allunvisitedCell.size();
 		//randcell = allunvisitedCell.get(pos);
-		return pos;
+		return this.allunvisitedCell;
 	}
 	
 	

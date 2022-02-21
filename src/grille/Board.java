@@ -19,21 +19,23 @@ public class Board {
 				
 			}
 		}
-		Cell currentCell = this.board[0][0];
-		currentCell.set_isVisited(true);
 		
+		// set currentcell as the first cell
+		Cell currentCell = this.board[0][0];
+		// set the currentcell as visited
+		currentCell.setVisited(true);
 		
 		for(int i = 0 ; i < rows ; i++ ) {
 			for(int j = 0 ; j< cols ; j++) {
 				this.board[i][j].addNeigbors(this.board[i][j],rows,cols);
 			}
 		}
-		
+	/**	
 		// set currentcell as the first cell
-		currentCell = this.board[0][0];
+		Cell currentCell = this.board[0][0];
 		// set the currentcell as visited
-		currentCell.set_isVisited(true);
-		
+		currentCell.setVisited(true);
+	*/
 	
 		
 		
