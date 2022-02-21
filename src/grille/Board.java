@@ -1,14 +1,15 @@
 package grille;
 
+
+
 public class Board {
+	private boolean finished;
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
 	
-	
-	
-	
 	public Board(int rows ,int cols) {
+		this.finished= false;
 		this.rows = rows ;
 		this.cols = cols; 
 		this.board = new Cell[rows][cols];
@@ -18,6 +19,7 @@ public class Board {
 				
 			}
 		}
+	
 		
 		for(int i = 0 ; i < rows ; i++ ) {
 			for(int j = 0 ; j< cols ; j++) {
@@ -25,11 +27,15 @@ public class Board {
 			}
 		}
 		
-		
 		// set currentcell as the first cell
-		Cell curentCell = this.board[0][0];
+		Cell currentCell = this.getCell(0,0);
 		// set the currentcell as visited
-		curentCell.set_isVisited(true);
+		currentCell.setVisited(true);
+		
+	
+		
+		
+		
 		
 		
 	}
@@ -94,7 +100,14 @@ public class Board {
 		}
 		System.out.println("+");
 		
+		
 	}
+	
+	public boolean isfinished() {
+		return this.finished;
+	}
+	
+	
 	
 	
 	

@@ -1,20 +1,18 @@
+
 package grille;
-
 import java.util.*;
-
-
-
-
 
 
 public class Cell {
 	private final int x ;
 	private  final int y ; 
+	private List<Cell> allunvisitedCell = new ArrayList<>();
 	private Map<Direction, Boolean> walls ;
 	private List<Cell> neigbours ; 
-	private boolean isVisited = false ;
+	private boolean visited = false ;
 
 	/**
+	 
 	 * @param x position of the Cell
 	 * @param y position of the cell
 	 */
@@ -34,7 +32,9 @@ public class Cell {
 	@Override
 	public String toString() {
 	
+
 		return "(" + this.x + " " + this.y+ ")" ;
+
 	}
 	     
 
@@ -43,9 +43,6 @@ public class Cell {
 	 */
 	public List<Cell> getNeigbour(){
 		//return this.neigbours ;
-		for (Cell i : this.neigbours) {
-			System.out.println("(" + i.getX() +" " + i.getY()+")");
-		}
 		return this.neigbours;
 	}
 
@@ -76,10 +73,13 @@ public class Cell {
 	/**
 	 * @param bool the boolean value to set
 	 */
-	public void set_isVisited(boolean bool) {
-		this.isVisited = bool ;
+	public void setVisited(boolean bool) {
+		this.visited = bool ;
 	}
 	
+	public boolean isVisited() {
+		return this.visited ;
+	}
 	
 	/**
 	 * check if the cell which were we are had an
@@ -88,40 +88,46 @@ public class Cell {
 	 */
 	public boolean hasUnvisitedNeigbor() {
 		for (Cell neigbour : this.neigbours) {
-			if(!neigbour.isVisited) {
+			if(!neigbour.visited) {
 				return true ;
 			}
 			
 		}
 		return false ; 
 	}
+
 	
-	public Cell chooseRandomCell(){
-		    Cell randcell = null   ;
-		  	
-		    if(this.hasUnvisitedNeigbor()) {
-		    	Random rand = new Random();
-				int position = rand.nextInt(this.neigbours.size());
-				
-				randcell = this.neigbours.get(position);
-				
-				
-				
-		   
-		    	
-		    }
-			
-				
-		
-		return randcell;
-				
-			
+	 
+	 public List<Cell> addUnvisitedCell() {
+		for(Cell c : this.neigbours) {
+			if (!c.isVisited()) {
+				this.allunvisitedCell.add(c);
+			}
 		}
-			
+		return this.allunvisitedCell;
+	}
 		
 	
+		public Cell chooseRandomCell() {
+		Cell randcell = null;
+		 for(Cell n : this.neigbours) {
 
-
+			 if(!n.visited){
+				 Random rand = new Random();
+				 int pos = rand.nextInt(this.neigbours.size());
+				 randcell = this.neigbours.get(pos);
+			
+		
+			 }
+				
+			 
+		 }
+		
+		
+		return randcell ;
+	
+		}
+	/*
 	
 	/**
 	 * remove wall between the current cell and the next cell
