@@ -6,9 +6,8 @@ import java.util.*;
 public class Cell {
 	private final int x ;
 	private  final int y ; 
-	private List<Cell> allunvisitedCell = new ArrayList<>();
 	private Map<Direction, Boolean> walls ;
-	private List<Cell> neigbours ; 
+	
 	private boolean visited = false ;
 
 	/**
@@ -20,9 +19,7 @@ public class Cell {
 		this.x = x ;
 		this.y = y ;
 				
-		this.neigbours = new ArrayList<Cell>();
 		
-
 		this.walls = new HashMap<>();
 	     this.walls.put(Direction.EST, true);
 	     this.walls.put(Direction.SUD, true);
@@ -38,36 +35,12 @@ public class Cell {
 	}
 	     
 
-	/**
-	 * @return list of neighbors in the Board
-	 */
-	public List<Cell> getNeigbour(){
-		//return this.neigbours ;
-		return this.neigbours;
-	}
 
 
-	/**
-	 * @param n the cell that we are searching neighbors
-	 * @param heigth the height (rows) of the board
-	 * @param width the  width (cols) of the board
-	 */
-	public void addNeigbors(Cell n ,int heigth,int width) {
+		
 	
-		if (n.getX() > 0) {
-			this.neigbours.add(new Cell(x-1,y));
-		}
-		if (n.getY() > 0) {
-			this.neigbours.add(new Cell(x,y-1));
-		}
-		if (n.getX() < heigth-1) {
-				this.neigbours.add(new Cell(x+1,y));
-			}
-		if (n.getY() < width-1) {
-			this.neigbours.add(new Cell(x,y+1));
-		}
-		
-		
+	public boolean isVisited() {
+		return this.visited;
 	}
 	
 	/**
@@ -77,56 +50,10 @@ public class Cell {
 		this.visited = bool ;
 	}
 	
-	public boolean isVisited() {
-		return this.visited ;
-	}
 	
-	/**
-	 * check if the cell which were we are had an
-	 * unvisited neighbors
-	 * @return true if  it's the case of false if not
-	 */
-	public boolean hasUnvisitedNeigbor() {
-		for (Cell neigbour : this.neigbours) {
-			if(!neigbour.visited) {
-				return true ;
-			}
-			
-		}
-		return false ; 
-	}
+	
 
-	
-	 
-	 public List<Cell> addUnvisitedCell() {
-		for(Cell c : this.neigbours) {
-			if (!c.isVisited()) {
-				this.allunvisitedCell.add(c);
-			}
-		}
-		return this.allunvisitedCell;
-	}
-		
-	
-		public Cell chooseRandomCell() {
-		Cell randcell = null;
-		 for(Cell n : this.neigbours) {
 
-			 if(!n.visited){
-				 Random rand = new Random();
-				 int pos = rand.nextInt(this.neigbours.size());
-				 randcell = this.neigbours.get(pos);
-			
-		
-			 }
-				
-			 
-		 }
-		
-		
-		return randcell ;
-	
-		}
 	/*
 	
 	/**
