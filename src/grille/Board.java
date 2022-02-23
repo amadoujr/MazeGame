@@ -25,11 +25,11 @@ public class Board {
 
 		
 		
-		this.generateMaze();
+		
 		
 		for(int i = 0 ; i < rows ; i++ ) {
 			for(int j = 0 ; j< cols ; j++) {
-				this.addNeigbors(this.board[i][j],rows,cols);
+				this.addNeigbors(this.board[i][j]);
 			}
 		}
 	
@@ -43,7 +43,7 @@ public class Board {
 	 * @param heigth the height (rows) of the board
 	 * @param width the  width (cols) of the board
 	 */
-	public void addNeigbors(Cell n ,int heigth,int width) {
+	public void addNeigbors(Cell n) {
 	
 		if (n.getX() > 0) {
 			this.neighbours.add(this.board[n.getX()-1][n.getY()]);
@@ -51,10 +51,10 @@ public class Board {
 		if (n.getY() > 0) {
 			this.neighbours.add(this.board[n.getX()][n.getY()-1]);
 		}
-		if (n.getX() < heigth-1) {
+		if (n.getX() < this.rows-1) {
 				this.neighbours.add(this.board[n.getX()+1][n.getY()]);
 			}
-		if (n.getY() < width-1) {
+		if (n.getY() < this.cols-1) {
 			this.neighbours.add(this.board[n.getX()][n.getY()+1]);
 		}
 		
@@ -168,7 +168,7 @@ public class Board {
 		for(int i = 0 ; i<rows ; i++) {
 			System.out.println() ;
 			for(int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.SUD)) {
+				if(this.board[i][j].getWall(Direction.SUD)) {
 					System.out.print("+---");
 				}
 				else {
@@ -177,7 +177,7 @@ public class Board {
 			}
 			System.out.println("+");
 			for (int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.EST)) {
+				if(this.board[i][j].getWall(Direction.EST)) {
 					System.out.print("|   ");
 				}
 				else {

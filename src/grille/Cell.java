@@ -103,7 +103,7 @@ public class Cell {
 	 * @param key of the HashMap which is a direction
 	 * @return a boolean value of the key 
 	 */
-	public boolean get_Wall(Direction key) {
+	public boolean getWall(Direction key) {
 	     return this.walls.get(key);
 	}		
 			
@@ -111,7 +111,7 @@ public class Cell {
 	 * @param key the key of the walls
 	 * @param value the boolean value of the walls
 	 */
-	public void set_Wall(Direction key, boolean value) {
+	public void setWall(Direction key, boolean value) {
 	     this.walls.put(key, value);
 	}
 
