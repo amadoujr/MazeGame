@@ -16,10 +16,15 @@
 
 ## Livrable 1
 
+Pour la modélisation du labyrinthe nous avons choisis l'algorithme de recherche récursif (Backstracking) dont le but consiste à choisir une cellule de départ et de la fixer comme visitée ensuite verifier si elle posséde des cellules voisines non visitées .
+Si tel est le cas , alors elle choisit aléatoirement une cellule voisine ; supprimer le mur entre la cellule de départ et la cellule choisit ; l'ajouter dans la pile ; reprendre la meme démarche récursivement .
+
 ### Atteinte des objectifs
 
-### Difficultés restant à résoudre
+Nous avons pu atteindre quasiment tous les objectifs que nous nous sommes fixés au départ ; nous avons testés nos méthodes .
 
+### Difficultés restant à résoudre
+Cependant nous avons rencontré un Bug au moment de la géneration du labyrinthe
 ## Livrable 2
 
 ### Atteinte des objectifs
@@ -52,14 +57,18 @@ Vous pourrez avoir un aperçu du labyrinthe en éxécutant le main contenu dans 
 
 ## Semaine 3
 
- * Pour cette semaine , Malika Boubacar s'est chargé d'apporter les modifications nécessaires 
- * tels que : Suppression de deux murs(NORD ET OUEST), Ajouts de constructeurs et d'une méthode dans l'Enum direction 
- * De mon coté ( Amadou Barro) je me suis chargé d'apporter des modifications à la méthode **addNeighbor** faîtes par Mané Lo et initialisé toutes 
+ * Pour cette semaine , Malika Boubacar s'est chargée d'apporter les modifications nécessaires
+ * tels que : Suppression de deux murs(NORD ET OUEST), Ajouts de constructeurs et d'une méthode dans l'Enum direction
+ * De mon coté ( Amadou Barro) je me suis chargé d'apporter des modifications à la méthode **addNeighbor** faîtes par Mané Lo et initialisé toutes
  * les cellules avec leurs cellules voisines respectives  
  * Pour la semaine prochaine, nous allons entamer la derniére étape afin de génerer le labyrinthe finale.
- 
+
 ## Semaine 4
 
+ * pour cette semaine , Malika s'est chargée de faire les tests des méthodes des deux classes java (**Board** - **Cell**)
+ * Mané s'est occupée du Diagramme UML .
+ * Barro et Youssef s'est chargé de modifier la méthode **addNeighbor** et de **getNeighbor** en lés déplaçant dans la classe Board.
+ * Ce qui nous a obligé à deplaçer les méthodes *chooseRandomCell* et *hasUnvisitedCell* dans **Board**
 ## Semaine 5
 
 ## Semaine 6

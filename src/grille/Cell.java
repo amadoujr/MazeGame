@@ -39,6 +39,9 @@ public class Cell {
 
 		
 	
+	/**
+	 * @return a boolean value
+	 */
 	public boolean isVisited() {
 		return this.visited;
 	}
@@ -54,7 +57,7 @@ public class Cell {
 	
 
 
-	/*
+	
 	
 	/**
 	 * remove wall between the current cell and the next cell
