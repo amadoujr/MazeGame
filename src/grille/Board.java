@@ -8,7 +8,6 @@ public class Board {
 	private int rows ;
 	private int cols ;
 	private List<Cell>neighbours = new ArrayList<>();
-	private List<Cell> allUnvisitedNeigbours = new ArrayList<>();
 	private Stack<Cell> stack = new Stack <>();
 	
 	public Board(int rows ,int cols) {
@@ -95,24 +94,30 @@ public class Board {
 			if(!neigbour.isVisited()) {
 				return true ;
 			}
-			
 		}
 		return false ; 
 	}
 
 	
 	public Cell chooseRandomCell(Cell n) {
-		Cell rand = null ;
+		Cell randcell = null ;
+		allUnvisitedNeigbours = new ArrayList<>();
 		for(Cell x : this.getNeighboursCells(n)) {
 			
 			if(!x.isVisited()) {
-				this.allUnvisitedNeigbours.add(x);
+				allUnvisitedNeigbours.add(x);
 			}
 		}
-		Random random = new Random();
-		int pos = random.nextInt(this.allUnvisitedNeigbours.size());
-		rand = this.allUnvisitedNeigbours.get(pos);
-		return rand ;
+		if(allunvisitedCell.size()>0) {
+			Random randcell = new Random();
+			int pos = rand.nextInt(allunvisitedCell.size());
+			randcell = allunvisitedCell.get(pos);
+		}
+		else {
+			return null;
+		}
+		return randcell;
+		
 	}
 	
 
@@ -144,28 +149,27 @@ public class Board {
 	 * it's generate the maze 
 	 */
 	public void generateMaze() {
-		int visite = 0 ;
+		int visite = 1 ;
+		int totalcell = this.rows*this.cols;
 		// set currentcell as the first cell
-				Cell currentCell = this.board[0][0];
-				// set the currentcell as visited
-				currentCell.setVisited(true);
-		while(visite < (this.rows*this.cols)) {
+		Cell currentCell = this.board[0][0];
+		// set the currentcell as visited
+		currentCell.setVisited(true);
+		while(visite < totalcell) {
 			if(this.hasUnvisitedNeigbor(currentCell)) {
 				Cell next = this.chooseRandomCell(currentCell);
-				
 				currentCell.removeWall(next);
 				stack.add(currentCell);
 				currentCell = next ;
 				
 			    currentCell.setVisited(true) ;
-			   visite+=1 ;
-			    
+			   visite+=1 ;  
 			}
+			else if (!this.stackCell.empty()) {
+					currentCell = this.stackCell.pop();
+				}
 			else {
-				
-				Cell cell = stack.pop() ;
-				currentCell = cell ;
-				
+				System.out.println("FINISHED");
 			}
 		}
 		
