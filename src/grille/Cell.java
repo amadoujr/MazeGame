@@ -5,10 +5,8 @@ import java.util.*;
 public class Cell {
 	private final int x ;
 	private  final int y ; 
-	private List<Cell> allunvisitedCell ;
 	private Map<Direction, Boolean> walls ;
-	private List<Cell> neigbours ; 
-	private boolean visited = false ;
+	private boolean visited ;
 
 	/**
 	 * @param x position of the Cell
@@ -17,14 +15,12 @@ public class Cell {
 	public Cell(int x ,int y) {
 		this.x = x ;
 		this.y = y ;
-				
-		this.neigbours = new ArrayList<Cell>();
-		this.allunvisitedCell = new ArrayList<>();
+		this.visited = false;
 		
 
 		this.walls = new HashMap<>();
-	     this.walls.put(Direction.EST, true);
-	     this.walls.put(Direction.SUD, true);
+	    this.walls.put(Direction.EST, true);
+	    this.walls.put(Direction.SUD, true);
 	   
 	}
 	
@@ -35,38 +31,6 @@ public class Cell {
 	}
 	     
 
-	/**
-	 * @return list of neighbors in the Board
-	 */
-	public List<Cell> getNeigbour(){
-		//return this.neigbours ;
-		return this.neigbours;
-	}
-
-
-	/**
-	 * @param n the cell that we are searching neighbors
-	 * @param heigth the height (rows) of the board
-	 * @param width the  width (cols) of the board
-	 */
-	public void addNeigbors(Cell n ,int heigth,int width) {
-	
-		if (n.getX() > 0) {
-			this.neigbours.add(new Cell(x-1,y));
-		}
-		if (n.getY() > 0) {
-			this.neigbours.add(new Cell(x,y-1));
-		}
-		if (n.getX() < heigth-1) {
-				this.neigbours.add(new Cell(x+1,y));
-			}
-		if (n.getY() < width-1) {
-			this.neigbours.add(new Cell(x,y+1));
-		}
-		
-		
-	}
-	
 	public boolean isVisited() {
 		return this.visited;
 	}
@@ -78,39 +42,7 @@ public class Cell {
 		this.visited = bool ;
 	}
 	
-	
-	/**
-	 * check if the cell which were we are had an
-	 * unvisited neighbors
-	 * @return true if  it's the case of false if not
-	 */
-	public boolean hasUnvisitedNeigbor() {
-		for (Cell neigbour : this.neigbours) {
-			if(!neigbour.visited) {
-				return true ;
-			}
-			
-		}
-		return false ; 
-	}
-	// pas tout à fait bon
-	
-	public List<Cell> chooseRandomCell() {
-		//Cell randcell = null;
 		
-		for (Cell neigh : this.getNeigbour()) {
-			if(!neigh.isVisited()) {
-				this.allunvisitedCell.add(neigh);
-			}
-			
-		}
-		//Random rand = new Random();
-		//int pos = this.allunvisitedCell.size();
-		//randcell = allunvisitedCell.get(pos);
-		return this.allunvisitedCell;
-	}
-	
-	
 	
 	
 	/**
@@ -172,15 +104,6 @@ public class Cell {
 	     this.walls.put(key, value);
 	}
 
-	/**
-	 * check if is there a closed cell  
-	 * @return true if it's the case or false if not */
 	 
-	public boolean is_there_a_closed_cell() {
-	     if (this.walls.get(Direction.EST)  && this.walls.get(Direction.SUD)) {
-	    	 return true;
-	     }
-	     return false;
-	}	
 			
 }

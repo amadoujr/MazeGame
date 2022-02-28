@@ -1,15 +1,19 @@
 package grille;
 
-
+import java.util.*;
 
 public class Board {
 	private boolean finished;
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
+	private Stack<Cell> stackCell = new Stack<>();
+	private List<Cell> neighbours ; 
+	
 	
 	public Board(int rows ,int cols) {
 		this.finished= false;
+		this.neighbours = new ArrayList<>();
 		this.rows = rows ;
 		this.cols = cols; 
 		this.board = new Cell[rows][cols];
@@ -20,32 +24,99 @@ public class Board {
 			}
 		}
 		
-		// set currentcell as the first cell
-		Cell currentCell = this.board[0][0];
-		// set the currentcell as visited
-		currentCell.setVisited(true);
 		
 		for(int i = 0 ; i < rows ; i++ ) {
 			for(int j = 0 ; j< cols ; j++) {
-				this.board[i][j].addNeigbors(this.board[i][j],rows,cols);
+				this.addNeigbors(this.board[i][j]);
 			}
 		}
-	/**	
-		// set currentcell as the first cell
-		Cell currentCell = this.board[0][0];
-		// set the currentcell as visited
-		currentCell.setVisited(true);
-	*/
+		this.board[0][0].setVisited(true);
+		
+		//this.generateMaze();
+		
+	}
 	
+	/**
+	 * @param n the cell that we are searching neighbors
+	 * @param heigth the height (rows) of the board
+	 * @param width the  width (cols) of the board
+	 */
+	public void addNeigbors(Cell n ) {
 		
-		
-		
+		if (n.getX() > 0) {
+			this.neighbours.add( this.board[n.getX()-1][n.getY()] );
+		}
+		if (n.getY() > 0) {
+			this.neighbours.add( this.board[n.getX()][n.getY()-1] );		}
+		if (n.getX() < this.rows-1) {
+			this.neighbours.add( this.board[n.getX()+1][n.getY()] );			}
+		if (n.getY() < this.cols-1) {
+			this.neighbours.add( this.board[n.getX()][n.getY()+1] );		}
 		
 		
 	}
 	
-	
+	/**
+	 * @return list of neighbors in the Board
+	 */
+	public List<Cell> getNeighbor(Cell cell){
+		List<Cell> test = new ArrayList<>();
 
+		if (cell.getX() > 0) {
+			test.add( this.board[cell.getX()-1][cell.getY()] );
+		}
+		if (cell.getY() > 0) {
+			test.add( this.board[cell.getX()][cell.getY()-1] );		
+		}
+		if (cell.getX() < this.rows-1) {
+			test.add( this.board[cell.getX()+1][cell.getY()] );
+			}
+		if (cell.getY() < this.cols -1) {
+			test.add( this.board[cell.getX()][cell.getY()+1]);
+		
+			}
+		return test;
+	}
+	
+	public Cell chooseRandomCell(Cell random) {
+		Cell randcell = null;
+		List<Cell> allunvisitedCell = new ArrayList<>();
+		
+		for (Cell neigh : this.getNeighbor(random)) {
+			if(!neigh.isVisited()) {
+				allunvisitedCell.add(neigh);
+				
+			}
+			
+		}
+		if(allunvisitedCell.size()>0) {
+			Random rand = new Random();
+			int pos = rand.nextInt(allunvisitedCell.size());
+			randcell = allunvisitedCell.get(pos);
+		}
+		else {
+			return null;
+		}
+		return randcell;
+	}
+	
+	
+	/**
+	 * check if the cell which were we are had an
+	 * unvisited neighbors
+	 * @return true if  it's the case of false if not
+	 */
+	public boolean hasUnvisitedNeigbor(Cell current) {
+		for (Cell neigbour : this.getNeighbor(current)) {
+			if(!neigbour.isVisited()) {
+				return true ;
+			}
+		}
+		return false;
+	}
+	
+	
+	
 	/**
 	 * @param x the position in the cell
 	 * @param y the position in the cell
@@ -112,9 +183,32 @@ public class Board {
 	}
 	
 	
+	public void generateMaze() {
+		// set currentcell as the first cell
+		
+		int nbrtotal = this.rows*this.cols;
+		Cell currentCell = this.board[0][0];
+		currentCell.setVisited(true);	
+		int visi = 1;
+			
+		while (visi < nbrtotal) {
+			if(this.hasUnvisitedNeigbor(currentCell)) {
+				Cell random = this.chooseRandomCell(currentCell);
+				System.out.println(" la cellule choisie : "+random.toString());
+				currentCell.removeWall(random);
+				this.stackCell.add(currentCell);
+				currentCell = random;
+				currentCell.setVisited(true);
+				visi+=1;
+			}
+			else if (!this.stackCell.empty()) {
+					currentCell = this.stackCell.pop();
+				}
+			else {
+				System.out.println("FINISHED");
+			}
+		}
+
 	
-	
-	
-	
-	
+	}
 }
