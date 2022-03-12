@@ -21,8 +21,8 @@ public class Cell {
 				
 		
 		this.walls = new HashMap<>();
-	     this.walls.put(Direction.EST, true);
-	     this.walls.put(Direction.SUD, true);
+	    this.walls.put(Direction.EST, true);
+	    this.walls.put(Direction.SUD, true);
 	   
 	}
 	

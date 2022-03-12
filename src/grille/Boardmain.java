@@ -8,9 +8,10 @@ public class Boardmain {
 
 		Board b = new Board(5,8);
 		
+			
 		
-		  b.generateMaze();
-		  b.Display();
+		b.generateExhaustive();
+		b.Display();
 	
 		}
 			

@@ -7,8 +7,7 @@ public class Board {
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
-	private List<Cell>neighbours = new ArrayList<>();
-	private List<Cell> allUnvisitedNeigbours = new ArrayList<>();
+	//private List<Cell>neighbours = new ArrayList<>();
 	private Stack<Cell> stack = new Stack <>();
 	
 	public Board(int rows ,int cols) {
@@ -27,23 +26,23 @@ public class Board {
 		    
 		
 		
-		for(int i = 0 ; i < rows ; i++ ) {
-			for(int j = 0 ; j< cols ; j++) {
-				this.addNeigbors(this.board[i][j]);
-			}
+		//for(int i = 0 ; i < rows ; i++ ) {
+			//for(int j = 0 ; j< cols ; j++) {
+				//this.addNeigbors(this.board[i][j]);
+			//}
 		}
 	
 	
 		
 		
 		
-	}
+	//}
 	/**
 	 * this methods assign to every cell his neighbors 
 	 * @param n the cell that we are searching neighbors
 	  
 	 */
-	public void addNeigbors(Cell n) {
+	/*public void addNeigbors(Cell n) {
 	
 		if (n.getX() > 0) {
 			this.neighbours.add(this.board[n.getX()-1][n.getY()]);
@@ -59,7 +58,7 @@ public class Board {
 		}
 		
 	
-	}
+	}*/
 	
 	/**
 	 * this methods take a cell in the parameter and return the list of neighbors of this cell 
@@ -102,16 +101,17 @@ public class Board {
 
 	
 	public Cell chooseRandomCell(Cell n) {
+		List<Cell> allUnvisitedNeigbours = new ArrayList<>();
 		Cell rand = null ;
 		for(Cell x : this.getNeighboursCells(n)) {
 			
 			if(!x.isVisited()) {
-				this.allUnvisitedNeigbours.add(x);
+				allUnvisitedNeigbours.add(x);
 			}
 		}
 		Random random = new Random();
-		int pos = random.nextInt(this.allUnvisitedNeigbours.size());
-		rand = this.allUnvisitedNeigbours.get(pos);
+		int pos = random.nextInt(allUnvisitedNeigbours.size());
+		rand = allUnvisitedNeigbours.get(pos);
 		return rand ;
 	}
 	
@@ -139,43 +139,76 @@ public class Board {
 	}
 	
 	
+	public boolean allvisited() {
+		for (int i = 0 ; i<this.rows ; i++) {
+			for (int j = 0 ; j< this.cols ; j++) {
+				if(!this.board[i][j].isVisited()) {
+					return false;
+				}
+			}
+		}return true ;
+	}
 	
 	 /**
 	 * it's generate the maze 
 	 */
-	public void generateMaze() {
-		int visite = 0 ;
+	
+	
+	
+	/* public void generateMaze() {
+		int visite = 1 ;
 		// set currentcell as the first cell
 				Cell currentCell = this.board[0][0];
 				// set the currentcell as visited
 				currentCell.setVisited(true);
 		while(visite < (this.rows*this.cols)) {
-			if(this.hasUnvisitedNeigbor(currentCell)) {
-				Cell next = this.chooseRandomCell(currentCell);
+	 		if(this.hasUnvisitedNeigbor(currentCell)) {
+	 			Cell next = this.chooseRandomCell(currentCell);
 				
-				currentCell.removeWall(next);
-				stack.add(currentCell);
-				currentCell = next ;
+	 			currentCell.removeWall(next);
+	 			this.stack.add(currentCell);
+	 			currentCell = next ;
 				
-			    currentCell.setVisited(true) ;
-			   visite+=1 ;
+	 		    currentCell.setVisited(true) ;
+	 		   visite+=1 ;
 			    
-			}
-			else {
+			} 
+	 		else if(!this.stack.empty()) {
 				
-				Cell cell = stack.pop() ;
-				currentCell = cell ;
+	 			currentCell =this.stack.pop() ;
+	 			
+				
+	 		}
+	 	else {
+	 		System.out.println("FINISHED");
+	 	}
+		
+	 }
+	
+	 }
+	*/
+	public void generateExhaustive() {
+		Cell currentCell = this.board[0][0] ;
+		currentCell.setVisited(true);
+		stack.add(currentCell);
+		while(!stack.isEmpty()) {
+			Cell cell = stack.pop();
+			currentCell = cell ; 
+			if(this.hasUnvisitedNeigbor(cell)) {
+				stack.add(cell);
+				Cell c = this.chooseRandomCell(cell);
+				cell.removeWall(c);
+				c.setVisited(true);
+				stack.add(c) ;
 				
 			}
 		}
-		
 	}
 
 	
+
 	
-	
-	
-	/**
+	/*	
 	 * display the board
 	 */
 	public void Display() {
