@@ -7,6 +7,7 @@ public class Board {
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
+
 	private Stack<Cell> stackcell = new Stack <>();
 	
 	public Board(int rows ,int cols) {
@@ -23,11 +24,35 @@ public class Board {
 
 		this.board[0][0].setVisited(true);
 		
-		//this.generateMaze();
-		
-	}
 	
+	}
 	/**
+	 * this methods take a cell in the parameter and return the list of neighbors of this cell 
+	 * @param n the cell 
+	 * @return the list of neighbors of the cell n 
+	 */
+	public List<Cell> getNeighboursCells(Cell n){
+		List<Cell> liste = new ArrayList<>();
+		
+		if (n.getX() > 0) {
+			liste.add(this.board[n.getX()-1][n.getY()]);
+		}
+		if (n.getY() > 0) {
+			liste.add(this.board[n.getX()][n.getY()-1]);
+		}
+		if (n.getX() < this.rows -1) {
+				liste.add(this.board[n.getX()+1][n.getY()]);
+			}
+		if (n.getY() < this.cols -1) {
+			liste.add(this.board[n.getX()][n.getY()+1]);
+		}
+		return  liste ;
+	}
+
+
+	
+	/*	
+
 	 * display the board
 	 */
 	public void Display() {
