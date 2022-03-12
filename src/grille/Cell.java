@@ -1,3 +1,4 @@
+
 package grille;
 import java.util.*;
 
@@ -6,9 +7,10 @@ public class Cell {
 	private final int x ;
 	private  final int y ; 
 	private Map<Direction, Boolean> walls ;
-	private boolean visited ;
+	private boolean visited;
 
 	/**
+	 
 	 * @param x position of the Cell
 	 * @param y position of the cell
 	 */
@@ -16,8 +18,6 @@ public class Cell {
 		this.x = x ;
 		this.y = y ;
 		this.visited = false;
-		
-
 		this.walls = new HashMap<>();
 	    this.walls.put(Direction.EST, true);
 	    this.walls.put(Direction.SUD, true);
@@ -26,11 +26,14 @@ public class Cell {
 	
 	@Override
 	public String toString() {
-	
-		return "("+ this.x + " " + this.y+")";
-	}
-	     
+	return "(" + this.x + " " + this.y+ ")" ;
 
+	}
+		
+	
+	/**
+	 * @return a boolean value
+	 */
 	public boolean isVisited() {
 		return this.visited;
 	}
@@ -39,12 +42,9 @@ public class Cell {
 	 * @param bool the boolean value to set
 	 */
 	public void setVisited(boolean bool) {
-		this.visited = bool ;
+		this.visited = bool;
 	}
-	
-		
-	
-	
+
 	/**
 	 * remove wall between the current cell and the next cell
 	 * @param current the current cell of the player
@@ -92,7 +92,7 @@ public class Cell {
 	 * @param key of the HashMap which is a direction
 	 * @return a boolean value of the key 
 	 */
-	public boolean get_Wall(Direction key) {
+	public boolean getWall(Direction key) {
 	     return this.walls.get(key);
 	}		
 			
@@ -100,10 +100,15 @@ public class Cell {
 	 * @param key the key of the walls
 	 * @param value the boolean value of the walls
 	 */
-	public void set_Wall(Direction key, boolean value) {
+	public void setWall(Direction key, boolean value) {
 	     this.walls.put(key, value);
 	}
 
 	 
-			
+	public boolean is_there_a_closed_cell() {
+	     if (this.walls.get(Direction.EST)  && this.walls.get(Direction.SUD)) {
+	    	 return true;
+	     }
+	     return false;
+	}
 }

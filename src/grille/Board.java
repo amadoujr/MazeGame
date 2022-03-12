@@ -3,17 +3,14 @@ package grille;
 import java.util.*;
 
 public class Board {
-	protected boolean finished;
-	protected Cell[][] board ;
-	protected int rows ;
-	protected int cols ;
-	protected Stack<Cell> stackCell = new Stack<>();
-	protected List<Cell> neighbours ; 
 	
+	private Cell[][] board ;
+	private int rows ;
+	private int cols ;
+	private Stack<Cell> stackcell = new Stack <>();
 	
 	public Board(int rows ,int cols) {
-		this.finished= false;
-		this.neighbours = new ArrayList<>();
+		
 		this.rows = rows ;
 		this.cols = cols; 
 		this.board = new Cell[rows][cols];
@@ -23,13 +20,7 @@ public class Board {
 				
 			}
 		}
-		
-		
-		for(int i = 0 ; i < rows ; i++ ) {
-			for(int j = 0 ; j< cols ; j++) {
-				this.addNeigbors(this.board[i][j]);
-			}
-		}
+
 		this.board[0][0].setVisited(true);
 		
 		//this.generateMaze();
@@ -37,28 +28,39 @@ public class Board {
 	}
 	
 	/**
-	 * @param n the cell that we are searching neighbors
-	 * @param heigth the height (rows) of the board
-	 * @param width the  width (cols) of the board
+	 * display the board
 	 */
-	public void addNeigbors(Cell n ) {
-		
-		if (n.getX() > 0) {
-			this.neighbours.add( this.board[n.getX()-1][n.getY()] );
+	public void Display() {
+		for(int i = 0 ; i<rows ; i++) {
+			System.out.println() ;
+			for(int j = 0 ; j< cols ;j++) {
+				if(this.board[i][j].getWall(Direction.SUD)) {
+					System.out.print("+---");
+				}
+				else {
+					System.out.print("+   ");
+				}
+			}
+			System.out.println("+");
+			for (int j = 0 ; j< cols ;j++) {
+				if(this.board[i][j].getWall(Direction.EST)) {
+					System.out.print("|   ");
+				}
+				else {
+					System.out.print("    ");
+				}
+			}
+			System.out.print("|");	
 		}
-		if (n.getY() > 0) {
-			this.neighbours.add( this.board[n.getX()][n.getY()-1] );		}
-		if (n.getX() < this.rows-1) {
-			this.neighbours.add( this.board[n.getX()+1][n.getY()] );			}
-		if (n.getY() < this.cols-1) {
-			this.neighbours.add( this.board[n.getX()][n.getY()+1] );		}
+		System.out.println();
+		for(int j=0; j<cols; j++) {
+			System.out.print("+---");
+		}
+		System.out.println("+");
 		
 		
 	}
 	
-	/**
-	 * @return list of neighbors in the Board
-	 */
 	public List<Cell> getNeighbor(Cell cell){
 		List<Cell> test = new ArrayList<>();
 
@@ -87,7 +89,6 @@ public class Board {
 				allunvisitedCell.add(neigh);
 				
 			}
-			
 		}
 		if(allunvisitedCell.size()>0) {
 			Random rand = new Random();
@@ -116,7 +117,6 @@ public class Board {
 	}
 	
 	
-	
 	/**
 	 * @param x the position in the cell
 	 * @param y the position in the cell
@@ -137,46 +137,11 @@ public class Board {
 	
 	public int getcols() {
 		return this.cols;
-	}
-	
-
+	}	
 	
 	/**
-	 * display the board
+	 * generate the maze by using a Recursive implementation
 	 */
-	public void Display() {
-		for(int i = 0 ; i<rows ; i++) {
-			System.out.println() ;
-			for(int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.SUD)) {
-					System.out.print("+---");
-				}
-				else {
-					System.out.print("+   ");
-				}
-			}
-			System.out.println("+");
-			for (int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].get_Wall(Direction.EST)) {
-					System.out.print("|   ");
-				}
-				else {
-					System.out.print("    ");
-				}
-				
-			}
-			System.out.print("|");
-			
-			
-		}
-		System.out.println();
-		for(int j=0; j<cols; j++) {
-			System.out.print("+---");
-		}
-		System.out.println("+");
-		
-		
-	}
 	public void generateBackStrack() {
 		// set currentcell as the first cell
 		
@@ -189,13 +154,13 @@ public class Board {
 			if(this.hasUnvisitedNeigbor(currentCell)) {
 				Cell random = this.chooseRandomCell(currentCell);
 				currentCell.removeWall(random);
-				this.stackCell.add(currentCell);
+				this.stackcell.add(currentCell);
 				currentCell = random;
 				currentCell.setVisited(true);
 				visi+=1;
 			}
-			else if (!this.stackCell.empty()) {
-					currentCell = this.stackCell.pop();
+			else if (!this.stackcell.empty()) {
+					currentCell = this.stackcell.pop();
 				}
 			else {
 				System.out.println("FINISHED");
@@ -205,26 +170,35 @@ public class Board {
 	
 	}
 	
+	/**
+	 * generate the maze using an iterative implementation
+	 */
+	
 	public void generateExhaustif() {
 		// set currentcell as the first cell
 		
 		Cell currentCell = this.board[0][0];	
 		currentCell.setVisited(true);
-		this.stackCell.add(currentCell);
+		this.stackcell.add(currentCell);
 			
-		while (!this.stackCell.isEmpty()) {
-			Cell first = this.stackCell.pop();
+		while (!this.stackcell.isEmpty()) {
+			Cell first = this.stackcell.pop();
 			if (this.hasUnvisitedNeigbor(first)) {
-				this.stackCell.add(first);
+				this.stackcell.add(first);
 				Cell random = this.chooseRandomCell(first);
 				first.removeWall(random);
 				random.setVisited(true);
-				this.stackCell.add(random);
+				this.stackcell.add(random);
 			}
 			
 		}
 	
 	}
+	
+	/**
+	 * this methods will allow us to generate the maze between the recursive or the iterative 
+	 * implementation
+	 */
 	
 	public void generateMaze() {
 		@SuppressWarnings("resource")
