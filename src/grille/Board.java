@@ -7,7 +7,11 @@ public class Board {
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
+
 	//private List<Cell>neighbours = new ArrayList<>();
+
+	
+
 	private Stack<Cell> stack = new Stack <>();
 	
 	public Board(int rows ,int cols) {
@@ -94,25 +98,33 @@ public class Board {
 			if(!neigbour.isVisited()) {
 				return true ;
 			}
-			
 		}
 		return false ; 
 	}
 
 	
 	public Cell chooseRandomCell(Cell n) {
+
 		List<Cell> allUnvisitedNeigbours = new ArrayList<>();
+
 		Cell rand = null ;
+		allUnvisitedNeigbours = new ArrayList<>();
+
 		for(Cell x : this.getNeighboursCells(n)) {
 			
 			if(!x.isVisited()) {
 				allUnvisitedNeigbours.add(x);
 			}
 		}
+
 		Random random = new Random();
 		int pos = random.nextInt(allUnvisitedNeigbours.size());
 		rand = allUnvisitedNeigbours.get(pos);
 		return rand ;
+
+	
+		
+
 	}
 	
 
@@ -152,23 +164,27 @@ public class Board {
 	 /**
 	 * it's generate the maze 
 	 */
+
 	
 	
 	
-	/* public void generateMaze() {
+	/*public void generateMaze() {
 		int visite = 1 ;
-		// set currentcell as the first cell
-				Cell currentCell = this.board[0][0];
-				// set the currentcell as visited
-				currentCell.setVisited(true);
-		while(visite < (this.rows*this.cols)) {
-	 		if(this.hasUnvisitedNeigbor(currentCell)) {
-	 			Cell next = this.chooseRandomCell(currentCell);
+		int totalcell = this.rows*this.cols;
+
+
+		Cell currentCell = this.board[0][0];
+		// set the currentcell as visited
+		currentCell.setVisited(true);
+		while(visite < totalcell) {
+			if(this.hasUnvisitedNeigbor(currentCell)) {
+				Cell next = this.chooseRandomCell(currentCell);
+				currentCell.removeWall(next);
+				stack.add(currentCell);
+				currentCell = next ;
+
 				
-	 			currentCell.removeWall(next);
-	 			this.stack.add(currentCell);
-	 			currentCell = next ;
-				
+
 	 		    currentCell.setVisited(true) ;
 	 		   visite+=1 ;
 			    
@@ -183,10 +199,11 @@ public class Board {
 	 		System.out.println("FINISHED");
 	 	}
 		
-	 }
+		}
 	
 	 }
-	*/
+	 */
+	
 	public void generateExhaustive() {
 		Cell currentCell = this.board[0][0] ;
 		currentCell.setVisited(true);
@@ -201,11 +218,11 @@ public class Board {
 				c.setVisited(true);
 				stack.add(c) ;
 				
+
 			}
 		}
-	}
 
-	
+	}
 
 	
 	/*	

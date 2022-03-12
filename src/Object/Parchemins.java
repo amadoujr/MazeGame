@@ -1,5 +1,5 @@
 package Object;
 
-public class Parchemins extends Objet {
+public class Parchemins extends Object {
 
 }

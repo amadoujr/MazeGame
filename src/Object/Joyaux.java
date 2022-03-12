@@ -1,5 +1,5 @@
 package Object;
 
-public class Joyaux extends Objet {
+public class Joyaux extends Object {
 
 }
