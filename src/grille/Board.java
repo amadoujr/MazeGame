@@ -3,12 +3,12 @@ package grille;
 import java.util.*;
 
 public class Board {
-	private boolean finished;
-	private Cell[][] board ;
-	private int rows ;
-	private int cols ;
-	private Stack<Cell> stackCell = new Stack<>();
-	private List<Cell> neighbours ; 
+	protected boolean finished;
+	protected Cell[][] board ;
+	protected int rows ;
+	protected int cols ;
+	protected Stack<Cell> stackCell = new Stack<>();
+	protected List<Cell> neighbours ; 
 	
 	
 	public Board(int rows ,int cols) {
@@ -177,16 +177,10 @@ public class Board {
 		
 		
 	}
-	
-	public boolean isfinished() {
-		return this.finished;
-	}
-	
-	
-	public void generateMaze() {
+	public void generateBackStrack() {
 		// set currentcell as the first cell
 		
-		int nbrtotal = this.rows*this.cols;
+		int nbrtotal = this.rows * this.cols;
 		Cell currentCell = this.board[0][0];
 		currentCell.setVisited(true);	
 		int visi = 1;
@@ -194,7 +188,6 @@ public class Board {
 		while (visi < nbrtotal) {
 			if(this.hasUnvisitedNeigbor(currentCell)) {
 				Cell random = this.chooseRandomCell(currentCell);
-				System.out.println(" la cellule choisie : "+random.toString());
 				currentCell.removeWall(random);
 				this.stackCell.add(currentCell);
 				currentCell = random;
@@ -211,4 +204,47 @@ public class Board {
 
 	
 	}
+	
+	public void generateExhaustif() {
+		// set currentcell as the first cell
+		
+		Cell currentCell = this.board[0][0];	
+		currentCell.setVisited(true);
+		this.stackCell.add(currentCell);
+			
+		while (!this.stackCell.isEmpty()) {
+			Cell first = this.stackCell.pop();
+			if (this.hasUnvisitedNeigbor(first)) {
+				this.stackCell.add(first);
+				Cell random = this.chooseRandomCell(first);
+				first.removeWall(random);
+				random.setVisited(true);
+				this.stackCell.add(random);
+			}
+			
+		}
+	
+	}
+	
+	public void generateMaze() {
+		@SuppressWarnings("resource")
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Deux types de labyrinthe sont disponibles : Recursif et Exhaustif :");
+		System.out.println("lequel d'entre eux vous convient le mieux ?  ");
+		System.out.println();
+		String result = scan.nextLine();
+		System.out.println();
+		System.out.println("Trés Bien!");
+		if (result.equalsIgnoreCase("exhaustif")) {
+			this.generateExhaustif();
+		}
+		if(result.equalsIgnoreCase("recursif")) {
+			this.generateBackStrack();
+		}
+		
+		this.Display();
+		
+	}
+	
+		
 }
