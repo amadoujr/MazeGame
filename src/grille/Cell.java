@@ -7,8 +7,7 @@ public class Cell {
 	private final int x ;
 	private  final int y ; 
 	private Map<Direction, Boolean> walls ;
-	
-	private boolean visited = false ;
+	private boolean visited;
 
 	/**
 	 
@@ -18,25 +17,18 @@ public class Cell {
 	public Cell(int x ,int y) {
 		this.x = x ;
 		this.y = y ;
-				
-		
+		this.visited = false;
 		this.walls = new HashMap<>();
-	     this.walls.put(Direction.EST, true);
-	     this.walls.put(Direction.SUD, true);
+	    this.walls.put(Direction.EST, true);
+	    this.walls.put(Direction.SUD, true);
 	   
 	}
 	
 	@Override
 	public String toString() {
-	
-
-		return "(" + this.x + " " + this.y+ ")" ;
+	return "(" + this.x + " " + this.y+ ")" ;
 
 	}
-	     
-
-
-
 		
 	
 	/**
@@ -50,15 +42,9 @@ public class Cell {
 	 * @param bool the boolean value to set
 	 */
 	public void setVisited(boolean bool) {
-		this.visited = bool ;
+		this.visited = bool;
 	}
-	
-	
-	
 
-
-	
-	
 	/**
 	 * remove wall between the current cell and the next cell
 	 * @param current the current cell of the player
@@ -118,18 +104,11 @@ public class Cell {
 	     this.walls.put(key, value);
 	}
 
-	/**
-	 * check if is there a closed cell  
-	 * @return true if it's the case or false if not */
 	 
 	public boolean is_there_a_closed_cell() {
 	     if (this.walls.get(Direction.EST)  && this.walls.get(Direction.SUD)) {
 	    	 return true;
 	     }
 	     return false;
-	}	
-	
-	
-	
-	
+	}
 }
