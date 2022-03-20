@@ -9,9 +9,9 @@ public class Boardmain {
 		Board b = new Board(5,8);
 		
 			
-		
-		b.generateExhaustive();
-		b.Display();
+		b.choice();
+		//b.generateExhaustive();
+		//b.Display();
 	
 		}
 			

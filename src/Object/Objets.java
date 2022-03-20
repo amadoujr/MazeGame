@@ -1,15 +1,17 @@
-package personnage;
-import grille.* ;
+package Object;
 
+import grille.*;
+import personnage.Indice;
 
-public abstract class Personnage implements Action  {
-	protected String name ; 
-	protected Cell position ;
+public abstract class Objets implements Indice  {
+	public String name ; 
+	public Cell position ; 
 	
-	public Personnage(String name , Cell position) {
+	public Objets( String name , Cell position) {
 		this.name = name ; 
-		this.position = position ;
+		this.position = position ; 
 	}
+	
 	public String getName() {
 		return name;
 	}
@@ -22,7 +24,5 @@ public abstract class Personnage implements Action  {
 	public void setPosition(Cell position) {
 		this.position = position;
 	}
-	
-	
 	
 }

@@ -28,41 +28,10 @@ public class Board {
 
 		
 		    
+	}
 		
-		
-		//for(int i = 0 ; i < rows ; i++ ) {
-			//for(int j = 0 ; j< cols ; j++) {
-				//this.addNeigbors(this.board[i][j]);
-			//}
-		}
-	
-	
-		
-		
-		
-	//}
-	/**
-	 * this methods assign to every cell his neighbors 
-	 * @param n the cell that we are searching neighbors
-	  
-	 */
-	/*public void addNeigbors(Cell n) {
-	
-		if (n.getX() > 0) {
-			this.neighbours.add(this.board[n.getX()-1][n.getY()]);
-		}
-		if (n.getY() > 0) {
-			this.neighbours.add(this.board[n.getX()][n.getY()-1]);
-		}
-		if (n.getX() < this.rows-1) {
-				this.neighbours.add(this.board[n.getX()+1][n.getY()]);
-			}
-		if (n.getY() < this.cols-1) {
-			this.neighbours.add(this.board[n.getX()][n.getY()+1]);
-		}
 		
 	
-	}*/
 	
 	/**
 	 * this methods take a cell in the parameter and return the list of neighbors of this cell 
@@ -168,7 +137,7 @@ public class Board {
 	
 	
 	
-	/*public void generateMaze() {
+	public void generateRecursif() {
 		int visite = 1 ;
 		int totalcell = this.rows*this.cols;
 
@@ -202,7 +171,7 @@ public class Board {
 		}
 	
 	 }
-	 */
+	 
 	
 	public void generateExhaustive() {
 		Cell currentCell = this.board[0][0] ;
@@ -224,6 +193,39 @@ public class Board {
 
 	}
 
+
+	public void choice() {
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in) ;
+		 
+		 System.out.println("On vous propose deux algorithmes pour generer le labyrinthe "  + ":" + " Exhaustive - Récursif  Veuillez choisir  ");
+
+		 String rep = sc.nextLine();
+		 if(!(rep.equalsIgnoreCase("Exhaustive")) || (rep.equalsIgnoreCase("Recursif"))) {
+			 System.out.println("erreur");
+		 }
+		 sc.close(); 
+	
+
+		 System.out.println("Vous avez choisis : " + rep ) ;
+		
+		 if(rep.equalsIgnoreCase("Exhaustive")){
+			 generateExhaustive() ;
+			 this.Display();
+		 }
+		if(rep.equalsIgnoreCase("Recursif")){
+			generateRecursif();
+			this.Display();
+			
+		}
+		
+		
+	}
+
+	
+	
+	
+	
 	
 	/*	
 	 * display the board
