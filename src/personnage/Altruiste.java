@@ -37,6 +37,10 @@ public class Altruiste extends RandomPersonnage implements Indice {
 	public Indice ask(Personnage p) {
 		// TODO Auto-generated method stub
 		return null;
+		
+		
+		
+		
 	}
 
 
