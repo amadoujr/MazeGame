@@ -274,41 +274,6 @@ public class Board {
 	}
 
 
-	/*	
-
-	 * display the board
-	 */
-	public void Display() {
-		for(int i = 0 ; i<rows ; i++) {
-			System.out.println() ;
-			for(int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].getWall(Direction.SUD)) {
-					System.out.print("+---");
-				}
-				else {
-					System.out.print("+   ");
-				}
-			}
-			System.out.println("+");
-			for (int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].getWall(Direction.EST)) {
-					System.out.print("|   ");
-				}
-				else {
-					System.out.print("    ");
-				}
-			}
-			System.out.print("|");	
-		}
-		System.out.println();
-		for(int j=0; j<cols; j++) {
-			System.out.print("+---");
-		}
-
-		System.out.println("+");
-		
-		
-	}
 	
 	
 }
