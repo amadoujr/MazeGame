@@ -241,7 +241,6 @@ public class Board {
 			this.generateBackStrack();
 		}
 		
-		this.Display();
 		
 	}
 	
