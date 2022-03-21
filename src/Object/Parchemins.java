@@ -38,7 +38,7 @@ public class Parchemins extends Objets    {
 		// TODO Auto-generated method stub
 		return this.contenu.GiveIndice() ;
 	}
->>>>>>> c2b909f91b73db71b35e44116c6bcd391db5ca48
+
 
 	
 }

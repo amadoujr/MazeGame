@@ -1,5 +1,5 @@
 package personnage;
-<<<<<<< HEAD
+
 import java.util.*;
 
 import Object.*;
@@ -52,7 +52,7 @@ import java.util.* ;
 
 import Object.Objets;
 import grille.Cell;
->>>>>>> c2b909f91b73db71b35e44116c6bcd391db5ca48
+
 
 public class Heros extends MovePersonnage  {
 

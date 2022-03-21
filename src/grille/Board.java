@@ -86,20 +86,13 @@ public class Board {
 		rand = allUnvisitedNeigbours.get(pos);
 		return rand ;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> c2b909f91b73db71b35e44116c6bcd391db5ca48
-	
 		
 
 	}
-	
-<<<<<<< HEAD
+
 	}		
 
-=======
->>>>>>> c2b909f91b73db71b35e44116c6bcd391db5ca48
 
 	/**
 	 * @param x the position in the cell
@@ -224,25 +217,19 @@ public class Board {
 
 		 String rep = sc.nextLine() ;
 		 System.out.println();
-<<<<<<< HEAD
+
 	     System.out.println("Vous avez choisis : " + rep ) ;
-=======
 	   System.out.println("Vous avez choisis : " + rep ) ;
->>>>>>> c2b909f91b73db71b35e44116c6bcd391db5ca48
 		
 		 if(rep.equalsIgnoreCase("Exhaustif")){
 			 generateExhaustif() ;
 			 this.Display();
 		 }
-<<<<<<< HEAD
-		 
-=======
->>>>>>> c2b909f91b73db71b35e44116c6bcd391db5ca48
+
 		if(rep.equalsIgnoreCase("Recursif")){
 			generateRecursif();
 			this.Display();
 			
-<<<<<<< HEAD
 		}
 		
 		
@@ -280,7 +267,7 @@ public class Board {
 		for(int j=0; j<cols; j++) {
 			System.out.print("+---");
 		}
-=======
+
 		}
 		
 		
@@ -317,7 +304,7 @@ public class Board {
 		for(int j=0; j<cols; j++) {
 			System.out.print("+---");
 		}
->>>>>>> c2b909f91b73db71b35e44116c6bcd391db5ca48
+
 		System.out.println("+");
 		
 		
