@@ -20,8 +20,8 @@ class BoardTest {
 	@Test
 	void addNeigboursTest() {
 		
-		assertEquals(b.getNeighbor(c1).get(0),b.getCell(1, 0));
-		assertEquals(b.getNeighbor(c1).get(1),b.getCell(0, 1));
+		assertEquals(b.getNeighboursCells(c1).get(0),b.getCell(1, 0));
+		assertEquals(b.getNeighboursCells(c1).get(1),b.getCell(0, 1));
 		
 	
 	}

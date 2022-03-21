@@ -21,13 +21,19 @@ Si tel est le cas , alors elle choisit aléatoirement une cellule voisine ; supp
 
 ### Atteinte des objectifs
 
-Nous avons pu atteindre quasiment tous les objectifs que nous nous sommes fixés au départ ; nous avons testés nos méthodes .
+Nous avons pu atteindre tous les objectifs que nous nous sommes fixés au départ ; nous avons testés nos méthodes .
+labyrinthe fonctionnel
 
 ### Difficultés restant à résoudre
 Cependant nous avons rencontré un Bug au moment de la géneration du labyrinthe
 ## Livrable 2
 
+l'objectifs du second Livrable : Modélisations des personnages et des objets;
+Implémentation du Second labyrinthe
+
 ### Atteinte des objectifs
+
+objectifs atteints
 
 ### Difficultés restant à résoudre
 
@@ -72,7 +78,10 @@ Vous pourrez avoir un aperçu du labyrinthe en éxécutant le main contenu dans 
 ## Semaine 5
 
 ## Semaine 6
-
+* Nous avons implémenter le second algorithme ( exhaustif )
+* Mané Lo s'est occupé du diagramme UML
+* Malika Boubacar et moi (Amadou Barro) sommes occupés de coder les personnages et des Objets
+* Nous en avons profité pour commencer à coder les Actions
 ## Semaine 7
 
 ## Semaine 8
