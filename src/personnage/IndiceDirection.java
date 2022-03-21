@@ -8,10 +8,13 @@ public class IndiceDirection implements Indice  {
  public IndiceDirection(Cell cell ) {
 	 super();
 	 this.cell = cell ; 
- }
-	@Override
-	public String GiveIndice() {
-	 return " " ;
-	}
+ 
 
+ }
+
+@Override
+public String giveIndice() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

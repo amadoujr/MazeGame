@@ -2,25 +2,7 @@ package Object;
 import grille.*;
 import personnage.Indice;
 
-<<<<<<< HEAD
-public class Parchemins extends Objets {
-	
-	private Indice content;
-	public Parchemins(String name, Cell cell, Indice content ) {
-		super(name, cell);
-		this.content = content;
-		// TODO Auto-generated constructor stub
-	}
-	
-	@Override
-	public String giveIndice() {
-		// TODO Auto-generated method stub
-		return this.content.giveIndice();
-	}
-		
-=======
-import grille.Cell;
-import personnage.Indice;
+
 
 public class Parchemins extends Objets    {
 	public Indice contenu ;
@@ -34,9 +16,9 @@ public class Parchemins extends Objets    {
 	
 	
 	@Override
-	public String GiveIndice() {
+	public String giveIndice() {
 		// TODO Auto-generated method stub
-		return this.contenu.GiveIndice() ;
+		return this.contenu.giveIndice() ;
 	}
 
 

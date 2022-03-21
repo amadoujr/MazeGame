@@ -91,7 +91,7 @@ public class Board {
 
 	}
 
-	}		
+			
 
 
 	/**
@@ -276,4 +276,4 @@ public class Board {
 
 	
 	
-}
+

@@ -33,7 +33,7 @@ public class Altruiste extends RandomPersonnage implements Indice {
 
 	
 	@Override
-	public Indice ask(Personnage p) {
+	public String ask(Personnage p) {
 		// TODO Auto-generated method stub
 		return null;
 		

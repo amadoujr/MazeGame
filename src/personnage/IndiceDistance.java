@@ -2,8 +2,10 @@ package personnage;
 
 public class IndiceDistance implements Indice{
 
+	
 	@Override
-	public String GiveIndice() {
+	public String giveIndice() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

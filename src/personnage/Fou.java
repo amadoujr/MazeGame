@@ -1,14 +1,8 @@
 package personnage;
 
 
-import grille.Cell;
 
-public class Fou extends RandomPersonnage implements Indice {
 
-	public Fou(Cell cell, String name) {
-		super(cell, name);
-=======
-import Object.Objets;
 import grille.Cell;
 
 public class Fou extends RandomPersonnage implements Indice   {
@@ -31,23 +25,8 @@ public class Fou extends RandomPersonnage implements Indice   {
 	}
 
 
-	@Override
-	public String GiveIndice() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
-	public Indice ask(Personnage p) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void pickUp(Objets o) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }

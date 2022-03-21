@@ -9,6 +9,7 @@ public interface Action {
 	public String ask(Personnage perso);
 	public void pick_up(Objets o);
 	public void use_object();
+	
 
 	
 }
