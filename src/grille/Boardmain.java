@@ -2,7 +2,7 @@ package grille;
 
 
 public class Boardmain {
-			
+
 
 	public static void main(String[] args) {
 

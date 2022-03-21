@@ -52,7 +52,6 @@ public class Board {
 	}
 
 
-	
 	/**
 	 * check if the cell which were we are had an
 	 * unvisited neighbors
@@ -64,7 +63,7 @@ public class Board {
 				return true ;
 			}
 		}
-		return false;
+		return false ; 
 	}
 
 	
@@ -87,7 +86,11 @@ public class Board {
 		rand = allUnvisitedNeigbours.get(pos);
 		return rand ;
 
-}		
+
+	
+	
+	}		
+
 
 	/**
 	 * @param x the position in the cell
@@ -212,17 +215,19 @@ public class Board {
 
 		 String rep = sc.nextLine() ;
 		 System.out.println();
-	   System.out.println("Vous avez choisis : " + rep ) ;
+	     System.out.println("Vous avez choisis : " + rep ) ;
 		
 		 if(rep.equalsIgnoreCase("Exhaustif")){
 			 generateExhaustif() ;
 			 this.Display();
 		 }
+		 
 		if(rep.equalsIgnoreCase("Recursif")){
 			generateRecursif();
 			this.Display();
 			
 		}
+		
 		
 		
 	}
