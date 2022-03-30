@@ -1,11 +1,10 @@
 package Object;
-
 import grille.*;
-import personnage.Indice;
+import personnage.*;
 
 
 
-public abstract class Objets implements Indice  {
+public abstract class Objets {
 	public String name ; 
 	public Cell position ; 
 	
@@ -22,8 +21,6 @@ public abstract class Objets implements Indice  {
 		this.name = name;
 	}
 
-	
-
 
 	public Cell getPosition() {
 		return position;
@@ -31,5 +28,7 @@ public abstract class Objets implements Indice  {
 	public void setPosition(Cell position) {
 		this.position = position;
 	}
+	
+	public abstract void useItems(Personnage p);
 
 }

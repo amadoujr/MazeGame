@@ -4,7 +4,7 @@ import Object.Objets;
 import grille.Cell;
 
 
-public class FixePersonnage extends Personnage implements Indice {
+public class FixePersonnage extends Personnage {
 
 	public FixePersonnage(Cell cell, String name) {
 		super(name, cell);
@@ -25,20 +25,20 @@ public class FixePersonnage extends Personnage implements Indice {
 
 	@Override
 	public void pick_up(Objets o) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
-	@Override
-	public void use_object() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
-	public String giveIndice() {
+	public String giveIndice(Personnage p) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void use_Items(Object o) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

@@ -3,10 +3,14 @@ package personnage;
 public class IndiceDistance implements Indice{
 
 	
+	public IndiceDistance() {
+		super();
+	}
+
 	@Override
-	public String giveIndice() {
+	public String giveIndice(Personnage p) {
 		// TODO Auto-generated method stub
-		return null;
+		return " le but se trouve à la position ";
 	}
 
 }

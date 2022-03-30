@@ -1,20 +1,15 @@
 package personnage;
 
-import grille.Cell;
-
 public class IndiceDirection implements Indice  {
- private Cell cell ;
    
- public IndiceDirection(Cell cell ) {
+ public IndiceDirection() {
 	 super();
-	 this.cell = cell ; 
- 
 
  }
 
 @Override
-public String giveIndice() {
+public String giveIndice (Personnage p ) {
 	// TODO Auto-generated method stub
-	return null;
+	return " tu dois prendre la direction "+ p.getPosition().toString();
 }
 }

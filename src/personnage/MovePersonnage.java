@@ -3,12 +3,9 @@ package personnage;
 import Object.Objets;
 import grille.Cell;
 
-
-
-
 	
 
-public  class MovePersonnage extends Personnage implements Indice  {
+public class MovePersonnage extends Personnage  {
 
 	public MovePersonnage(Cell cell, String name) {
 		super(name, cell);
@@ -33,16 +30,17 @@ public  class MovePersonnage extends Personnage implements Indice  {
 		
 	}
 
+
 	@Override
-	public void use_object() {
+	public String giveIndice(Personnage p) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
-	public String giveIndice() {
+	public void use_Items(Object o) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	
