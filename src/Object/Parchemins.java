@@ -1,6 +1,7 @@
 package Object;
 import grille.*;
 import personnage.Indice;
+import personnage.Personnage;
 
 
 
@@ -16,9 +17,9 @@ public class Parchemins extends Objets    {
 	
 	
 	@Override
-	public String giveIndice() {
+	public String giveIndice(Personnage p) {
 		// TODO Auto-generated method stub
-		return this.contenu.giveIndice() ;
+		return this.contenu.giveIndice(p) ;
 	}
 
 

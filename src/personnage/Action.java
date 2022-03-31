@@ -10,6 +10,7 @@ public interface Action {
 	public void pick_up(Objets o);
 	public void use_object();
 	
+	
 
 	
 }

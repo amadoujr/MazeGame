@@ -3,6 +3,7 @@ package Object;
 
 
 import grille.Cell;
+import personnage.Personnage;
 
 public class Joyaux extends Objets {
 
@@ -12,12 +13,11 @@ public class Joyaux extends Objets {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-
-	public String giveIndice() {
-
+	
 	
 
+	@Override
+	public String giveIndice(Personnage p) {
 		// TODO Auto-generated method stub
 		return null;
 	}

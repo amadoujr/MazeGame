@@ -1,1 +1,127 @@
+# Créé par https://www.toptal.com/developers/gitignore/api/java,macos,eclipse
+# Modifier sur https://www.toptal.com/developers/gitignore?templates=java,macos,eclipse
+
+### Éclipse ###
+.metadata
+poubelle/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+propriétés.locales
+.réglages/
+.loadpath
+.recommandateurs
+.project
+
+# Constructeurs d'outils externes
+.externalToolBuilders/
+
+# "Configurations de lancement Eclipse" stockées localement
+*.lancement
+
+# Spécifique à PyDev (Python IDE pour Eclipse)
+*.pydevproject
+
+# Spécifique à CDT (outils de développement C/C++)
+.cproject
+
+# outils automatiques CDT
+.autotools
+
+# Processeur d'annotations Java (APT)
+.factorypath
+
+# Spécifique à PDT (outils de développement PHP)
+.buildpath
+
+# greffon sbteclipse
+.cible
+
+# Plugin Sterne
+.tern-projet
+
+# greffon TeXlipse
+.texlipse
+
+# STS (suite d'outils de printemps)
+.springBeans
+
+# Recommandateurs de code
+.recommenders/
+
+# Traitement des annotations
+.apt_generated/
+.apt_generated_test/
+
+# Spécifique à Scala IDE (développement Scala & Java pour Eclipse)
+.cache-main
+.scala_dependencies
+.feuille de travail
+
+# Décommentez cette ligne si vous souhaitez ignorer le fichier de description du projet.
+# Généralement, ce fichier serait suivi s'il contient des configurations de build/dépendance :
+#.projet
+
+### Patch Éclipse ###
+# Outillage de démarrage à ressort
+.sts4-cache/
+
+###Java ###
+# Fichier de classe compilé
+*.classer
+
+# Fichier journal
+*.Journal
+
+# fichiers BlueJ
+*.ctxt
+
+# Outils mobiles pour Java (J2ME)
+.mtj.tmp/
+
+# Fichiers de package #
+*.pot
+*.guerre
+*.nar
+*.oreille
+*.Zip *: français
+*.tar.gz
+*.rar
+
+# journaux de plantage de la machine virtuelle, voir http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+### macOS ###
+# Général
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# L'icône doit se terminer par deux \r
+Icône
+
+
+# Vignettes
+._*
+
+# Fichiers pouvant apparaître à la racine d'un volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Corbeille
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Répertoires potentiellement créés sur un partage AFP distant
+.AppleDB
+.AppleDesktop
+Dossier Corbeille réseau
+Articles temporaires
+.apdisk
+
+# Fin de https://www.toptal.com/developers/gitignore/api/java,macos,eclipse
 /bin/

@@ -39,8 +39,9 @@ public  class MovePersonnage extends Personnage implements Indice  {
 		
 	}
 
+	
 	@Override
-	public String giveIndice() {
+	public String giveIndice(Personnage p) {
 		// TODO Auto-generated method stub
 		return null;
 	}

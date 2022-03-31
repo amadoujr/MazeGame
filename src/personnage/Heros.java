@@ -9,10 +9,6 @@ import grille.Cell;
 
 public class Heros extends MovePersonnage  {
 
-	
-		
-		
-
 		List<Objets> allObjets;
 	public Heros(String name, Cell position) {
 		super(position, name);
@@ -38,7 +34,8 @@ public class Heros extends MovePersonnage  {
 	public void useObjets(Objets o) {
 		for(Objets objet : this.allObjets) {
 			if(objet.equals(o)) {
-				o.giveIndice() ;
+				o.giveIndice(this) ;
+				 
 			}
 			
 		

@@ -1,12 +1,12 @@
 package personnage;
 
 public class IndiceDistance implements Indice{
-
 	
-	@Override
-	public String giveIndice() {
-		// TODO Auto-generated method stub
-		return null;
+	public IndiceDistance(Personnage p) {
+		super() ;
+	}
+	public String giveIndice(Personnage p) {
+		return "le but se trouve à la position ";
 	}
 
 }

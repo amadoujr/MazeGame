@@ -21,8 +21,8 @@ public class Altruiste extends RandomPersonnage implements Indice {
 
 	@Override
 
-	public String giveIndice() {
-		return this.indice.giveIndice();
+	public String giveIndice(Personnage p) {
+		return this.indice.giveIndice(p);
 		
 	}
 
