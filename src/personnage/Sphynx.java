@@ -16,20 +16,22 @@ public class Sphynx extends FixePersonnage {
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Qui a ecrit le seigneur des anneaux: ");
-		String rep = scan.nextLine();
-		System.out.println();
 		Random rand = new Random();
 		float f = rand.nextFloat();
+		String rep = scan.nextLine();
 		if (rep.equalsIgnoreCase("tolkien") && f >= 0.5) {
 			Indice indice = new IndiceDirection();
-			indice.giveIndice(p);
+			return "bonne réponse !!" + indice.giveIndice(p);
+			
+		}
+		else if (rep.equalsIgnoreCase("tolkien") && f < 0.5)  {
+			Indice indice = new IndiceDistance();
+			return "bonne réponse !! " + indice.giveIndice(p);
 		}
 		else {
-			Indice indice = new IndiceDistance();
-			indice.giveIndice(p);
+			return " mauvaise réponse !! ";
 		}
-		return "mauvaise réponse!! pas d'indice pour vous ";
 	}
-	
+		
 
 }

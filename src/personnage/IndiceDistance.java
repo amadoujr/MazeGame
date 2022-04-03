@@ -1,13 +1,18 @@
 package personnage;
-
+/**
+ * 
+ * @author amadouu
+ */
 public class IndiceDistance implements Indice{
 
-	
-	public IndiceDistance() {
-		super();
-	}
+	/** Empty Constructor */
+	public IndiceDistance() {}
 
-	@Override
+	/**
+	 * this methods give a distance index to the Hero
+	 *@param p the character to give the clue
+	 *@return distance index
+	 */
 	public String giveIndice(Personnage p) {
 		// TODO Auto-generated method stub
 		return " le but se trouve à la position ";

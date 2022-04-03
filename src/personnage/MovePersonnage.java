@@ -1,7 +1,7 @@
 package personnage;
 
-import Object.Objets;
 import grille.Cell;
+import objets.Objets;
 
 	
 

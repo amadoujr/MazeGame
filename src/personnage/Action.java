@@ -1,6 +1,6 @@
 package personnage;
 
-import Object.Objets;
+import objets.Objets;
 
 public interface Action {
 
