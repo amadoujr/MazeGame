@@ -1,9 +1,5 @@
 package personnage;
-
 import grille.Cell;
-
-
-
 
 public abstract class RandomPersonnage extends MovePersonnage {
 

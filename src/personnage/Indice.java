@@ -2,11 +2,6 @@ package personnage;
 
 public interface Indice {
 
-	
-	public String giveIndice(Personnage p );
-
-	
-
-
+	public String giveIndice(Personnage p);
 
 }

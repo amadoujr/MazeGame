@@ -1,12 +1,8 @@
 package personnage;
-
-
-
-
 import grille.* ;
 
 
-public abstract class Personnage implements Action  {
+public abstract class Personnage implements Action , Indice  {
 	protected String name ; 
 	protected Cell position ;
 	
