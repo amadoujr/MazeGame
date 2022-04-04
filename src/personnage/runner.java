@@ -1,5 +1,6 @@
 package personnage;
 import grille.*;
+import objets.Coffre;
 import Object.*;
 import grille.*;
 
@@ -14,9 +15,9 @@ public class runner {
 		Coffre c = new Coffre("or" , x);
 		Objets o = new Parchemins("par", t) ;
 		p.use_Items(c);
-		System.out.println(p.goldValue) ;
+		System.out.println(p.getGoldValue()) ;
 		p.use_Items(c);
-		System.out.println(p.goldValue) ;
+		System.out.println(p.getGoldValue()) ;
 		b.randomove(p2);
 		System.out.println(p2.getPosition());
 		

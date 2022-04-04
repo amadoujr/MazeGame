@@ -82,7 +82,11 @@ Vous pourrez avoir un aperçu du labyrinthe en éxécutant le main contenu dans 
 * Mané Lo s'est occupé du diagramme UML
 * Malika Boubacar et moi (Amadou Barro) sommes occupés de coder les personnages et des Objets
 * Nous en avons profité pour commencer à coder les Actions
+
 ## Semaine 7
+
+* Coder les actions du Héros et quelques personnages ( sphynx et altruistes)
+* modifications des Objets
 
 ## Semaine 8
 

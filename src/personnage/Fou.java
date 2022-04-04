@@ -1,9 +1,6 @@
 package personnage;
-
-
-
-
 import grille.Cell;
+import java.util.*;
 
 public class Fou extends RandomPersonnage implements Indice   {
 
@@ -21,7 +18,9 @@ public class Fou extends RandomPersonnage implements Indice   {
 
 	public void move() {
 		// TODO Auto-generated method stub
-		
+		Random rand = new Random();
+		int xposition = rand.nextInt();
+		int yposition = rand.nextInt();
 	}
 
 

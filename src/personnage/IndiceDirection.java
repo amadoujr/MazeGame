@@ -1,10 +1,10 @@
 package personnage;
 
 
+/**
+ * @author amadouu
+ */
 public class IndiceDirection implements Indice  {
-
-
-
    
  public IndiceDirection() {
 	 super();

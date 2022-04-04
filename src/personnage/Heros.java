@@ -1,31 +1,31 @@
 package personnage;
 import java.util.*;
-import grille.* ;
-import Object.*;
+
+import grille.Cell;
+import objets.*;
+
+
 public class Heros extends MovePersonnage  {
-		List<Objets> allObjets;
-		int goldValue = 0 ; 
-		
+
+		List<Objets> allItems;
+		private int goldvalue = 0;
 		
 
 		public Heros(String name, Cell position) {
 			super(position, name);
-			this.allObjets = new ArrayList<>();
+			this.allItems = new ArrayList<>();
 			
-		
 		// TODO Auto-generated constructor stub
 	}
 
-	
 	@Override
-	public String ask(Personnage p) {
-		// TODO Auto-generated method stub
-		return p.giveIndice(this);
+	public void move() {
+		// TODO Auto-generated method stub	
 	}
 
 
 	public int getGoldValue() {
-		return goldValue;
+		return goldvalue;
 	}
 
 	
@@ -33,27 +33,36 @@ public class Heros extends MovePersonnage  {
 	@Override
 	public void pick_up(Objets o) {
 		// TODO Auto-generated method stub
-		this.allObjets.add(o);
-
+		this.allItems.add(o);
 	}
 	/**
 	 * allows the hero to use an item
-	 * @param o
+	 * @param o a random object
 	 */
 	public void use_Items(Objets o) {
-		if(o instanceof Coffre) {
-			this.goldValue += ((Coffre) o).getGold() ;
+		if (o instanceof Coffre) {
+			this.goldvalue += ((Coffre) o).getGold();
 		}
 		else {
-			o.useItems(this);
+			o.useObject(this);
 		}
+		
 	}
 	
-	public List<Objets> getAllObjets() {
-		return allObjets;
+	
+	/**
+	 * get the items
+	 * @return allObjects of the hero
+	 */
+	
+	public List<Objets> getAllItems() {
+		return allItems;
 	}
-
-	public void setAllObjets(List<Objets> allObjets) {
-		this.allObjets = allObjets;
+	/**
+	 * set the items
+	 * @param allObjets allObjet
+	 */
+	public void setAllItems(List<Objets> items) {
+		this.allItems = items ;
 	}
 }

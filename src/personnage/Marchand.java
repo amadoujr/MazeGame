@@ -1,19 +1,24 @@
 package personnage;
-import Object.Objets;
 import grille.Cell;
+import objets.*;
 import java.util.*;
 
 public class Marchand extends RandomPersonnage  {
-	List<Objets> allObjects;
+	
+	private int goods;
+	private int price;
 	public Marchand(String name, Cell position) {
 		super(name, position);
-		this.allObjects = new ArrayList<>();
+		this.price = 5;
+		this.goods = 0;
+		
 
 		// TODO Auto-generated constructor stub
 	}
 	
 	public String giveIndice(Personnage p) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("j'échange un indice contre: "+ price+" piéces d'or");
 		return null;
 	}
-	
 }
