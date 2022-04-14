@@ -1,12 +1,12 @@
-package personnage;
+package character;
 import grille.* ;
 
 
-public abstract class Personnage implements Action , Indice  {
+public abstract class Character implements Action , Clue  {
 	protected String name ; 
 	protected Cell position ;
 	
-	public Personnage(String name , Cell position) {
+	public Character(String name , Cell position) {
 		this.name = name ; 
 		this.position = position ;
 	}
@@ -23,6 +23,7 @@ public abstract class Personnage implements Action , Indice  {
 		this.position = position;
 	}
 
+	
 	
 	
 	

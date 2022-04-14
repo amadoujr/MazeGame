@@ -1,6 +1,7 @@
 package objets;
+
+import character.Character;
 import grille.*;
-import personnage.*;
 
 
 
@@ -29,6 +30,8 @@ public abstract class Objets {
 		this.position = position;
 	}
 	
-	public abstract void useObject(Personnage p);
+	public abstract void useObject(Character p) ;
+		
+	
 
 }

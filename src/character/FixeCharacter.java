@@ -1,24 +1,24 @@
-package personnage;
+package character;
 
 import grille.Cell;
 import objets.Objets;
 
 
-public class FixePersonnage extends Personnage {
+public class FixeCharacter extends Character {
 
-	public FixePersonnage(Cell cell, String name) {
+	public FixeCharacter(Cell cell, String name) {
 		super(name, cell);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void move() {
+	public void move(Cell c) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public String ask(Personnage perso) {
+	public String ask(Character perso) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -30,7 +30,7 @@ public class FixePersonnage extends Personnage {
 
 
 	@Override
-	public String giveIndice(Personnage p) {
+	public String giveIndice(Character p) {
 		// TODO Auto-generated method stub
 		return null;
 	}

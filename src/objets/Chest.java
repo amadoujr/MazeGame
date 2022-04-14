@@ -1,22 +1,22 @@
 package objets;
+import character.Character;
 import grille.Cell;
-import personnage.Personnage;
 
 /**
  * @author amadouu
  * a Chest in the maze
  */
-public class Coffre extends Objets  {
+public class Chest extends Objets  {
 	
 	/** number of gold in the chest */
-	private int gold;
+	private final int gold;
 	
 	/**
 	 * 
 	 * @param name the name of the object in the chest
 	 * @param position the position of the object
 	 */
-	public Coffre(String name, Cell position) {
+	public Chest(String name, Cell position) {
 		super(name,position);
 		this.gold = 10;
 
@@ -28,11 +28,15 @@ public class Coffre extends Objets  {
 	 * @return the value of the gold
 	 */
 	public int getGold() {
+		System.out.println("Valeur : " + this.gold) ;
 		return this.gold;
 	}
 	
 	/** methods useObject not used */
-	public void useObject(Personnage p) {}
+	public void useObject(Character p) {
+		
+		
+	}
 
 	
 }

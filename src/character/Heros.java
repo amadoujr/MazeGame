@@ -1,11 +1,11 @@
-package personnage;
+package character;
 import java.util.*;
 
 import grille.Cell;
 import objets.*;
 
 
-public class Heros extends MovePersonnage  {
+public class Heros extends MoveCharacter  {
 
 		List<Objets> allItems;
 		private int goldvalue = 0;
@@ -19,7 +19,7 @@ public class Heros extends MovePersonnage  {
 	}
 
 	@Override
-	public void move() {
+	public void move(Cell c ) {
 		// TODO Auto-generated method stub	
 	}
 
@@ -27,7 +27,14 @@ public class Heros extends MovePersonnage  {
 	public int getGoldValue() {
 		return goldvalue;
 	}
+	
+	public void setGoldvalue(int goldvalue) {
+		this.goldvalue = goldvalue ;
+	}
 
+	 public String ask(Character c) {
+		 return c.giveIndice(this);
+	 }
 	
 	
 	@Override
@@ -40,8 +47,9 @@ public class Heros extends MovePersonnage  {
 	 * @param o a random object
 	 */
 	public void use_Items(Objets o) {
-		if (o instanceof Coffre) {
-			this.goldvalue += ((Coffre) o).getGold();
+		if (o instanceof Chest) {
+			this.goldvalue += ((Chest) o).getGold();
+			
 		}
 		else {
 			o.useObject(this);
@@ -65,4 +73,13 @@ public class Heros extends MovePersonnage  {
 	public void setAllItems(List<Objets> items) {
 		this.allItems = items ;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

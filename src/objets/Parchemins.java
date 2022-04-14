@@ -1,11 +1,12 @@
 package objets;
 import java.util.Random;
 
+import character.*;
+import character.Character;
 import grille.*;
-import personnage.*;
 
 
-public class Parchemins extends Objets implements Indice {
+public class Parchemins extends Objets implements Clue {
 	
 
 	public Parchemins(String name, Cell position) {
@@ -19,7 +20,7 @@ public class Parchemins extends Objets implements Indice {
 	 */
 
 	@Override
-	public void useObject(Personnage p) {
+	public void useObject(Character p) {
 		System.out.println(this.giveIndice(p));
 	}
 	/**
@@ -27,17 +28,17 @@ public class Parchemins extends Objets implements Indice {
 	 * @param p the hero
 	 * @return the clue
 	 */
-	public String giveIndice(Personnage p) {
+	public String giveIndice(Character p) {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		Random rand = new Random();
 		float f = rand.nextFloat();
 		if (f >= 0.5) {
-			IndiceDirection indice = new IndiceDirection();
+			ClueDirection indice = new ClueDirection();
 			return indice.giveIndice(p);
 		}
 		else {
-			IndiceDistance indice = new IndiceDistance();
+			ClueDistance indice = new ClueDistance();
 			return indice.giveIndice(p);
 		}
 	

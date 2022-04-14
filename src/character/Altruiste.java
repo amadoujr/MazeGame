@@ -1,4 +1,4 @@
-package personnage;
+package character;
 import java.util.*;
 import grille.Cell;
 
@@ -6,7 +6,7 @@ import grille.Cell;
  * @author amadouu
  *
  */
-public class Altruiste extends RandomPersonnage{
+public class Altruiste extends RandomCharacter{
 	
 	
 	
@@ -25,21 +25,23 @@ public class Altruiste extends RandomPersonnage{
 	 * @param p the character to give the clue
 	 * @return the chosen clue 
 	 */
-	public String giveIndice(Personnage p) {
+	public String giveIndice(Character p) {
 		Random rand = new Random();
 		float f = rand.nextFloat();
 		if ( f >=0.5) {
-			Indice indice = new IndiceDirection();
+			Clue indice = new ClueDirection();
 			return indice.giveIndice(p);
 			
 		}
 		else {
-			Indice indice = new IndiceDistance();
+			Clue indice = new ClueDistance();
 			return indice.giveIndice(p);
 		}
 	}
 
-
+  public void move(Cell c) {
+	  
+  }
 
 
 }

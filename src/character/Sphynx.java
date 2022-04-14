@@ -1,4 +1,4 @@
-package personnage;
+package character;
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ import grille.Cell;
 
 	
 
-public class Sphynx extends FixePersonnage {
+public class Sphynx extends FixeCharacter {
 
 	public Sphynx(Cell cell, String name) {
 		super(cell, name);
@@ -21,7 +21,7 @@ public class Sphynx extends FixePersonnage {
 		
 	}
 	
-	public String giveIndice(Personnage p) {
+	public String giveIndice(Character p) {
 
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
@@ -30,11 +30,11 @@ public class Sphynx extends FixePersonnage {
 		Random rand = new Random();
 		float f = rand.nextFloat();
 		if (rep.equalsIgnoreCase("tolkien") && f >= 0.5) {
-			Indice indice = new IndiceDirection();
+			Clue indice = new ClueDirection();
 			return "bonne réponse !! "+ indice.giveIndice(p);
 		}
 		else if (rep.equalsIgnoreCase("tolkien") && f < 0.5)  {
-			Indice indice = new IndiceDistance();
+			Clue indice = new ClueDistance();
 			return "bonne réponse !! " + indice.giveIndice(p);
 		}
 

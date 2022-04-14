@@ -1,7 +1,8 @@
 package grille;
 
 import java.util.*;
-import personnage.*;  
+
+import character.*;  
 public class Board {
 	
 	private Cell[][] board ;
@@ -9,8 +10,8 @@ public class Board {
 	private int cols ;
 
 	private Stack<Cell> stackcell = new Stack <>();
-	private List<RandomPersonnage> allcharacter = new ArrayList<>() ;
-	private Personnage heros ;
+	//private List<RandomCharacter> allcharacter = new ArrayList<>() ;
+	//private Character heros ;
 	
 	public Board(int rows ,int cols) {
 		
@@ -267,7 +268,7 @@ public class Board {
 		
 	
 	
-     public void randomove(RandomPersonnage pers) {
+     public void randomove(RandomCharacter pers) {
     	 
 		  Cell c = this.chooseRandomCell(pers.getPosition());
 			pers.setPosition(c);
