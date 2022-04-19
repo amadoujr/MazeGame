@@ -9,12 +9,12 @@ public class Trader extends RandomCharacter  {
 	
 	private int goods;
 	private final int price;
-	private Clue index;
-	public Trader(String name, Cell position, Clue i) {
-		super(name, position);
+	
+	public Trader(String name, Cell position, Clue clue) {
+		super(name, position,clue);
 		this.price = 5;
 		this.goods = 0;
-		this.index = i;
+		
 		
 
 		// TODO Auto-generated constructor stub
@@ -30,7 +30,7 @@ public class Trader extends RandomCharacter  {
 			v-=5 ;
 			((Heros) p).setGoldvalue(v);
 			this.goods +=5 ;
-			return this.index.giveIndice(p);
+			return super.clue.giveIndice(p);
 			
 			}
 		else {

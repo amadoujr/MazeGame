@@ -7,10 +7,11 @@ import grille.*;
 
 
 public class Parchemins extends Objets implements Clue {
-	
+	private Clue clue ;
 
-	public Parchemins(String name, Cell position) {
+	public Parchemins(String name, Cell position,Clue clue) {
 		super(name, position); 
+		this.clue = clue ; 
 		
 	}
 	
@@ -29,9 +30,8 @@ public class Parchemins extends Objets implements Clue {
 	 * @return the clue
 	 */
 	public String giveIndice(Character p) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		Random rand = new Random();
+		  return this.clue.giveIndice(p);
+		
 		
 		}
 	
@@ -39,4 +39,4 @@ public class Parchemins extends Objets implements Clue {
 
 
 	
-}
+

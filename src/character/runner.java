@@ -32,7 +32,7 @@ public class runner {
 		
 		
 		Chest c = new Chest("or" , x);
-		Objets o = new Parchemins("par", t) ;
+		Objets o = new Parchemins("par", t, dist) ;
 		
 		
 		System.out.println(p.ask(p1));
