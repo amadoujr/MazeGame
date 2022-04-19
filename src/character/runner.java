@@ -9,33 +9,22 @@ import java.util.*;
 
 public class runner {
 	public static void main(String[] args) {
-		Cell t = new Cell(2,3) ;
-		Cell x = new Cell(0,2) ; 
 		
 		Board b = new Board(5,5);
+	
+		Cell c1 = b.getCell(0,0);
+		Cell c2 = b.getCell(2,2);
 		
-		Heros p = new Heros("emma" , x); 
-		Character p1;
 		Quest q = new Quest(b);
-		q.setPosition();
-		System.out.println(q.getPosition());
 		Clue clue = new ClueDistance(q);
-		Clue dist = new ClueDirection(q);
-		Random rand = new Random();
-		float alea = rand.nextFloat();
-		if (alea >0.5) {
-			p1 = new Sphynx(t, "sphnx", clue);
-		}
-		else {
-			p1 = new Sphynx(t, "sphnx", dist);
-		}
+		
+		Heros p = new Heros("emma" , c1); 
+		Character p2 = new Trader("xxx",c2,clue);
+		p.setGoldvalue(10);
+		System.out.println(p.ask(p2));
 		
 		
-		Chest c = new Chest("or" , x);
-		Objets o = new Parchemins("par", t) ;
 		
-		
-		System.out.println(p.ask(p1));
 		
 		
 		

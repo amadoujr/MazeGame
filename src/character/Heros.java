@@ -1,6 +1,6 @@
 package character;
 import java.util.*;
-
+import grille.Board;
 import grille.Cell;
 import objets.*;
 
@@ -19,7 +19,7 @@ public class Heros extends MoveCharacter  {
 	}
 
 	@Override
-	public void move(Cell c ) {
+	public void move(Board b ) {
 		// TODO Auto-generated method stub	
 	}
 

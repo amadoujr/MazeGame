@@ -1,5 +1,5 @@
 package character;
-
+import grille.Board;
 import grille.Cell;
 import objets.Objets;
 
@@ -12,8 +12,9 @@ public class MoveCharacter extends Character  {
 	}
 
 	@Override
-	public void move(Cell c) {
+	public void move(Board b) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
