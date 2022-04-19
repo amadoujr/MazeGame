@@ -4,12 +4,12 @@ import grille.Board;
 import grille.Cell;
 
 public abstract class RandomCharacter extends MoveCharacter {
+	protected  Clue clue  ; 
 	
-	protected Clue clue;
 	
 	public RandomCharacter(String name, Cell position, Clue clue) {
 		super(position, name);
-		this.clue = clue;
+		this.clue = clue ; 
 		// TODO Auto-generated constructor stub
 	}
 	/**

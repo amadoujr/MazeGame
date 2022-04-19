@@ -13,7 +13,7 @@ public class Trader extends RandomCharacter  {
 		super(name, position, clue);
 		this.price = 5;
 		this.goods = 0;
-		
+
 
 		// TODO Auto-generated constructor stub
 	}

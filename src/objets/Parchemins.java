@@ -33,7 +33,8 @@ public class Parchemins extends Objets implements Clue {
 			return this.clue.giveIndice(p);
 		}
 	
+	}
 
 
 	
-}
+

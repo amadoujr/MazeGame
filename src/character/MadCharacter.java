@@ -12,14 +12,9 @@ public class MadCharacter extends RandomCharacter implements Clue   {
 	@Override
 
 	public String giveIndice(Character p) {
-		Random rand = new Random();
-		float f = rand.nextFloat();
-		if ( f>0.5) {
-			return "le but se trouve à la position (5,5) ";
-		}
-		else {
-		return super.clue.giveIndice(p);
-		}
+		
+		return "le but se trouve à la position (5,5) ";
+		
 	}
 
 
