@@ -32,14 +32,7 @@ public class Parchemins extends Objets implements Clue {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		Random rand = new Random();
-		float f = rand.nextFloat();
-		if (f >= 0.5) {
-			ClueDirection indice = new ClueDirection();
-			return indice.giveIndice(p);
-		}
-		else {
-			ClueDistance indice = new ClueDistance();
-			return indice.giveIndice(p);
+		
 		}
 	
 	}

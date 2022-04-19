@@ -7,20 +7,16 @@ import grille.Cell;
  * 
  * @author amadouu
  */
-public class ClueDistance extends Quest implements Clue{
-
-
-	private static Cell cell;
+public class ClueDistance  implements Clue{
 	
-	public ClueDistance(Cell position) {
-		super(position) ;
-		
-	}
+	private Quest quest;
 
-	/** Empty Constructor */	
-	public ClueDistance() {
-		super(cell) ;
+	public ClueDistance(Quest q) {		
+		this.quest = q;
 	}
+	
+	
+	
 
 	/**
 	 * this methods give a distance index to the Hero
@@ -28,7 +24,7 @@ public class ClueDistance extends Quest implements Clue{
 	 *@return distance index
 	 */
 	public String giveIndice(Character p) {
-		return "le but se trouve à la position " + super.getPosition()  ;
+		return "le but se trouve à la position " + this.quest.getPosition() ;
 	}
 
 	

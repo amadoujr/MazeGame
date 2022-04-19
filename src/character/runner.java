@@ -3,30 +3,40 @@ import game.Quest;
 import grille.*;
 
 import objets.*;
+import java.util.*;
+
 
 
 public class runner {
 	public static void main(String[] args) {
 		Cell t = new Cell(2,3) ;
 		Cell x = new Cell(0,2) ; 
+		
 		Board b = new Board(5,5);
+		
 		Heros p = new Heros("emma" , x); 
-		Character p1 = new Sphynx(t, "sphnx");
-		RandomCharacter p2 = new MadCharacter("xx",x) ;
+		Character p1;
+		Quest q = new Quest(b);
+		q.setPosition();
+		System.out.println(q.getPosition());
+		Clue clue = new ClueDistance(q);
+		Clue dist = new ClueDirection(q);
+		Random rand = new Random();
+		float alea = rand.nextFloat();
+		if (alea >0.5) {
+			p1 = new Sphynx(t, "sphnx", clue);
+		}
+		else {
+			p1 = new Sphynx(t, "sphnx", dist);
+		}
+		
+		
 		Chest c = new Chest("or" , x);
-		Trader trader = new Trader("marchand" , t);
 		Objets o = new Parchemins("par", t) ;
-		p.use_Items(c);
-		//System.out.println(p.getGoldValue()) ;
-		//System.out.println(p.ask(trader));
-		//trader.giveIndice(p) ;
-		//System.out.println(p.getGoldValue()) ;
 		
-		//System.out.println(c.getGold()) ;
 		
-		Quest q = new Quest(x);
-		System.out.println(q.quete(p)) ;
 		System.out.println(p.ask(p1));
+		
 		
 		
 		

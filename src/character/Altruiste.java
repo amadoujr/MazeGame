@@ -8,14 +8,16 @@ import grille.Cell;
  */
 public class Altruiste extends RandomCharacter{
 	
-	
-	
+	private Clue index;
+
 	/**
 	 * @param name of the character (Altruist)
 	 * @param position the position of the altruist in the Game
+	 * @param i the clue to give
 	 */
-	public Altruiste(String name, Cell position ) {
+	public Altruiste(String name, Cell position , Clue i ) {
 		super(name, position);
+		this.index = i;
 		
 	}
 
@@ -28,15 +30,7 @@ public class Altruiste extends RandomCharacter{
 	public String giveIndice(Character p) {
 		Random rand = new Random();
 		float f = rand.nextFloat();
-		if ( f >=0.5) {
-			Clue indice = new ClueDirection();
-			return indice.giveIndice(p);
-			
-		}
-		else {
-			Clue indice = new ClueDistance();
-			return indice.giveIndice(p);
-		}
+		return this.index.giveIndice(p);
 	}
 
   public void move(Cell c) {

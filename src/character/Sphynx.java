@@ -12,9 +12,10 @@ import grille.Cell;
 	
 
 public class Sphynx extends FixeCharacter {
-
-	public Sphynx(Cell cell, String name) {
+	private Clue index;
+	public Sphynx(Cell cell, String name, Clue i) {
 		super(cell, name);
+		this.index = i;
 
 
  
@@ -27,17 +28,10 @@ public class Sphynx extends FixeCharacter {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Qui a ecrit le seigneur des anneaux: ");
 		String rep = scan.nextLine();
-		Random rand = new Random();
-		float f = rand.nextFloat();
-		if (rep.equalsIgnoreCase("tolkien") && f >= 0.5) {
-			Clue indice = new ClueDirection();
-			return "bonne réponse !! "+ indice.giveIndice(p);
+		if (rep.equalsIgnoreCase("tolkien")) {
+			//Clue indice = new ClueDirection();
+			return this.index.giveIndice(p);
 		}
-		else if (rep.equalsIgnoreCase("tolkien") && f < 0.5)  {
-			Clue indice = new ClueDistance();
-			return "bonne réponse !! " + indice.giveIndice(p);
-		}
-
 		
 		else {
 			return " mauvaise réponse !! ";

@@ -3,14 +3,18 @@ import grille.Cell;
 import objets.*;
 import java.util.*;
 
+import game.Quest;
+
 public class Trader extends RandomCharacter  {
 	
 	private int goods;
 	private final int price;
-	public Trader(String name, Cell position) {
+	private Clue index;
+	public Trader(String name, Cell position, Clue i) {
 		super(name, position);
 		this.price = 5;
 		this.goods = 0;
+		this.index = i;
 		
 
 		// TODO Auto-generated constructor stub
@@ -26,15 +30,8 @@ public class Trader extends RandomCharacter  {
 			v-=5 ;
 			((Heros) p).setGoldvalue(v);
 			this.goods +=5 ;
+			return this.index.giveIndice(p);
 			
-			if (f >= 0.5) {
-				ClueDirection indice = new ClueDirection();
-				return indice.giveIndice(p);
-			}
-			else {
-				ClueDistance indice = new ClueDistance();
-				return indice.giveIndice(p);
-			}
 			}
 		else {
 			return "Je ne te donne pas d'indice" ;

@@ -15,13 +15,6 @@ public class MadCharacter extends RandomCharacter implements Clue   {
 		return " " ;
 	}
 
-	/*public void move() {
-		// TODO Auto-generated method stub
-		Random rand = new Random();
-		int xposition = rand.nextInt();
-		int yposition = rand.nextInt();
-	}
-*/
 
 	public void move(Cell c ) {
 		
