@@ -1,5 +1,6 @@
 package character;
 import game.Quest;
+import grille.Board;
 import grille.Cell;
 
 public abstract class RandomCharacter extends MoveCharacter {
@@ -11,5 +12,7 @@ public abstract class RandomCharacter extends MoveCharacter {
 		this.clue = clue ; 
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 }

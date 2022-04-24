@@ -268,17 +268,7 @@ public class Board {
 		
 	
 	
-     public void randomove(RandomCharacter pers) {
-    	 
-		  Cell c = this.chooseRandomCell(pers.getPosition());
-			pers.setPosition(c);
-	
-		
-		
-		
-	
-		
-	}
+    
 
 
 }

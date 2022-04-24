@@ -1,4 +1,5 @@
 package character;
+import grille.Board;
 import grille.Cell;
 import objets.*;
 import java.util.*;
@@ -40,7 +41,5 @@ public class Trader extends RandomCharacter  {
 	}
 
 	
-	public void move(Cell c ) {
-		
-	}
+	
 }

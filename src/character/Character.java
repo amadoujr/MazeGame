@@ -24,7 +24,12 @@ public abstract class Character implements Action , Clue  {
 	}
 
 	
-	
+	public void move(Board b ) {
+		Cell random ;
+		random = b.chooseRandomCell(position) ;
+		this.setPosition(random);
+		
+	}
 	
 	
 }
