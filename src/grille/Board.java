@@ -2,7 +2,7 @@ package grille;
 
 import java.util.*;
 
-import character.*;  
+import characters.*;  
 public class Board {
 	
 	private Cell[][] board ;

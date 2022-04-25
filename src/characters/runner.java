@@ -1,4 +1,4 @@
-package character;
+package characters;
 import game.Quest;
 import grille.*;
 
@@ -15,7 +15,7 @@ public class runner {
 		Cell s = new Cell(6,6) ;
 		
 		Board b = new Board(6,6);
-		//b.choice() ;
+	   // b.choice() ;
 		System.out.println();
 		
 		Heros p = new Heros("emma" , n); 
@@ -24,12 +24,25 @@ public class runner {
 		
 		
 		
-		Character p1;
-		Quest q = new Quest(b);
-		q.setPosition();
+		Characters p1;
+		
 		//System.out.println(q.getPosition());
-		Clue clue = new ClueDistance(q);
-		Clue dist = new ClueDirection(q);
+	
+		
+		//System.out.println(p.ask(p1));
+		
+		
+		
+		//System.out.println(p.getPosition()) ; 
+		Quest quest = new Quest(b);
+		//System.out.println(quest.getPosition());
+		//quest.setPosition() ;
+		//System.out.println(quest.getPosition());
+	//	System.out.println(quest.quest(p));
+		
+		
+		Clue clue = new ClueDistance(quest);
+	  Clue dist = new ClueDirection(quest);
 		Random rand = new Random();
 		float alea = rand.nextFloat();
 		if (alea >0.5) {
@@ -43,21 +56,16 @@ public class runner {
 		Chest c = new Chest("or" , x);
 		Objets o = new Parchemins("par", t, dist) ;
 		
-		
-		//System.out.println(p.ask(p1));
-		
-		Character p2 = new Trader("xx", t, clue) ;
-		//System.out.println(p2.getPosition()) ; 
-		//p2.move(b);
-		
-		System.out.println(p.getPosition()) ; 
-		Quest quest = new Quest(b);
-		System.out.println(quest.getPosition());
-		System.out.println(quest.quest(p));
+		Characters p2 = new Trader("xx", t, clue) ;
+		System.out.println(p2.getPosition()) ;
+		p2.move(b);
+		System.out.println(p2.getPosition()) ;
+				
 		
 		
 		
-		;
+		
+		
 		
 		
 		

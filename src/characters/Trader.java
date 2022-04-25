@@ -1,4 +1,4 @@
-package character;
+package characters;
 import grille.Board;
 import grille.Cell;
 import objets.*;
@@ -21,11 +21,11 @@ public class Trader extends RandomCharacter  {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String giveIndice(Character p) {
+	public String giveIndice(Characters p) {
 		//Scanner scan = new Scanner(System.in);
 		Random rand = new Random();
 		float f = rand.nextFloat();
-		System.out.println("j'échange un indice contre: "+ price+" piéces d'or");
+		System.out.println("j'échange un indice contre: "+ price +" piéces d'or");
 		  if(p instanceof Heros && ((Heros) p).getGoldValue() >=5) {
 			int v = ((Heros) p).getGoldValue();
 			v-=5 ;

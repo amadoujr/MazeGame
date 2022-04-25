@@ -1,4 +1,4 @@
-package character;
+package characters;
 
 import game.Quest;
 import grille.Cell;
@@ -23,7 +23,7 @@ public class ClueDistance  implements Clue{
 	 *@param p the character to give the clue
 	 *@return distance index
 	 */
-	public String giveIndice(Character p) {
+	public String giveIndice(Characters p) {
 		return "le but se trouve à la position " + this.quest.getPosition() ;
 	}
 

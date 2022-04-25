@@ -1,11 +1,11 @@
-package character;
+package characters;
 
 import grille.Board;
 import grille.Cell;
 import objets.Objets;
 
 	
-public class MoveCharacter extends Character  {
+public class MoveCharacter extends Characters  {
 
 	public MoveCharacter(Cell cell, String name) {
 		super(name, cell);
@@ -13,13 +13,15 @@ public class MoveCharacter extends Character  {
 	}
 
 	@Override
-	public void move(Board b) {
-		// TODO Auto-generated method stub
+	public void move(Board b ) {
+		Cell random ;
+		random = b.chooseRandomCell(position) ;
+		this.setPosition(random);
 		
 	}
 
 	@Override
-	public String ask(Character perso) {
+	public String ask(Characters perso) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -32,7 +34,7 @@ public class MoveCharacter extends Character  {
 
 
 	@Override
-	public String giveIndice(Character p) {
+	public String giveIndice(Characters p) {
 		// TODO Auto-generated method stub
 		return null;
 	}

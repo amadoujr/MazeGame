@@ -1,4 +1,4 @@
-package character;
+package characters;
 import game.Quest;
 import grille.*;
 
@@ -21,7 +21,7 @@ public class ClueDirection implements Clue  {
 	/**
 	 * @param p the character to give the clue (in our case the Hero )
 	 */
-	public String giveIndice (Character p ) {
+	public String giveIndice (Characters p ) {
 		int x = this.quest.getPosition().getX() - p.getPosition().getX(); 
 		int y = this.quest.getPosition().getY() - p.getPosition().getY();
 		String clue = "";

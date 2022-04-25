@@ -1,4 +1,4 @@
-package character;
+package characters;
 import grille.Cell;
 import java.util.*;
 
@@ -11,7 +11,7 @@ public class MadCharacter extends RandomCharacter implements Clue   {
 
 	@Override
 
-	public String giveIndice(Character p) {
+	public String giveIndice(Characters p) {
 		Random rand = new Random();
 		float alea = rand.nextFloat();
 		if (alea >0.5) {

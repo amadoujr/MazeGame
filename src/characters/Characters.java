@@ -1,12 +1,12 @@
-package character;
+package characters;
 import grille.* ;
 
 
-public abstract class Character implements Action , Clue  {
+public abstract class Characters implements Action , Clue  {
 	protected String name ; 
 	protected Cell position ;
 	
-	public Character(String name , Cell position) {
+	public Characters(String name , Cell position) {
 		this.name = name ; 
 		this.position = position ;
 	}
@@ -24,12 +24,7 @@ public abstract class Character implements Action , Clue  {
 	}
 
 	
-	public void move(Board b ) {
-		Cell random ;
-		random = b.chooseRandomCell(position) ;
-		this.setPosition(random);
-		
-	}
+	
 	
 	
 }

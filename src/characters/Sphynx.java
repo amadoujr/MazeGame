@@ -1,4 +1,4 @@
-package character;
+package characters;
 
 import java.util.*;
 
@@ -22,7 +22,7 @@ public class Sphynx extends FixeCharacter {
 		
 	}
 	
-	public String giveIndice(Character p) {
+	public String giveIndice(Characters p) {
 
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);

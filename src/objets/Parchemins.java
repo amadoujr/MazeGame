@@ -1,8 +1,7 @@
 package objets;
 import java.util.Random;
 
-import character.*;
-import character.Character;
+import characters.*;
 import grille.*;
 
 
@@ -21,7 +20,7 @@ public class Parchemins extends Objets implements Clue {
 	 */
 
 	@Override
-	public void useObject(Character p) {
+	public void useObject(Characters p) {
 		System.out.println(this.giveIndice(p));
 	}
 	/**
@@ -29,7 +28,7 @@ public class Parchemins extends Objets implements Clue {
 	 * @param p the hero
 	 * @return the clue
 	 */
-	public String giveIndice(Character p) {
+	public String giveIndice(Characters p) {
 		  return this.clue.giveIndice(p);
 		
 		

@@ -1,4 +1,4 @@
-package character;
+package characters;
 import java.util.*;
 
 import grille.Board;
@@ -33,7 +33,7 @@ public class Heros extends MoveCharacter  {
 		this.goldvalue = goldvalue ;
 	}
 
-	 public String ask(Character c) {
+	 public String ask(Characters c) {
 		 return c.giveIndice(this);
 	 }
 	

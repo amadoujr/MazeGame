@@ -1,11 +1,11 @@
-package character;
+package characters;
 
 import grille.Board;
 import grille.Cell;
 import objets.Objets;
 
 
-public class FixeCharacter extends Character {
+public class FixeCharacter extends Characters {
 
 	public FixeCharacter(Cell cell, String name) {
 		super(name, cell);
@@ -19,7 +19,7 @@ public class FixeCharacter extends Character {
 	}
 
 	@Override
-	public String ask(Character perso) {
+	public String ask(Characters perso) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -31,7 +31,7 @@ public class FixeCharacter extends Character {
 
 
 	@Override
-	public String giveIndice(Character p) {
+	public String giveIndice(Characters p) {
 		// TODO Auto-generated method stub
 		return null;
 	}
