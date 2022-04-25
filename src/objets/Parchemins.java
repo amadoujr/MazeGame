@@ -1,16 +1,16 @@
 package objets;
 import java.util.Random;
-
 import characters.*;
 import grille.*;
 
 
 public class Parchemins extends Objets implements Clue {
-	private Clue clue ;
-
+	
+	private Clue clue;
+	
 	public Parchemins(String name, Cell position,Clue clue) {
 		super(name, position); 
-		this.clue = clue ; 
+		this.clue = clue;
 		
 	}
 	
@@ -28,12 +28,12 @@ public class Parchemins extends Objets implements Clue {
 	 * @param p the hero
 	 * @return the clue
 	 */
+
 	public String giveIndice(Characters p) {
 		  return this.clue.giveIndice(p);
 		
-		
-		}
-	
+	}
+
 	}
 
 

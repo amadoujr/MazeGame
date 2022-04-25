@@ -26,7 +26,7 @@ public class Game {
 	}
 	
 	public boolean isFinished() {
-		return this.quest.quest(hero);
+		return this.quest.getQuest(hero);
 	}
 	
 	public void setHeros(Heros hero) {

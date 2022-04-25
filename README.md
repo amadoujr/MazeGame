@@ -39,9 +39,13 @@ objectifs atteints
 
 ## Livrable 3
 
-### Atteinte des objectifs
+Objectif : modélisations des actions
 
+### Atteinte des objectifs
+Tous les objectifs n'ont pas été atteints, Cependant nous avons pu gérer : les indices, la quête du joueur
 ### Difficultés restant à résoudre
+
+Gérer le déplacement des personnages
 
 ## Livrable 4
 
