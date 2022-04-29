@@ -1,5 +1,5 @@
 package objets;
-import character.Character;
+import characters.Characters;
 import grille.Cell;
 
 /**
@@ -33,7 +33,7 @@ public class Chest extends Objets  {
 	}
 	
 	/** methods useObject not used */
-	public void useObject(Character p) {
+	public void useObject(Characters p) {
 		
 		
 	}

@@ -2,7 +2,7 @@ package grille;
 
 import java.util.*;
 
-import character.*;  
+import characters.*;  
 public class Board {
 	
 	private Cell[][] board ;
@@ -221,9 +221,7 @@ public class Board {
 		 String rep = sc.nextLine() ;
 		 System.out.println();
 
-	     System.out.println("Vous avez choisis : " + rep ) ;
-	   System.out.println("Vous avez choisis : " + rep ) ;
-		
+	     System.out.println("Vous avez choisis : " + rep ) ;		
 		 if(rep.equalsIgnoreCase("Exhaustif")){
 			 generateExhaustif() ;
 			 this.Display();
@@ -270,19 +268,12 @@ public class Board {
 
 		}
 		
-	
-	
-     public void randomove(RandomCharacter pers) {
-    	 
-		  Cell c = this.chooseRandomCell(pers.getPosition());
-			pers.setPosition(c);
-	
 		
-		
-		
+		public void addHeros() {
+			
+		}
 	
-		
-	}
+    
 
 
 }

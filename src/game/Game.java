@@ -1,29 +1,28 @@
 package game;
+
 import java.util.*;
-import character.Heros;
-import character.RandomCharacter;
+import characters.*;
+import characters.RandomCharacter;
 import grille.Board;
 import grille.Cell;
 import grille.Direction;
 import objets.Objets;
 
-
 public class Game {
-	
 	protected Board board;
 	protected List<RandomCharacter> characters;
-	protected Objets objets;
 	protected boolean finished;
 	protected Quest quest;
 	protected Heros hero;
+	protected Objets objets;
+
 	
-	
-	public Game(Board board, Quest quest, Heros hero) {
+
+	public Game(Board board, Quest quest) {
 		this.board = board;
 		this.characters = new ArrayList<>();
 		this.finished = false;
 		this.quest = quest;
-		this.hero = hero;
 		
 	}
 	

@@ -1,9 +1,9 @@
 package game;
+
 import grille.Board;
 import grille.Cell;
 import java.util.*;
-import character.*;
-import character.Character;
+import characters.*;
 
 public class Quest {
 	
@@ -28,7 +28,7 @@ public class Quest {
 		return this.position;
 	}
 	
-	public boolean getQuest(Character c) {
+	public boolean getQuest(Characters c) {
 		if(c instanceof Heros && ((Heros) c).getGoldValue() == goldvalue && ((Heros)c).getPosition().equals(this.getPosition())) {
 			return true;
 		}
@@ -36,6 +36,4 @@ public class Quest {
 			return false;
 		}
 	}
-	
-	
 }
