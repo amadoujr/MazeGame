@@ -9,30 +9,22 @@ import java.util.*;
 
 public class runner {
 	public static void main(String[] args) {
-		Cell t = new Cell(2,3) ;
-		Cell x = new Cell(0,2) ;
-		Cell n = new Cell(0,0);
-		Cell s = new Cell(6,6) ;
-		
 		Board b = new Board(6,6);
-	   // b.choice() ;
+		Cell t = b.getCell(2,3) ;
+		Cell x =b.getCell(1,2) ;
+		Cell n =b.getCell(0,2);
+		 
+		
+		
+	    b.choice() ;
+		
 		System.out.println();
 		
 		Heros p = new Heros("emma" , n); 
 		p.setGoldvalue(50);
-		
-		
-		
-		
 		Characters p1;
-		
 		//System.out.println(q.getPosition());
-	
-		
 		//System.out.println(p.ask(p1));
-		
-		
-		
 		//System.out.println(p.getPosition()) ; 
 		Quest quest = new Quest(b);
 		//System.out.println(quest.getPosition());
@@ -57,9 +49,14 @@ public class runner {
 		Objets o = new Parchemins("par", t, dist) ;
 		
 		Characters p2 = new Trader("xx", t, clue) ;
-		System.out.println(p2.getPosition()) ;
-		p2.move(b);
-		System.out.println(p2.getPosition()) ;
+		//System.out.println(p2.getPosition()) ;
+		//p2.move(b);
+		//System.out.println(p2.getPosition()) ;
+		//System.out.println(p.ask(p2)) ;
+		
+		p.move(b);
+		
+		
 				
 		
 		

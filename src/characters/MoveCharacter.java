@@ -12,14 +12,15 @@ public class MoveCharacter extends Characters  {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void move(Board b ) {
-		Cell random ;
-		random = b.chooseRandomCell(position) ;
+	
+	/*@Override
+	public void move(Cell c ) {
+		
+		c = b.chooseRandomCell(position) ;
 		this.setPosition(random);
 		
 	}
-
+*/
 	@Override
 	public String ask(Characters perso) {
 		// TODO Auto-generated method stub

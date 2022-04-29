@@ -12,10 +12,10 @@ import grille.Cell;
 	
 
 public class Sphynx extends FixeCharacter {
-	private Clue index;
+	private Clue indice;
 	public Sphynx(Cell cell, String name, Clue i) {
 		super(cell, name);
-		this.index = i;
+		this.indice = i;
 
 
  
@@ -30,7 +30,7 @@ public class Sphynx extends FixeCharacter {
 		String rep = scan.nextLine();
 		if (rep.equalsIgnoreCase("tolkien")) {
 			//Clue indice = new ClueDirection();
-			return this.index.giveIndice(p);
+			return this.indice.giveIndice(p);
 		}
 		
 		else {

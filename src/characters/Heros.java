@@ -3,6 +3,7 @@ import java.util.*;
 
 import grille.Board;
 import grille.Cell;
+import grille.Direction;
 import objets.*;
 
 
@@ -19,10 +20,7 @@ public class Heros extends MoveCharacter  {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void move(Board b) {
-		// TODO Auto-generated method stub	
-	}
+	
 
 
 	public int getGoldValue() {

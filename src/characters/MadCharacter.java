@@ -22,6 +22,8 @@ public class MadCharacter extends RandomCharacter implements Clue   {
 		}
 	}
 
+	
+	
 
 	public void move(Cell c ) {
 		

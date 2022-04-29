@@ -50,6 +50,12 @@ public class Game {
 	}
 	
 	
+	public void play() {
+		while(! this.finished) {
+			
+		}
+	}
+	
 
 	
 
