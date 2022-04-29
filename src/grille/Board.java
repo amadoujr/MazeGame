@@ -8,10 +8,7 @@ public class Board {
 	private Cell[][] board ;
 	private int rows ;
 	private int cols ;
-
 	private Stack<Cell> stackcell = new Stack <>();
-	//private List<RandomCharacter> allcharacter = new ArrayList<>() ;
-	//private Character heros ;
 	
 	public Board(int rows ,int cols) {
 		
@@ -24,16 +21,9 @@ public class Board {
 				
 			}
 		}
-
-
-		
 		    
 	}
 	
-	
-	
-	
-
 
 	/**
 	 * this methods take a cell in the parameter and return the list of neighbors of this cell 
@@ -73,7 +63,11 @@ public class Board {
 		return false ; 
 	}
 
-	
+	/**
+	 * this methods allows us to choose a random neighbors for a cell
+	 * @param n the cell
+	 * @return the random choosen cell
+	 */
 	public Cell chooseRandomCell(Cell n) {
 
 		List<Cell> allUnvisitedNeigbours = new ArrayList<>();
@@ -92,10 +86,22 @@ public class Board {
 		int pos = random.nextInt(allUnvisitedNeigbours.size());
 		rand = allUnvisitedNeigbours.get(pos);
 		return rand ;
-
-
+	}
+	
+	public Cell getNeighbour(Cell cell, Direction key) {
+		switch(key) {
+		case NORTH:
+			return this.getCell(cell.getX()+1, cell.getY());			
+		case SOUTH:
+			return this.getCell(cell.getX()-1, cell.getY());
+		case EAST:
+			return this.getCell(cell.getX(), cell.getY()-1);
+		case WEST:
+			return this.getCell(cell.getX(), cell.getY()+1);
+		default:
+			return null;
+		}
 		
-
 	}
 
 		
@@ -229,8 +235,6 @@ public class Board {
 			
 		}
 		
-		
-		
 	}
 	
 	/*	
@@ -241,7 +245,7 @@ public class Board {
 		for(int i = 0 ; i<rows ; i++) {
 			System.out.println() ;
 			for(int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].getWall(Direction.SUD)) {
+				if(this.board[i][j].getWall(Direction.SOUTH)) {
 					System.out.print("+---");
 				}
 				else {
@@ -250,7 +254,7 @@ public class Board {
 			}
 			System.out.println("+");
 			for (int j = 0 ; j< cols ;j++) {
-				if(this.board[i][j].getWall(Direction.EST)) {
+				if(this.board[i][j].getWall(Direction.EAST)) {
 					System.out.print("|   ");
 				}
 				else {

@@ -1,6 +1,5 @@
 package character;
-import game.Quest;
-import grille.Board;
+import java.util.*;
 import grille.Cell;
 
 public abstract class RandomCharacter extends MoveCharacter {
@@ -12,11 +11,15 @@ public abstract class RandomCharacter extends MoveCharacter {
 		this.clue = clue ; 
 		// TODO Auto-generated constructor stub
 	}
+	
 	/**
-	public void move(Board b) {
-		Cell random;
-		random = b.chooseRandomCell(position);
-		super.setPosition(random);
+	 * set the player cell after a move
+	 * @param position 
+	 */
+	public void move(Cell position) {
+		this.setPosition(position);
+		
+
 	}
-	*/
+	
 }

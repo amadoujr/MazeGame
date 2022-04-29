@@ -12,7 +12,7 @@ public class MoveCharacter extends Character  {
 	}
 
 	@Override
-	public void move(Board b) {
+	public void move(Cell Position) {
 		// TODO Auto-generated method stub
 		
 		

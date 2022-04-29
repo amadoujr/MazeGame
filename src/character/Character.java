@@ -22,7 +22,12 @@ public abstract class Character implements Action , Clue  {
 	public void setPosition(Cell position) {
 		this.position = position;
 	}
+	@Override
+	public String toString() {
+		return this.getName();
+	}
 
+	
 	
 	
 	

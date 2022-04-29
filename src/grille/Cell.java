@@ -4,8 +4,8 @@ import java.util.*;
 
 
 public class Cell {
-	private final int x ;
-	private  final int y ; 
+	private final  int x ;
+	private final int y ;
 	private Map<Direction, Boolean> walls ;
 	private boolean visited;
 
@@ -19,8 +19,10 @@ public class Cell {
 		this.y = y ;
 		this.visited = false;
 		this.walls = new HashMap<>();
-	    this.walls.put(Direction.EST, true);
-	    this.walls.put(Direction.SUD, true);
+	    this.walls.put(Direction.EAST, true);
+	    this.walls.put(Direction.SOUTH, true);
+	    this.walls.put(Direction.WEST, true);
+	    this.walls.put(Direction.NORTH, true);
 	   
 	}
 	
@@ -31,6 +33,7 @@ public class Cell {
 	}
 		
 	
+
 	/**
 	 * @return a boolean value
 	 */
@@ -55,19 +58,25 @@ public class Cell {
 		 int ycoord = next.getY()- this.getY();
 		 
 		 if (xcoord == 1 && next.getY()== this.getY() ) {
-			 next.walls.put(Direction.SUD,false);
+			 next.walls.put(Direction.SOUTH,false);
+			 this.walls.put(Direction.NORTH,false);
+			 
 		 }
 		 else if (xcoord == -1 && next.getY()== this.getY() ) {
-			 this.walls.put(Direction.SUD,false);
+			 this.walls.put(Direction.SOUTH,false);
+			 next.walls.put(Direction.NORTH, false);
 		 }
 		 
 		 if( ycoord == 1 && next.getX()== this.getX()) {
 			
-			 next.walls.put(Direction.EST,false);
+			 this.walls.put(Direction.WEST,false);
+			 next.walls.put(Direction.EAST,false);
+
 		 }
 		 else if( ycoord == -1 && next.getX()== this.getX()) {
 			
-			 this.walls.put(Direction.EST,false);
+			 next.walls.put(Direction.WEST,false);
+			 this.walls.put(Direction.EAST,false);
 		 }
 	}
 	
@@ -86,7 +95,8 @@ public class Cell {
 	
 		return this.y ;
 	}	
-		
+	
+
 
 	/**
 	 * @param key of the HashMap which is a direction
@@ -104,9 +114,23 @@ public class Cell {
 	     this.walls.put(key, value);
 	}
 
+	/**
+	 * @return all Direction of an Cell that a wall is open 
+	 */
+	public List<Direction> openCell(){
+		List<Direction> direction = new ArrayList<>();
+		for (Direction key : this.walls.keySet()) {
+			if (!this.getWall(key)) {
+				direction.add(key);
+			}
+		}
+		return direction;
+	}
+	
 	 
 	public boolean is_there_a_closed_cell() {
-	     if (this.walls.get(Direction.EST)  && this.walls.get(Direction.SUD)) {
+	     if (this.walls.get(Direction.EAST)  && this.walls.get(Direction.SOUTH) &&
+	    		 this.walls.get(Direction.NORTH) && this.walls.get(Direction.WEST)) {
 	    	 return true;
 	     }
 	     return false;

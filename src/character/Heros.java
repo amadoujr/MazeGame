@@ -19,8 +19,9 @@ public class Heros extends MoveCharacter  {
 	}
 
 	@Override
-	public void move(Board b ) {
+	public void move(Cell position ) {
 		// TODO Auto-generated method stub	
+		this.setPosition(position);
 	}
 
 
@@ -32,6 +33,7 @@ public class Heros extends MoveCharacter  {
 		this.goldvalue = goldvalue ;
 	}
 
+	
 	 public String ask(Character c) {
 		 return c.giveIndice(this);
 	 }
@@ -57,7 +59,6 @@ public class Heros extends MoveCharacter  {
 		
 	}
 	
-	
 	/**
 	 * get the items
 	 * @return allObjects of the hero
@@ -75,7 +76,17 @@ public class Heros extends MoveCharacter  {
 	}
 	
 	
-	
+	public String aroundCell(Character c) {
+		String res = "";
+		if (this.position.equals(c.position)) {
+			res += "ici se trouve : le " + c.toString();
+		}
+		else {
+			res+= "ici se trouve : joueur avec "+ this.goldvalue+ " or";
+		}
+		
+		return res;
+	}
 	
 	
 	

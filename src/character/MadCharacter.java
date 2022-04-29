@@ -2,7 +2,7 @@ package character;
 import grille.Cell;
 import java.util.*;
 
-public class MadCharacter extends RandomCharacter implements Clue   {
+public class MadCharacter extends RandomCharacter {
 
 	public MadCharacter(String name, Cell position, Clue clue) {
 		super(name, position, clue);
@@ -17,10 +17,6 @@ public class MadCharacter extends RandomCharacter implements Clue   {
 		
 	}
 
-
-	public void move(Cell c ) {
-		
-	}
 
 
 
