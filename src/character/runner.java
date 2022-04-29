@@ -1,5 +1,5 @@
 package character;
-import game.Play;
+import game.Game;
 import game.Quest;
 import grille.*;
 
@@ -27,16 +27,16 @@ public class runner {
 		
 		Heros h = new Heros("amadou",c1);
 		//h.setGoldvalue(10);
-		Play play = new Play(b,quest,h);
+		Game game = new Game(b,quest,h);
 		Trader p = new Trader("emma" ,c2, clue); 
 
 		MadCharacter f = new MadCharacter("amadou",c1,clue);
 		
-		play.addCharacter(p);
-		play.addCharacter(f);
+		game.addCharacter(p);
+		game.addCharacter(f);
 		
 	   // h.aroundCell(p);
-	    play.play();
+	    game.play();
 	    
 
 		

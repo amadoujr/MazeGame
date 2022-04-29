@@ -8,7 +8,7 @@ import grille.Direction;
 import objets.Objets;
 
 
-public class Play {
+public class Game {
 	
 	protected Board board;
 	protected List<RandomCharacter> characters;
@@ -18,7 +18,7 @@ public class Play {
 	protected Heros hero;
 	
 	
-	public Play(Board board, Quest quest, Heros hero) {
+	public Game(Board board, Quest quest, Heros hero) {
 		this.board = board;
 		this.characters = new ArrayList<>();
 		this.finished = false;
