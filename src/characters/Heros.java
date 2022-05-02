@@ -1,7 +1,6 @@
 package characters;
 import java.util.*;
-
-import grille.Board;
+import characters.*;
 import grille.Cell;
 import grille.Direction;
 import objets.*;
@@ -21,6 +20,11 @@ public class Heros extends MoveCharacter  {
 	}
 
 	
+	@Override
+	public void move(Cell position) {
+		// TODO Auto-generated method stub	
+		this.setPosition(position);
+	}
 
 
 	public int getGoldValue() {
@@ -51,7 +55,7 @@ public class Heros extends MoveCharacter  {
 			
 		}
 		else {
-			o.useObject(this);
+			o.useObjet(this);
 		}
 		
 	}
@@ -73,6 +77,18 @@ public class Heros extends MoveCharacter  {
 		this.allItems = items ;
 	}
 	
+	
+	public String aroundCell(RandomCharacter c) {
+		String res = "";
+		if (this.position.equals(c.getPosition())) {
+			res += "ici se trouve : le " + c.toString();
+		}
+		else {
+			res+= "ici se trouve : joueur avec "+ this.goldvalue+ " or";
+		}
+		
+		return res;
+	}
 	
 	
 	

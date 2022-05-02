@@ -13,14 +13,13 @@ public class MoveCharacter extends Characters  {
 	}
 
 	
-	/*@Override
-	public void move(Cell c ) {
+	@Override
+	
+	public void move(Cell position ) {
 		
-		c = b.chooseRandomCell(position) ;
-		this.setPosition(random);
 		
 	}
-*/
+
 	@Override
 	public String ask(Characters perso) {
 		// TODO Auto-generated method stub

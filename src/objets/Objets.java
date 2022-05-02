@@ -30,8 +30,13 @@ public abstract class Objets {
 		this.position = position;
 	}
 	
-	public abstract void useObject(Characters p) ;
+	public abstract void useObjet(Characters p) ;
 		
+	
+	public String toString() {
+		return this.getName();
+	}
+
 	
 
 }

@@ -20,7 +20,7 @@ public class Parchemins extends Objets implements Clue {
 	 */
 
 	@Override
-	public void useObject(Characters p) {
+	public void useObjet(Characters p) {
 		System.out.println(this.giveIndice(p));
 	}
 	/**

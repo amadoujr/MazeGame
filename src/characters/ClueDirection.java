@@ -1,6 +1,5 @@
 package characters;
 import game.Quest;
-import grille.*;
 
 /**
  * @author amadouu

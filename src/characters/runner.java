@@ -1,64 +1,51 @@
 package characters;
+import game.Game;
 import game.Quest;
 import grille.*;
-
+import characters.*;
 import objets.*;
 import java.util.*;
 
 
 
+
 public class runner {
 	public static void main(String[] args) {
-		Board b = new Board(6,6);
-		Cell t = b.getCell(2,3) ;
-		Cell x =b.getCell(1,2) ;
-		Cell n =b.getCell(0,2);
-		 
 		
 		
-	    b.choice() ;
 		
+		Board b = new Board(5,5);
+
+		b.generateExhaustif();
+		b.Display();
 		System.out.println();
 		
-		Heros p = new Heros("emma" , n); 
-		p.setGoldvalue(50);
-		Characters p1;
-		//System.out.println(q.getPosition());
-		//System.out.println(p.ask(p1));
-		//System.out.println(p.getPosition()) ; 
+		Cell c1 = b.getCell(0,1);
+		Cell c2 = b.getCell(3,4);
+		//System.out.println(c2.openCell());
+		
 		Quest quest = new Quest(b);
-		//System.out.println(quest.getPosition());
-		//quest.setPosition() ;
-		//System.out.println(quest.getPosition());
-	//	System.out.println(quest.quest(p));
-		
-		
 		Clue clue = new ClueDistance(quest);
-	  Clue dist = new ClueDirection(quest);
-		Random rand = new Random();
-		float alea = rand.nextFloat();
-		if (alea >0.5) {
-			p1 = new Sphynx(t, "sphnx", clue);
-		}
-		else {
-			p1 = new Sphynx(t, "sphnx", dist);
-		}
+
 		
+		Heros h = new Heros("amadou",c1);
+		Objets parchemin = new Parchemins("parchemin" , c1 , clue) ;
+		Objets chest = new Chest("or" , c2 ) ;
+		Game game = new Game(b,quest);
+		game.setHeros(h);
+		RandomCharacter trader = new Trader("emma",c1,clue);
+		RandomCharacter fou = new MadCharacter("lika",c1,clue);
+		game.addCharacter(fou);
+		game.addCharacter(trader);
+		game.addObjets(chest);
+		game.addObjets(parchemin);
 		
-		Chest c = new Chest("or" , x);
-		Objets o = new Parchemins("par", t, dist) ;
-		
-		Characters p2 = new Trader("xx", t, clue) ;
-		//System.out.println(p2.getPosition()) ;
-		//p2.move(b);
-		//System.out.println(p2.getPosition()) ;
-		//System.out.println(p.ask(p2)) ;
-		
-		p.move(b);
 		
 		
 				
 		
+		game.play();
+		//h.setGoldvalue(10);
 		
 		
 		

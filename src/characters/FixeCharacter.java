@@ -13,7 +13,7 @@ public class FixeCharacter extends Characters {
 	}
 
 	@Override
-	public void move(Board b) {
+	public void move(Cell position) {
 		// TODO Auto-generated method stub
 		
 	}

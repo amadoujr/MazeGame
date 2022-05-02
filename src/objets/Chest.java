@@ -33,10 +33,13 @@ public class Chest extends Objets  {
 	}
 	
 	/** methods useObject not used */
-	public void useObject(Characters p) {
+	public void useObjet(Characters p) {
 		
 		
 	}
-
+	
+	public String toString() {
+		return this.getName();
+	}
 	
 }

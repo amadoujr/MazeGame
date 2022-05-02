@@ -12,7 +12,15 @@ public abstract class RandomCharacter extends MoveCharacter {
 		this.clue = clue ; 
 		// TODO Auto-generated constructor stub
 	}
-	
+	/**
+	 * set the player cell after a move
+	 * @param position 
+	 */
+	public void move(Cell position) {
+		this.setPosition(position);
+		
+
+	}
 	
 
 }

@@ -23,7 +23,10 @@ public abstract class Characters implements Action , Clue  {
 		this.position = position;
 	}
 
-	
+	public String toString() {
+		return this.getName();
+	}
+
 	
 	
 	
