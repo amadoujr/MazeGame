@@ -33,9 +33,6 @@ public class Game {
 		return pers;
 	}
 
-
-
-
 	public void setPers(List<RandomCharacter> pers) {
 		this.pers = pers;
 	}
@@ -53,6 +50,14 @@ public class Game {
 		
 	}
 	
+	public List<RandomCharacter> getSameCell() {
+		return sameCell;
+	}
+
+	public void setSameCell(List<RandomCharacter> sameCell) {
+		this.sameCell = sameCell;
+	}
+
 	/**
 	 * @return all items 
 	 */
@@ -72,27 +77,6 @@ public class Game {
 	 * @return all characters presents in the same cell that's the hero is
 	 */
 
-	public void addpers() {
-		for(RandomCharacter c : this.getCharacters()) {
-			if(this.hero.getPosition().equals(c.getPosition())) {
-				this.pers.add(c) ;
-			}
-		}
-		
-		
-	}
-	
-	public List<RandomCharacter> sameCell(){
-		for (RandomCharacter c : this.getCharacters()) {
-			if ( this.hero.getPosition().equals(c)) {
-				sameCell.add(c);
-				System.out.println(c.getName());
-			}
-		}
-
-		return sameCell;
-	}
-	
 	
 	/**
 	 * add character in the maze
@@ -210,7 +194,6 @@ public class Game {
 	
 	
 	public void playTurn() {
-		List<RandomCharacter> sameCell = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in); 
 		//System.out.println();
 		
@@ -249,7 +232,7 @@ public class Game {
 			System.out.println("vous êtes à la case : "+ this.hero.getPosition().toString());
 			
 			System.out.println("ici se trouve : " );
-			sameCell = this.hero.aroundCell(this.characters);
+			this.setSameCell(this.hero.aroundCell(this.characters));
 			for (i=0; i< sameCell.size();i++) {
 				String res2 = sameCell.get(i).getName();
 				System.out.println("               "+ res2);
@@ -260,37 +243,23 @@ public class Game {
 			
 		System.out.println("qui voulez vous interroger ?");
 		int i ;
-		List<RandomCharacter> pers = new ArrayList<>() ;
-		Cell cell = this.hero.getPosition();
 		for(i=0;i<sameCell.size();i++) {
-			String ask = (i + "- "+ sameCell.get(i).getName());
+			String ask = (i + " - "+ sameCell.get(i).getName());
 			System.out.println("         "+ ask);
-			
-		
-		System.out.println("qui voulez vous interroger ?");
-		//Cell cell = this.hero.getPosition();
-		
-
-		for(i=0 ; i<pers.size() ; i++) {
-			String str =(i + " - " + pers.get(i).toString());
-			System.out.println("         "+ str);
 		}
-		
+		//System.out.println(sameCell);
 		int scan = scanner.nextInt() ;
-		System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "interroge " + pers.get(scan).toString() );
-		
-		System.out.println(this.hero.ask(pers.get(scan))) ;
-			
+		System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "interroge " + sameCell.get(scan).toString());
+		System.out.println(this.hero.ask(sameCell.get(scan)));
 		}
 		
 		
 				
-			
+	/*		
 		if (res.equalsIgnoreCase("regarde")) {
 			System.out.println("----------------------------------------------------");
-			int i;
 			System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
-			Cell cell = hero.getPosition();
+			cell = hero.getPosition();
 			System.out.println("autour c'est : ");
 
 			List<Direction> direction = cell.openCell();
@@ -300,7 +269,7 @@ public class Game {
 			}
 		}
 		
-
+*/
 		
 		
 		if(res.equalsIgnoreCase("quitte")) {
@@ -335,6 +304,5 @@ public class Game {
 	}
 	
 	
-	
-
 }
+
