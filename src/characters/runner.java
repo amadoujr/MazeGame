@@ -29,7 +29,7 @@ public class runner {
 		Clue clue = new ClueDistance(quest);
 
 		
-		Heros h = new Heros("amadou",c1);
+		Heros h = new Heros("amadou",c3);
 		Objets parchemin = new Parchemins("parchemin" , c1 , clue) ;
 		Objets chest = new Chest("or" , c2 ) ;
 		Game game = new Game(b,quest);
@@ -44,6 +44,11 @@ public class runner {
 		game.addCharacter(fou2);
 		game.addObjets(chest);
 		game.addObjets(parchemin);
+		
+		game.addpers();
+		
+		System.out.println(game.getPers());
+		
 		
 		
 		

@@ -18,6 +18,8 @@ public class Game {
 	//protected Objets objets;
 	protected List<Objets> objets ;
 	List<RandomCharacter> sameCell = new ArrayList<>();
+	List<RandomCharacter> pers = new ArrayList<>() ;
+	
 
 	
 	/**
@@ -25,6 +27,22 @@ public class Game {
 	 * @param board
 	 * @param quest
 	 */
+
+
+	public List<RandomCharacter> getPers() {
+		return pers;
+	}
+
+
+
+
+	public void setPers(List<RandomCharacter> pers) {
+		this.pers = pers;
+	}
+
+
+
+
 	public Game(Board board, Quest quest) {
 		this.board = board;
 		this.characters = new ArrayList<>();
@@ -53,6 +71,16 @@ public class Game {
 	/**
 	 * @return all characters presents in the same cell that's the hero is
 	 */
+
+	public void addpers() {
+		for(RandomCharacter c : this.getCharacters()) {
+			if(this.hero.getPosition().equals(c.getPosition())) {
+				this.pers.add(c) ;
+			}
+		}
+		
+		
+	}
 	
 	public List<RandomCharacter> sameCell(){
 		for (RandomCharacter c : this.getCharacters()) {
@@ -131,6 +159,9 @@ public class Game {
 				int n = rand.nextInt(direction.size());
 				c.move(board.getNeighbour(cell, direction.get(n)));
 				System.out.println("position " + c.getPosition());
+
+				//System.out.println(c.toString() + "se trouve à la posi "+ cell );
+
 				}	
 			
 	}
@@ -235,6 +266,14 @@ public class Game {
 			String ask = (i + "- "+ sameCell.get(i).getName());
 			System.out.println("         "+ ask);
 			
+		
+		System.out.println("qui voulez vous interroger ?");
+		//Cell cell = this.hero.getPosition();
+		
+
+		for(i=0 ; i<pers.size() ; i++) {
+			String str =(i + " - " + pers.get(i).toString());
+			System.out.println("         "+ str);
 		}
 		
 		int scan = scanner.nextInt() ;
