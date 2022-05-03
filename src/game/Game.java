@@ -17,9 +17,7 @@ public class Game {
 	protected Heros hero;
 	//protected Objets objets;
 	protected List<Objets> objets ;
-	List<RandomCharacter> sameCell = new ArrayList<>();
-	List<RandomCharacter> pers = new ArrayList<>() ;
-	
+	List<RandomCharacter> sameCell = new ArrayList<>();	
 
 	
 	/**
@@ -27,17 +25,6 @@ public class Game {
 	 * @param board
 	 * @param quest
 	 */
-
-
-	public List<RandomCharacter> getPers() {
-		return pers;
-	}
-
-	public void setPers(List<RandomCharacter> pers) {
-		this.pers = pers;
-	}
-
-
 
 
 	public Game(Board board, Quest quest) {
@@ -176,6 +163,14 @@ public class Game {
 		int i;
 		System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
 		Cell cell = hero.getPosition();
+		System.out.println("ici se trouve : ");
+		
+		this.setSameCell(this.hero.aroundCell(this.characters));
+		for (i=0; i< sameCell.size();i++) {
+			String res2 = sameCell.get(i).getName();
+			System.out.println("               "+ res2);
+		}
+		
 		System.out.println("autour c'est : ");
 
 		List<Direction> direction = cell.openCell();
@@ -255,21 +250,28 @@ public class Game {
 		
 		
 				
-	/*		
+			
 		if (res.equalsIgnoreCase("regarde")) {
 			System.out.println("----------------------------------------------------");
 			System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
-			cell = hero.getPosition();
+			int k,i;
+			
+			System.out.println("ici se trouve :");
+			this.setSameCell(this.hero.aroundCell(this.characters));
+			for (i=0; i< sameCell.size();i++) {
+				String res2 = sameCell.get(i).getName();
+				System.out.println("               "+ res2);
+			}
+			
 			System.out.println("autour c'est : ");
-
-			List<Direction> direction = cell.openCell();
-			for (i = 0; i<direction.size();i++) {
-				String str =(direction.get(i) + ": case " + this.board.getNeighbour(cell, direction.get(i)));
+			List<Direction> direct = this.hero.getPosition().openCell();
+			for (k = 0; k<direct.size();k++) {
+				String str =(direct.get(k) + ": case " + this.board.getNeighbour(this.hero.getPosition(), direct.get(k)));
 				System.out.println("         "+ str);
 			}
 		}
 		
-*/
+
 		
 		
 		if(res.equalsIgnoreCase("quitte")) {

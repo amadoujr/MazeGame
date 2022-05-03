@@ -47,20 +47,16 @@ public class runner {
 		Game game = new Game(b,quest);
 		game.setHeros(h);
 		
-		System.out.println("-----------------------");
 		RandomCharacter trader = new Trader("emma",c2,clue);
 		RandomCharacter fou = new MadCharacter("lika",c1,clue);
 		RandomCharacter fou2 = new MadCharacter("pff",c3,clue);
-		
-		System.out.println("-----------------------");
-		
+			
 		game.addCharacter(fou);
 		game.addCharacter(trader);
 		game.addCharacter(fou2);
 		game.addObjets(chest);
 		game.addObjets(parchemin);
 			
-		System.out.println("-----------------------");
 
 		//System.out.println(h.ask(fou2));
 		
