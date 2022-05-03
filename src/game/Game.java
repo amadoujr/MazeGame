@@ -17,11 +17,14 @@ public class Game {
 	protected Heros hero;
 	//protected Objets objets;
 	protected List<Objets> objets ;
-	
+	List<RandomCharacter> sameCell = new ArrayList<>();
 
 	
-
-
+	/**
+	 * constructor
+	 * @param board
+	 * @param quest
+	 */
 	public Game(Board board, Quest quest) {
 		this.board = board;
 		this.characters = new ArrayList<>();
@@ -32,9 +35,9 @@ public class Game {
 		
 	}
 	
-	
-	
-
+	/**
+	 * @return all items 
+	 */
 	public List<Objets> getObjets() {
 		return objets;
 	}
@@ -47,7 +50,20 @@ public class Game {
 		 this.objets.add(o);
 	}
 	
+	/**
+	 * @return all characters presents in the same cell that's the hero is
+	 */
 	
+	public List<RandomCharacter> sameCell(){
+		for (RandomCharacter c : this.getCharacters()) {
+			if ( this.hero.getPosition().equals(c)) {
+				sameCell.add(c);
+				System.out.println(c.getName());
+			}
+		}
+
+		return sameCell;
+	}
 	
 	
 	/**
@@ -114,7 +130,7 @@ public class Game {
 				List<Direction> direction = cell.openCell();
 				int n = rand.nextInt(direction.size());
 				c.move(board.getNeighbour(cell, direction.get(n)));
-
+				System.out.println("position " + c.getPosition());
 				}	
 			
 	}
@@ -163,18 +179,10 @@ public class Game {
 	
 	
 	public void playTurn() {
-		//System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
+		List<RandomCharacter> sameCell = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in); 
-		this.moveOtherCharacter();
 		//System.out.println();
-		//System.out.println("autour c'est : ");
-/*
-		for (RandomCharacter c : this.characters) {
-			//System.out.println(this.hero.aroundCell(c));
-			this.moveHero();
-			break;
-
-		}*/
+		
 		System.out.println();
 		System.out.println("----------------------------------------------------");
 
@@ -194,6 +202,7 @@ public class Game {
 		}
 		
 		if(res.equalsIgnoreCase("bouge")) {
+			this.moveOtherCharacter();
 			System.out.println("veuillez choisir une direction : ");
 			Cell cell = this.hero.getPosition();
 			int i;
@@ -203,54 +212,54 @@ public class Game {
 				System.out.println("         "+ str);
 			}
 			int scan = scanner.nextInt();
-			//this.moveHero();
 			hero.move(this.board.getNeighbour(cell, direction.get(scan)));
 			System.out.println("----------------------------------------------------");
+			
 			System.out.println("vous êtes à la case : "+ this.hero.getPosition().toString());
-			for (RandomCharacter c : this.characters) {
-				System.out.println(this.hero.aroundCell(c));
-				break;
-
+			
+			System.out.println("ici se trouve : " );
+			sameCell = this.hero.aroundCell(this.characters);
+			for (i=0; i< sameCell.size();i++) {
+				String res2 = sameCell.get(i).getName();
+				System.out.println("               "+ res2);
 			}
-		
-		
 		}
 		
 		if(res.equalsIgnoreCase("interroge")) {
 			
+		System.out.println("qui voulez vous interroger ?");
 		int i ;
 		List<RandomCharacter> pers = new ArrayList<>() ;
-		System.out.println("qui voulez vous interroger ?");
-		//Cell cell = this.hero.getPosition();
-		
-		for (RandomCharacter c : this.getCharacters()) {
-			if(this.hero.getPosition().equals(c.getPosition())) {	
-				pers.add(c) ;
-			}
+		Cell cell = this.hero.getPosition();
+		for(i=0;i<sameCell.size();i++) {
+			String ask = (i + "- "+ sameCell.get(i).getName());
+			System.out.println("         "+ ask);
 			
 		}
-		for(i=0 ; i<pers.size() ; i++) {
-			String str =(i + " - " + pers.get(i).toString());
-			System.out.println("         "+ str);
-		}
-		
 		
 		int scan = scanner.nextInt() ;
 		System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "interroge " + pers.get(scan).toString() );
 		
 		System.out.println(this.hero.ask(pers.get(scan))) ;
-		
-		
-			
-		
-	
 			
 		}
 		
 		
 				
 			
-			
+		if (res.equalsIgnoreCase("regarde")) {
+			System.out.println("----------------------------------------------------");
+			int i;
+			System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
+			Cell cell = hero.getPosition();
+			System.out.println("autour c'est : ");
+
+			List<Direction> direction = cell.openCell();
+			for (i = 0; i<direction.size();i++) {
+				String str =(direction.get(i) + ": case " + this.board.getNeighbour(cell, direction.get(i)));
+				System.out.println("         "+ str);
+			}
+		}
 		
 
 		
@@ -279,7 +288,7 @@ public class Game {
 				this.hero.use_Items(o);
 			
 			} 		
-			}
+		}
 	
 	
 	

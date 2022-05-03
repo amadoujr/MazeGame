@@ -16,7 +16,7 @@ public class Heros extends MoveCharacter  {
 			super(position, name);
 			this.allItems = new ArrayList<>();
 			
-		// TODO Auto-generated constructor stub
+		// TODO Auto-gener ated constructor stub
 	}
 
 	
@@ -78,15 +78,21 @@ public class Heros extends MoveCharacter  {
 	}
 	
 	
-	public String aroundCell(RandomCharacter c) {
-		String res = "";
-		if (this.position.equals(c.getPosition())) {
+	public List<RandomCharacter> aroundCell(List<RandomCharacter> characters) {
+		List<RandomCharacter> res = new ArrayList<>();
+		for (RandomCharacter c : characters) {
+			if (this.position.equals(c.position)) {
+				res.add(c);
+			}
+		}
+
+		/**if (this.position.equals(c.getPosition())) {
 			res += "ici se trouve : le " + c.toString();
 		}
 		else {
 			res+= "ici se trouve : joueur avec "+ this.goldvalue+ " or";
 		}
-		
+		*/
 		return res;
 	}
 	
