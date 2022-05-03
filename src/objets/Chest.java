@@ -18,7 +18,7 @@ public class Chest extends Objets  {
 	 */
 	public Chest(String name, Cell position) {
 		super(name,position);
-		this.gold = 10;
+		this.gold = 50;
 
 	}
 

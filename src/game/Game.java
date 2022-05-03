@@ -18,7 +18,7 @@ public class Game {
 	//protected Objets objets;
 	 List<Objets> objets = new ArrayList<>();
 	List<RandomCharacter> sameCell = new ArrayList<>();
-	List<RandomCharacter> pers = new ArrayList<>() ;
+	
 	
 	
 
@@ -28,17 +28,6 @@ public class Game {
 	 * @param board
 	 * @param quest
 	 */
-
-
-	public List<RandomCharacter> getPers() {
-		return pers;
-	}
-
-
-
-	public void setPers(List<RandomCharacter> pers) {
-		this.pers = pers;
-	}
 
 
 
@@ -53,6 +42,14 @@ public class Game {
 		
 	}
 	
+	public List<RandomCharacter> getSameCell() {
+		return sameCell;
+	}
+
+	public void setSameCell(List<RandomCharacter> sameCell) {
+		this.sameCell = sameCell;
+	}
+
 	/**
 	 * @return all items 
 	 */
@@ -72,27 +69,6 @@ public class Game {
 	 * @return all characters presents in the same cell that's the hero is
 	 */
 
-	public void addpers() {
-		for(RandomCharacter c : this.getCharacters()) {
-			if(this.hero.getPosition().equals(c.getPosition())) {
-				this.pers.add(c) ;
-			}
-		}
-		
-		
-	}
-	
-	public List<RandomCharacter> sameCell(){
-		for (RandomCharacter c : this.getCharacters()) {
-			if ( this.hero.getPosition().equals(c)) {
-				sameCell.add(c);
-				System.out.println(c.getName());
-			}
-		}
-
-		return sameCell;
-	}
-	
 	
 	/**
 	 * add character in the maze
@@ -235,7 +211,7 @@ public class Game {
 			this.moveOtherCharacter();
 			System.out.println("veuillez choisir une direction : ");
 			Cell cell = this.hero.getPosition();
-			int i;
+			int i,j;
 			List<Direction> direction = cell.openCell();
 			for (i = 0; i<direction.size();i++) {
 				String str =(i + " - " + direction.get(i));
@@ -248,50 +224,53 @@ public class Game {
 			System.out.println("vous êtes à la case : "+ this.hero.getPosition().toString());
 			
 			System.out.println("ici se trouve : " );
-			sameCell = this.hero.aroundCell(this.characters);
+			this.setSameCell(this.hero.aroundCell(this.characters));
 			for (i=0; i< sameCell.size();i++) {
 				String res2 = sameCell.get(i).getName();
 				System.out.println("               "+ res2);
 			}
+			this.setObjets(this.hero.aroundObjets(objets));
+			for(j=0 ; j<objets.size() ; j++) {
+				String objet = (objets.get(j).getName());
+				System.out.println("               "+ objet + " (valeur : 50 or )")  ;
+			}
+			
 		}
 		
 		if(res.equalsIgnoreCase("interroge")) {
-			
-		System.out.println("qui voulez vous interroger ?");
-		int i ;
-		List<RandomCharacter> pers = new ArrayList<>() ;
-		Cell cell = this.hero.getPosition();
-		for(i=0;i<sameCell.size();i++) {
-			String ask = (i + "- "+ sameCell.get(i).getName());
-			System.out.println("         "+ ask);
-			
-		
-		System.out.println("qui voulez vous interroger ?");
-		//Cell cell = this.hero.getPosition();
 		
 
-		for(i=0 ; i<pers.size() ; i++) {
-			String str =(i + " - " + pers.get(i).toString());
-			System.out.println("         "+ str);
+
+				
+		System.out.println("qui voulez vous interroger ?");
+		int i  ;
+		for(i=0;i<sameCell.size();i++) {
+			String ask = (i + " - "+ sameCell.get(i).getName());
+			System.out.println("         "+ ask);
 		}
 		
-		int scan = scanner.nextInt() ;
-		System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "interroge " + pers.get(scan).toString() );
 		
-		System.out.println(this.hero.ask(pers.get(scan))) ;
-			
+		int scan = scanner.nextInt() ;
+		System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "interroge " + sameCell.get(scan).toString());
+		System.out.println(this.hero.ask(sameCell.get(scan)));
+		
+		
 		}
 		
 		
 				
-			
+		
 		if (res.equalsIgnoreCase("regarde")) {
 			
 			System.out.println("----------------------------------------------------");
+
 			
+
 			System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
+
 			
 			 
+			cell = hero.getPosition();
 			System.out.println("autour c'est : ");
 
 			List<Direction> direction = this.hero.getPosition().openCell();
@@ -300,7 +279,7 @@ public class Game {
 				System.out.println("         "+ str);
 			}
 		}
-		
+	
 
 		
 		
@@ -315,30 +294,24 @@ public class Game {
 			System.out.println("que voulez vous utiliser ?");
 			//Cell cell = this.hero.getPosition();
 			
-			for (Objets o : this.getObjets()) {
-					
-			    System.out.println(0 + " - " + "none");
-				System.out.println(1 + " - " + o.getName());
-				System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + " utilise " + o.toString());
-				this.hero.use_Items(o) ;
-				
-				}
-				
-				System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or " + " utilise " + o.toString());
-				this.hero.use_Items(o);
+			int j ;
+			for(j=0 ; j<objets.size() ; j++) {
+				String objet = (j + " - " + objets.get(j).getName());
+				System.out.println("         "+ objet);
+			}
 			
-			} 		
+			int scan = scanner.nextInt() ;
+			System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "utilise " + objets.get(scan).toString());
+			this.hero.use_Items(objets.get(scan));
+			
+			
 		}
 	
 	
 	
-		
-		}
-		}
-	}
+	}	
+
+      }
 
 	
 	
-	
-
-
