@@ -16,9 +16,10 @@ public class Game {
 	protected Quest quest;
 	protected Heros hero;
 	//protected Objets objets;
-	protected List<Objets> objets ;
+	 List<Objets> objets = new ArrayList<>();
 	List<RandomCharacter> sameCell = new ArrayList<>();
 	List<RandomCharacter> pers = new ArrayList<>() ;
+	
 	
 
 	
@@ -32,7 +33,6 @@ public class Game {
 	public List<RandomCharacter> getPers() {
 		return pers;
 	}
-
 
 
 
@@ -210,7 +210,6 @@ public class Game {
 	
 	
 	public void playTurn() {
-		List<RandomCharacter> sameCell = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in); 
 		//System.out.println();
 		
@@ -287,15 +286,17 @@ public class Game {
 				
 			
 		if (res.equalsIgnoreCase("regarde")) {
+			
 			System.out.println("----------------------------------------------------");
-			int i;
+			
 			System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
-			Cell cell = hero.getPosition();
+			
+			 
 			System.out.println("autour c'est : ");
 
-			List<Direction> direction = cell.openCell();
+			List<Direction> direction = this.hero.getPosition().openCell();
 			for (i = 0; i<direction.size();i++) {
-				String str =(direction.get(i) + ": case " + this.board.getNeighbour(cell, direction.get(i)));
+				String str =(direction.get(i) + ": case " + this.board.getNeighbour(this.hero.getPosition(), direction.get(i)));
 				System.out.println("         "+ str);
 			}
 		}
@@ -315,7 +316,7 @@ public class Game {
 			//Cell cell = this.hero.getPosition();
 			
 			for (Objets o : this.getObjets()) {
-				if(this.hero.getPosition().equals(o.getPosition()) && o instanceof Chest) {		
+					
 			    System.out.println(0 + " - " + "none");
 				System.out.println(1 + " - " + o.getName());
 				System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + " utilise " + o.toString());
@@ -332,9 +333,12 @@ public class Game {
 	
 	
 		
+		}
+		}
 	}
+
 	
 	
 	
 
-}
+

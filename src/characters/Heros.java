@@ -98,6 +98,16 @@ public class Heros extends MoveCharacter  {
 	
 	
 	
+	public List<Objets> aroundObjets(List<Objets> objets){
+		List<Objets> Objets = new ArrayList<>() ;
+		for( Objets o : objets) {
+			if(this.position.equals(o.position)) {
+				Objets.add(o);
+			}
+			
+		}
+		return Objets ; 
+	}
 	
 	
 	
