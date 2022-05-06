@@ -13,20 +13,18 @@ public class runner {
 	public static void main(String[] args) {
 		
 		
-		
-		Board b = new Board(5,5);
-
+		Board b = new Board(15,15);
 		b.generateExhaustif();
 		b.Display();
+		
 		System.out.println();
 		
-		Cell c1 = b.getCell(0,1);
-		Cell c2 = b.getCell(0,1);
-		Cell c3 = b.getCell(0, 2);
-		//System.out.println(c2.openCell());
+		Cell c1 = b.getCell(0,0);
+		Cell c2 = b.getCell(2,2);
+		Cell c3 = b.getCell(3, 3);
 		
 		Quest quest = new Quest(b);
-		
+		quest.setPosition();
 		Clue clue;
 		
 		Random random = new Random();
@@ -39,23 +37,33 @@ public class runner {
 			clue = new ClueDirection(quest);
 
 		}
-
 		
-		Heros h = new Heros("amadou",c3);
-		Objets parchemin = new Parchemins("parchemin" , c1 , clue) ;
-		Objets chest = new Chest("or" , c2 ) ;
+
+		Heros h = new Heros("amadou",c1);
+		int i;
+		for (i=0; i<31;i++){
+		}
+		
+		Objets parchemin = new Parchemins("Parchemin" , c3 , clue) ;
+		Objets chest = new Chest("Or" , c2 ) ;
 		Game game = new Game(b,quest);
 		game.setHeros(h);
 		
-		RandomCharacter trader = new Trader("emma",c2,clue);
-		RandomCharacter fou = new MadCharacter("lika",c1,clue);
-		RandomCharacter fou2 = new MadCharacter("pff",c3,clue);
-			
-		game.addCharacter(fou);
+		
+		Characters trader = new Trader("marchand",c2,clue);
+		Characters fou_1  = new MadCharacter("fou-1",c1,clue);
+		Characters fou_2 = new MadCharacter("fou-2",c3,clue);
+		Characters sphynx = new Sphynx(b.getCell(0, 0),"sphynx",clue);
+		
+		
 		game.addCharacter(trader);
-		game.addCharacter(fou2);
-		game.addObjets(chest);
-		game.addObjets(parchemin);
+		game.addCharacter(fou_1);
+		game.addCharacter(fou_2);
+		game.addCharacter(sphynx);
+		
+		
+		game.addItems(chest);
+		game.addItems(parchemin);
 			
 
 		//System.out.println(h.ask(fou2));

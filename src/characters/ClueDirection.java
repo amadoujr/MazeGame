@@ -2,7 +2,7 @@ package characters;
 import game.Quest;
 
 /**
- * @author amadouu
+ * ClueDirection class
  */
 public class ClueDirection implements Clue  {
    
@@ -18,6 +18,7 @@ public class ClueDirection implements Clue  {
 	 }
 	
 	/**
+	 * give a clue Direction to the hero by doing calculations
 	 * @param p the character to give the clue (in our case the Hero )
 	 */
 	public String giveIndice (Characters p ) {

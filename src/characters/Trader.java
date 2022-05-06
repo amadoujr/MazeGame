@@ -35,7 +35,7 @@ public class Trader extends RandomCharacter  {
 			
 			}
 		else {
-			return "Je ne te donne pas d'indice" ;
+			return "visiblement t n'en a pas assez, Dommage!!" ;
 			
 		}
 	}

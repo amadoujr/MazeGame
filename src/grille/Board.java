@@ -10,6 +10,11 @@ public class Board {
 	private int cols ;
 	private Stack<Cell> stackcell = new Stack <>();
 	
+	/**
+	 * initialize the constructor
+	 * @param rows : number of rows of the board
+	 * @param cols : number of columns of the board
+	 */
 	public Board(int rows ,int cols) {
 		
 		this.rows = rows ;

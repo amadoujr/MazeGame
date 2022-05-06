@@ -3,12 +3,9 @@ import java.util.*;
 import grille.Cell;
 
 /**
- * @author amadouu
- *
+ * an altruistic character
  */
 public class Altruiste extends RandomCharacter{
-	
-	
 
 	/**
 	 * @param name of the character (Altruist)
@@ -21,7 +18,6 @@ public class Altruiste extends RandomCharacter{
 		
 	}
 
-	
 	/**
 	 * this methods allows the altruist to give a hint to the Hero
 	 * @param p the character to give the clue
@@ -33,9 +29,6 @@ public class Altruiste extends RandomCharacter{
 		return super.clue.giveIndice(p);
 	}
 
-  public void move(Cell c) {
-	  
-  }
 
 
 }

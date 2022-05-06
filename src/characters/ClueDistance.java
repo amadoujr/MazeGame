@@ -5,7 +5,6 @@ import grille.Cell;
 
 /**
  * 
- * @author amadouu
  */
 public class ClueDistance  implements Clue{
 	

@@ -2,85 +2,108 @@ package game;
 
 import java.util.*;
 import characters.*;
-import characters.RandomCharacter;
 import grille.Board;
 import grille.Cell;
 import grille.Direction;
 import objets.Chest;
 import objets.Objets;
 
+/**
+ * Class game
+ */
+
 public class Game {
+	
+	/**
+	 * attributes of the class Game
+	 * characters : contains all characters present in the game 
+     * hero :  Hero attribute
+     * samecell : contains all characters present at the same Cell as Hero
+     * items : contains all items present in the game
+     * quest : refer to the quest
+     * board : the board of the game 
+	 */
 	protected Board board;
-	protected List<RandomCharacter> characters;
+	protected List<Characters> characters;
 	protected boolean finished;
 	protected Quest quest;
 	protected Heros hero;
-	//protected Objets objets;
-	protected List<Objets> objets ;
-	List<RandomCharacter> sameCell = new ArrayList<>();	
+	List<Characters> samecell = new ArrayList<>();	
+	List<Objets> items = new ArrayList<>();
+	List<Objets> sameItemsCell = new ArrayList<>();
+	
+	
 
 	
 	/**
-	 * constructor
-	 * @param board
-	 * @param quest
+	 * initialize constructor
+	 * @param board the board of the game
+	 * @param quest 
 	 */
-
 
 	public Game(Board board, Quest quest) {
 		this.board = board;
 		this.characters = new ArrayList<>();
-		this.objets = new ArrayList<>() ;
+		this.items = new ArrayList<>() ;
 		this.finished = false;
 		this.quest = quest;
 		
 		
 	}
-	
-	public List<RandomCharacter> getSameCell() {
-		return sameCell;
+	/**
+	 * get list of all characters present at the same Cell to the hero
+	 * @return the list
+	 */
+	public List<Characters> getSameCell() {
+		return samecell;
 	}
-
-	public void setSameCell(List<RandomCharacter> sameCell) {
-		this.sameCell = sameCell;
+	/**
+	 * set characters
+	 * @param sameCell the list of characters
+	 */
+	public void setSameCell(List<Characters> sameCell) {
+		this.samecell = sameCell;
 	}
 
 	/**
+	 * get the list of all items
 	 * @return all items 
 	 */
-	public List<Objets> getObjets() {
-		return objets;
+	public List<Objets> getItems() {
+		return items;
 	}
-
-	public void setObjets(List<Objets> objets) {
-		this.objets = objets;
-	}
-	
-	public void addObjets(Objets o) {
-		 this.objets.add(o);
-	}
-	
 	/**
-	 * @return all characters presents in the same cell that's the hero is
+	 * set items
+	 * @param objets
 	 */
-
+	public void setItemsCell(List<Objets> objets) {
+		this.sameItemsCell = objets;
+	}
 	
 	/**
-	 * add character in the maze
+	 * this methods allow us to add items in the game
+	 * @param o the items to add
+	 */
+	public void addItems(Objets o) {
+		 this.items.add(o);
+	}
+	
+	/**
+	 * add character in the game
 	 * @param p character to add
 	 */
-	public void addCharacter(RandomCharacter p) {
+	public void addCharacter(Characters p) {
 		this.characters.add(p);
 	}
 	/**
 	 * @return all characters presents in the game
 	 */
-	public List<RandomCharacter> getCharacters() {
+	public List<Characters> getCharacters() {
 		return this.characters;
 	}
 
 	/**
-	 * @return true is the game is finished 
+	 * @return true if the game is finished , false else
 	 */
 	public boolean isFinished() {
 		return this.quest.getQuest(hero);
@@ -99,13 +122,15 @@ public class Game {
 	public Heros getHeros() {
 		return this.hero;
 	}
-	
+	/**
+	 * @param b boolean value
+	 */
 	public void setFinished(boolean b) {
 		this.finished = b;
 	}
 	
 	/**
-	 * @return return the board of the game
+	 * @return the board of the game
 	 */
 	public Board getBoard(){
 		return this.board;
@@ -119,58 +144,43 @@ public class Game {
 	}
 	
 	/**
-	 * this methods makes players except heros move from one cell to another cell
+	 * this methods makes players except heros move randomly from one cell to another cell
 	 * if there is no wall in the next cell
 	 */
 	public void moveOtherCharacter() {
 		Random rand = new Random();
-			for (RandomCharacter c : this.characters) {
-				Cell cell = c.getPosition();
-				List<Direction> direction = cell.openCell();
-				int n = rand.nextInt(direction.size());
-				c.move(board.getNeighbour(cell, direction.get(n)));
-				System.out.println("position " + c.getPosition());
-
-				//System.out.println(c.toString() + "se trouve à la posi "+ cell );
-
-				}	
+			for (Characters c : this.characters) {
+				if (!(c instanceof Sphynx)) {
+					Cell cell = c.getPosition();
+					List<Direction> direction = cell.openCell();
+					int n = rand.nextInt(direction.size());
+					c.move(board.getNeighbour(cell, direction.get(n)));
+				}
+			}	
 			
 	}
-	/*
-	public void moveHero() {
-		Random random = new Random();
-		int i;
-		Cell cell = hero.getPosition();
-		List<Direction> direction = cell.openCell();
-		for (i = 0; i<direction.size();i++) {
-			String res =(direction.get(i) + ": case " + this.board.getNeighbour(cell, direction.get(i)));
-			System.out.println("         "+ res);
-		}
-		int n = random.nextInt(direction.size());
-		hero.move(this.board.getNeighbour(cell, direction.get(n)));
 		
-		
-	}
-	*/
-	
-	
 	
 	/**
-	 * play the game  
+	 * the goal of this methods is to run the game.
 	 */
 	
 	public void play() {
-		int i;
+		int i,j,k;
 		System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
 		Cell cell = hero.getPosition();
 		System.out.println("ici se trouve : ");
 		
 		this.setSameCell(this.hero.aroundCell(this.characters));
-		for (i=0; i< sameCell.size();i++) {
-			String res2 = sameCell.get(i).getName();
+		for (i=0; i< samecell.size();i++) {
+			String res2 = samecell.get(i).getName();
 			System.out.println("               "+ res2);
 		}
-		
+		this.setItemsCell(this.hero.aroundObjets(this.items));
+		for(k=0 ; k<this.sameItemsCell.size() ; k++) {
+			String item = (sameItemsCell.get(k).getName());
+			System.out.println("               "+ item);
+		}
 		System.out.println("autour c'est : ");
 
 		List<Direction> direction = cell.openCell();
@@ -178,16 +188,18 @@ public class Game {
 			String res =(direction.get(i) + ": case " + this.board.getNeighbour(cell, direction.get(i)));
 			System.out.println("         "+ res);
 		}
-		int j=0 ;
-		while(!this.isFinished() && j< 5) {
+		
+		
+		while(!this.isFinished()) {
 			this.playTurn();
-			j++;
 		}
 	}
 	
 	
 	
-	
+	/**
+	 * the game runs as long as the hero has not reached his quest
+	 */
 	public void playTurn() {
 		Scanner scanner = new Scanner(System.in); 
 		//System.out.println();
@@ -205,8 +217,8 @@ public class Game {
 			System.out.println("interroge - pour interroger le personnage");
 			System.out.println("utilse - pour utiliser un objet");
 			System.out.println("bouge - pour se deplacer");
+			System.out.println("quitte - pour quitter le jeu");
 
-			//System.out.println("----------------------------------------------------");
 
 		}
 		
@@ -214,7 +226,7 @@ public class Game {
 			this.moveOtherCharacter();
 			System.out.println("veuillez choisir une direction : ");
 			Cell cell = this.hero.getPosition();
-			int i;
+			int i,j;
 			List<Direction> direction = cell.openCell();
 			for (i = 0; i<direction.size();i++) {
 				String str =(i + " - " + direction.get(i));
@@ -222,89 +234,109 @@ public class Game {
 			}
 			int scan = scanner.nextInt();
 			hero.move(this.board.getNeighbour(cell, direction.get(scan)));
-			System.out.println("----------------------------------------------------");
+			this.board.Display();
+			for(j=0;j<3;j++) {
+				System.out.println();
+			}
 			
 			System.out.println("vous êtes à la case : "+ this.hero.getPosition().toString());
 			
 			System.out.println("ici se trouve : " );
 			this.setSameCell(this.hero.aroundCell(this.characters));
-			for (i=0; i< sameCell.size();i++) {
-				String res2 = sameCell.get(i).getName();
+			for (i=0; i< samecell.size();i++) {
+				String res2 = samecell.get(i).getName();
 				System.out.println("               "+ res2);
 			}
+			this.setItemsCell(this.hero.aroundObjets(this.items));
+			for(j=0 ; j<items.size() ; j++) {
+				String objet = (items.get(j).getName());
+				System.out.println("               "+ objet );
+			}
+			System.out.println();
+
 		}
 		
 		if(res.equalsIgnoreCase("interroge")) {
-			
-		System.out.println("qui voulez vous interroger ?");
-		int i ;
-		for(i=0;i<sameCell.size();i++) {
-			String ask = (i + " - "+ sameCell.get(i).getName());
-			System.out.println("         "+ ask);
-		}
-		//System.out.println(sameCell);
-		int scan = scanner.nextInt() ;
-		System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "interroge " + sameCell.get(scan).toString());
-		System.out.println(this.hero.ask(sameCell.get(scan)));
-		}
-		
-		
 				
+			System.out.println("qui voulez vous interroger ?");
+			int i  ;
+			for(i=0;i<samecell.size();i++) {
+				String ask = (i + " - "+ samecell.get(i).getName());
+				System.out.println("         "+ ask);
+			}
 			
+			
+			int scan = scanner.nextInt() ;
+			System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "interroge " + samecell.get(scan).toString());
+			System.out.println(this.hero.ask(samecell.get(scan)));
+			
+		
+		}
+		
+		
+
 		if (res.equalsIgnoreCase("regarde")) {
+			
 			System.out.println("----------------------------------------------------");
+
 			System.out.println("vous êtes à la case "+ this.hero.getPosition().toString());
-			int k,i;
+			int k,i,j;
 			
 			System.out.println("ici se trouve :");
 			this.setSameCell(this.hero.aroundCell(this.characters));
-			for (i=0; i< sameCell.size();i++) {
-				String res2 = sameCell.get(i).getName();
+			for (i=0; i< samecell.size();i++) {
+				String res2 = samecell.get(i).getName();
 				System.out.println("               "+ res2);
 			}
-			
+			for(j=0 ; j<items.size() ; j++) {
+				String objet = (items.get(j).getName());
+				System.out.println("                  "+ objet);
+			}
 			System.out.println("autour c'est : ");
+
 			List<Direction> direct = this.hero.getPosition().openCell();
 			for (k = 0; k<direct.size();k++) {
 				String str =(direct.get(k) + ": case " + this.board.getNeighbour(this.hero.getPosition(), direct.get(k)));
 				System.out.println("         "+ str);
 			}
-		}
-		
-
-		
-		
-		if(res.equalsIgnoreCase("quitte")) {
 			
-			System.out.println(" bye bye ");
-		
+			
 		}
-		
+				
 		
 		if(res.equalsIgnoreCase("utilise")) {
 			System.out.println("que voulez vous utiliser ?");
 			//Cell cell = this.hero.getPosition();
 			
-			for (Objets o : this.getObjets()) {
-				if(this.hero.getPosition().equals(o.getPosition()) && o instanceof Chest) {		
-			    System.out.println(0 + " - " + "none");
-				System.out.println(1 + " - " + o.getName());
-				System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + " utilise " + o.toString());
-				this.hero.use_Items(o) ;
-				
-				}
-				
-				System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or " + " utilise " + o.toString());
-				this.hero.use_Items(o);
+			int j ;
+			for(j=0 ; j<items.size() ; j++) {
+				String objet = (j + " - " + items.get(j).getName());
+				System.out.println("         "+ objet);
+			}
 			
-			} 		
+			int scan = scanner.nextInt() ;
+			System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "utilise " + items.get(scan).toString()+" :");
+			this.hero.use_Items(items.get(scan));	
+
+		}
+		
+		if(res.equalsIgnoreCase("quitte")) {
+			System.out.println("merci d'avoir joué !!");
+			System.out.println(" bye, bye");
+			System.exit(0);
+	
+		}
+		
+		if(this.isFinished()) {
+			System.out.println("bravoo !! vous avez réussi,le jeu est fini ");
 		}
 	
-	
-	
-		
 	}
 	
-	
 }
+	
 
+      
+
+	
+	
