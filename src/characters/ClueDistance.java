@@ -4,12 +4,16 @@ import game.Quest;
 import grille.Cell;
 
 /**
- * 
+ * ClueDistance class
  */
 public class ClueDistance  implements Clue{
+	/* Attribute quest : in order to access at the position of the quest */
 	
+	/**
+	 * @param quest attribute of the constructor
+	 */
 	private Quest quest;
-
+	
 	public ClueDistance(Quest q) {		
 		this.quest = q;
 	}

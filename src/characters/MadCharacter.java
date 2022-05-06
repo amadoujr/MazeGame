@@ -2,7 +2,15 @@ package characters;
 import grille.Cell;
 import java.util.*;
 
+
+
 public class MadCharacter extends RandomCharacter  {
+	
+	/**
+	 * @param name of the character ( MadCharacter)
+	 * @param position the position of the  MadCharacter in the Game
+	 * @param clue the clue to give
+	 */	
 
 	public MadCharacter(String name, Cell position,Clue clue) {
 		super(name, position,clue);
@@ -11,6 +19,12 @@ public class MadCharacter extends RandomCharacter  {
 
 	@Override
 
+	/**
+	 * this methods allows the MadCharacter to give a hint to the Hero
+	 * @param p the character to give the clue
+	 * @return the chosen clue 
+	 */
+	
 	public String giveIndice(Characters p) {
 		Random rand = new Random();
 		float alea = rand.nextFloat();

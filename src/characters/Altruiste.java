@@ -10,7 +10,7 @@ public class Altruiste extends RandomCharacter{
 	/**
 	 * @param name of the character (Altruist)
 	 * @param position the position of the altruist in the Game
-	 * @param i the clue to give
+	 * @param clue the clue to give
 	 */
 	public Altruiste(String name, Cell position,Clue clue ) {
 		super(name, position, clue);

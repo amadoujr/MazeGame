@@ -8,10 +8,24 @@ import game.Quest;
 
 public class Trader extends RandomCharacter  {
 	
+	/**
+	   * attributes of the trader
+	   * goods : goods number he will collect 
+	   * price : the price that you must pay to recieve a clue 
+	   */
 	private int goods;
 	private final int price;
 	
+	
+	 
 	public Trader(String name, Cell position, Clue clue) {
+
+		/**
+		 * initialize the constructor
+		 * @param name : name of the trader
+		 * @param position : position of the trader
+		 * @param clue : the clue to give
+		 */
 		super(name, position,clue);
 		this.price = 5;
 		this.goods = 0;
@@ -21,6 +35,12 @@ public class Trader extends RandomCharacter  {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	/**
+	 * this methods allows the trader to give a hint to the Hero
+	 * @param p the character to give the clue
+	 * @return the chosen clue 
+	 */
 	public String giveIndice(Characters p) {
 		//Scanner scan = new Scanner(System.in);
 		Random rand = new Random();

@@ -12,6 +12,11 @@ import grille.Cell;
 	
 
 public class Sphynx extends FixeCharacter {
+	/**
+	 * @param name of the character (sphynx)
+	 * @param position the position of the sphynx in the Game
+	 * @param i the clue to give
+	 */	
 	private Clue indice;
 	public Sphynx(Cell cell, String name, Clue i) {
 		super(cell, name);
@@ -21,7 +26,12 @@ public class Sphynx extends FixeCharacter {
  
 		
 	}
-	
+
+	/**
+	 * this methods allows the sphynx to give a hint to the Hero
+	 * @param p the character to give the clue
+	 * @return the chosen clue 
+	 */
 	public String giveIndice(Characters p) {
 
 		@SuppressWarnings("resource")

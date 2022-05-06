@@ -3,7 +3,6 @@ import characters.Characters;
 import grille.Cell;
 
 /**
- * @author amadouu
  * a Chest in the maze
  */
 public class Chest extends Objets  {

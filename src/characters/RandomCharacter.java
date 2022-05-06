@@ -3,7 +3,13 @@ import game.Quest;
 import grille.Board;
 import grille.Cell;
 
+
+/**
+* class to represent Randomcharacters
+* a character has a name and a given position
+*/
 public abstract class RandomCharacter extends MoveCharacter {
+	
 	protected  Clue clue  ; 
 	
 	

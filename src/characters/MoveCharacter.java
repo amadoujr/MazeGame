@@ -5,6 +5,11 @@ import grille.Cell;
 import objets.Objets;
 
 	
+
+/**
+* class to represent Movecharacters
+* a character has a name and a given position
+*/
 public class MoveCharacter extends Characters  {
 
 	public MoveCharacter(Cell cell, String name) {
