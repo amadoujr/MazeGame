@@ -1,5 +1,4 @@
 package characters;
-import java.util.*;
 import grille.Cell;
 
 /**
@@ -24,8 +23,6 @@ public class Altruiste extends RandomCharacter{
 	 * @return the chosen clue 
 	 */
 	public String giveIndice(Characters p) {
-		Random rand = new Random();
-		float f = rand.nextFloat();
 		return super.clue.giveIndice(p);
 	}
 

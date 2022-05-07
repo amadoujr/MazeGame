@@ -1,8 +1,6 @@
 package grille;
 
 import java.util.*;
-
-import characters.*;  
 public class Board {
 	
 	private Cell[][] board ;
@@ -221,18 +219,19 @@ public class Board {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in) ;
 		 
-		 System.out.println("On vous propose deux algorithmes pour generer le labyrinthe "  + ":" + " Exhaustif - Récursif  Veuillez choisir  ");
+		 System.out.println("On vous propose deux algorithmes pour generer le labyrinthe : ");
+		System.out.println("Exhaustif - Récursif  Veuillez choisir  ");
 
-		 String rep = sc.nextLine() ;
+		 int rep = sc.nextInt() ;
 		 System.out.println();
 
 	     System.out.println("Vous avez choisis : " + rep ) ;		
-		 if(rep.equalsIgnoreCase("Exhaustif")){
+		 if(rep==1){
 			 generateExhaustif() ;
 			 this.Display();
 		 }
 
-		if(rep.equalsIgnoreCase("Recursif")){
+		if(rep == 2){
 			generateRecursif();
 			this.Display();
 			

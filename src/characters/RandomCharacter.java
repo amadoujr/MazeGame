@@ -1,6 +1,4 @@
 package characters;
-import game.Quest;
-import grille.Board;
 import grille.Cell;
 
 

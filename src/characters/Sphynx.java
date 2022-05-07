@@ -1,10 +1,5 @@
 package characters;
-
 import java.util.*;
-
-
-
-
 import grille.Cell;
 
 

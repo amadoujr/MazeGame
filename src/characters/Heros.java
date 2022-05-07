@@ -1,6 +1,5 @@
 package characters;
 import java.util.*;
-import characters.*;
 import grille.Cell;
 import objets.*;
 

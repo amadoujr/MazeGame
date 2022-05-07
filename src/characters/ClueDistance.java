@@ -1,7 +1,6 @@
 package characters;
 
 import game.Quest;
-import grille.Cell;
 
 /**
  * ClueDistance class
