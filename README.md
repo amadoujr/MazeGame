@@ -93,11 +93,19 @@ Vous pourrez avoir un aperçu du labyrinthe en éxécutant le main contenu dans 
 * modifications des Objets
 
 ## Semaine 8
+* Coder les actions du Héros et le reste des  personnages (marchand , fou)
 
 ## Semaine 9
+* Ajout d'une méthode dans la classe Cell
+* Quelques ajout dans la classe Direction
 
 ## Semaine 10
+* Coder les tests des méthodes des classes Characters et Objets
+* Quelques ajouts dans la classe Board (ajout de la méthode **getNeighbor**)
 
 ## Semaine 11
+* Livrable3 ( Modélisation des actions)
 
 ## Semaine 12
+* Interface texte
+*  Modélisation complète
