@@ -6,19 +6,19 @@ import grille.* ;
  * a character has a name and a given position
  */
 public abstract class Characters implements Action , Clue  {
-	protected String name ; 
+	protected String name ;
 	protected Cell position ;
-	
+
 	/**
-	 * initialize constructor 
+	 * initialize constructor
 	 * @param name name of the character
 	 * @param position position of the character
 	 */
 	public Characters(String name , Cell position) {
-		this.name = name ; 
+		this.name = name ;
 		this.position = position ;
 	}
-	
+
 	/**
 	 * get the name of the character
 	 * @return the name of the character
@@ -47,13 +47,13 @@ public abstract class Characters implements Action , Clue  {
 	public void setPosition(Cell position) {
 		this.position = position;
 	}
-	
-	@Override
+
+
 	public String toString() {
 		return this.getName();
 	}
 
-	
-	
-	
+
+
+
 }

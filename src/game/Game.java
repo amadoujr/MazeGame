@@ -5,7 +5,7 @@ import characters.*;
 import grille.Board;
 import grille.Cell;
 import grille.Direction;
-import objets.Chest;
+
 import objets.Objets;
 
 /**
