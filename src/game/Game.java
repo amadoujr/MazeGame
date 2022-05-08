@@ -249,8 +249,8 @@ public class Game {
 				System.out.println("               "+ res2);
 			}
 			this.setItemsCell(this.hero.aroundObjets(this.items));
-			for(j=0 ; j<items.size() ; j++) {
-				String objet = (items.get(j).getName());
+			for(j=0 ; j<sameItemsCell.size() ; j++) {
+				String objet = (sameItemsCell.get(j).getName());
 				System.out.println("               "+ objet );
 			}
 			System.out.println();
@@ -289,8 +289,8 @@ public class Game {
 				String res2 = samecell.get(i).getName();
 				System.out.println("               "+ res2);
 			}
-			for(j=0 ; j<items.size() ; j++) {
-				String objet = (items.get(j).getName());
+			for(j=0 ; j<sameItemsCell.size() ; j++) {
+				String objet = (sameItemsCell.get(j).getName());
 				System.out.println("                  "+ objet);
 			}
 			System.out.println("autour c'est : ");
@@ -310,14 +310,14 @@ public class Game {
 			//Cell cell = this.hero.getPosition();
 			
 			int j ;
-			for(j=0 ; j<items.size() ; j++) {
-				String objet = (j + " - " + items.get(j).getName());
+			for(j=0 ; j<sameItemsCell.size() ; j++) {
+				String objet = (j + " - " + sameItemsCell.get(j).getName());
 				System.out.println("         "+ objet);
 			}
 			
 			int scan = scanner.nextInt() ;
-			System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "utilise " + items.get(scan).toString()+" :");
-			this.hero.use_Items(items.get(scan));	
+			System.out.println("joueur avec " +  this.hero.getGoldValue()  + " or  " + "utilise " + sameItemsCell.get(scan).toString()+" :");
+			this.hero.use_Items(sameItemsCell.get(scan));	
 
 		}
 		

@@ -18,7 +18,7 @@ public class Boardmain {
 		System.out.println(c1.getWall(Direction.WEST));
 		System.out.println(c1.getWall(Direction.SOUTH));
 		System.out.println(c1.getWall(Direction.EAST));
-		//b.Display();
+		b.choice();;
 
 		
 	

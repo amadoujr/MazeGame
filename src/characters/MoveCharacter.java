@@ -1,6 +1,4 @@
 package characters;
-
-import grille.Board;
 import grille.Cell;
 import objets.Objets;
 

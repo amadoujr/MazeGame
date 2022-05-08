@@ -12,19 +12,28 @@ import java.util.*;
 public class runner {
 	public static void main(String[] args) {
 		
+		/** generate and display the maze */
 		
-		Board b = new Board(15,15);
-		b.generateExhaustif();
-		b.Display();
+		Board board = new Board(10,10);
+		board.choice();		
+		
+		
+		//creates the quest and set a random position
+		
+		Quest quest = new Quest(board);
+		quest.setPosition();
+		
+		Game game = new Game(board,quest);
 		
 		System.out.println();
 		
-		Cell c1 = b.getCell(0,0);
-		Cell c2 = b.getCell(2,2);
-		Cell c3 = b.getCell(3, 3);
+		/* the hero position */
+		Cell position = board.getCell(0,0);
+		Heros h = new Heros("hero",position);
 		
-		Quest quest = new Quest(b);
-		quest.setPosition();
+		// add the hero to the game
+		game.setHeros(h);
+		
 		Clue clue;
 		
 		Random random = new Random();
@@ -38,53 +47,74 @@ public class runner {
 
 		}
 		
+		Parchemins p;
+		Chest c;
 
-		Heros h = new Heros("amadou",c1);
+		
+		
+		// creates list of 30 items to put in the game
+		List<Objets> li = new ArrayList<>();
+		Random rand = new Random();
+		int x,y;
 		int i;
 		for (i=0; i<31;i++){
+			x = rand.nextInt(10);
+			y = rand.nextInt(10);
+			if ( i < 15) {
+				p = new Parchemins("Parchemins"+"-"+i,board.getCell(x, y),clue);
+				li.add(p);
+			}
+			else {
+				c = new Chest("Or"+"-"+(i-15),board.getCell(x, y));
+				li.add(c);
+			}
 		}
 		
-		Objets parchemin = new Parchemins("Parchemin" , c3 , clue) ;
-		Objets chest = new Chest("Or" , c2 ) ;
-		Game game = new Game(b,quest);
-		game.setHeros(h);
+		// put the items in the game
+		for (i=0;i<li.size();i++) {
+			game.addItems(li.get(i));
+		} 
+	
+		// creates a list which contains 20 characters and put them in th game 
 		
+		List<Characters> characters = new ArrayList<>();
 		
-		Characters trader = new Trader("marchand",c2,clue);
-		Characters fou_1  = new MadCharacter("fou-1",c1,clue);
-		Characters fou_2 = new MadCharacter("fou-2",c3,clue);
-		Characters sphynx = new Sphynx(b.getCell(0, 0),"sphynx",clue);
+		Characters trader,sphynx,altruist,mad_man;
 		
+		for(i=0;i<5;i++) {
+			x = rand.nextInt(10);
+			y = rand.nextInt(10);
+			trader = new Trader("marchand"+"-"+i ,board.getCell(x, y),clue);
+			characters.add(trader);
+		}
 		
-		game.addCharacter(trader);
-		game.addCharacter(fou_1);
-		game.addCharacter(fou_2);
-		game.addCharacter(sphynx);
+		for(i=0;i<5;i++) {
+			x = rand.nextInt(10);
+			y = rand.nextInt(10);
+			sphynx = new Sphynx(board.getCell(x, y) ,"sphynx"+"-"+i,clue);
+			characters.add(sphynx);
+		}
 		
+		for(i=0;i<5;i++) {
+			x = rand.nextInt(10);
+			y = rand.nextInt(10);
+			altruist = new Altruiste("altruist"+"-"+i ,board.getCell(x, y),clue);
+			characters.add(altruist);
+		}
 		
-		game.addItems(chest);
-		game.addItems(parchemin);
-			
-
-		//System.out.println(h.ask(fou2));
+		for(i=0;i<5;i++) {
+			x = rand.nextInt(10);
+			y = rand.nextInt(10);
+			mad_man = new MadCharacter("fou"+"-"+i ,board.getCell(x, y),clue);
+			characters.add(mad_man);
+		}
 		
+		for(Characters carac : characters) {
+			game.addCharacter(carac);
+		}
 				
 		
 		game.play();
-		//h.setGoldvalue(10);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
