@@ -20,7 +20,9 @@ public class Chest extends Objets  {
 		this.gold = 50;
 
 	}
-
+   
+	
+	
 	
 	/**
 	 * 
