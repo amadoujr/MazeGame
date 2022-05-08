@@ -44,14 +44,24 @@ Objectif : modélisations des actions
 ### Atteinte des objectifs
 Tous les objectifs n'ont pas été atteints, Cependant nous avons pu gérer : les indices, la quête du joueur
 ### Difficultés restant à résoudre
-
 Gérer le déplacement des personnages
 
 ## Livrable 4
-
+Modélisation complète
 ### Atteinte des objectifs
-
+Objectifs : tous les objectifs atteints
 ### Difficultés restant à résoudre
+Aucune difficulté.
+Cependant, nous avons pu créer l'archive exécutable mais en tapant la commande :
+ *java -jar jeu/jeu.jar* ou *java -jar jeu.jar* pour lancer la méthode main ne fonctionne pas.
+on nous affiche cette erreur :
+" Error: Could not find or load main class src.game.MainMaze
+Caused by: java.lang.ClassNotFoundException: src.game.MainMaze "
+
+une alternative possible qui fonctionne :
+  *java -classpath classes factory.RobotMain*
+
+Bonne partie!!
 
 # Journal de bord
 

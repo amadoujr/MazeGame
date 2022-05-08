@@ -55,6 +55,7 @@ public class Board {
 	/**
 	 * check if the cell which were we are had an
 	 * unvisited neighbors
+	 * @param c the cell
 	 * @return true if  it's the case of false if not
 	 */
 	public boolean hasUnvisitedNeigbor(Cell c) {
@@ -118,36 +119,30 @@ public class Board {
 		
 		return this.board[x][y];
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public Cell [][] getBoard(){
 		return this.board;
 	}
-	
+	/**
+	 * @return row size
+	 */
 	public int getrows() {
 		return this.rows;
 	}
-	
+	/**
+	 * @return column size
+	 */
 	public int getcols() {
 		return this.cols;
 	}
 	
 	
-	public boolean allvisited() {
-		for (int i = 0 ; i<this.rows ; i++) {
-			for (int j = 0 ; j< this.cols ; j++) {
-				if(!this.board[i][j].isVisited()) {
-					return false;
-				}
-			}
-		}return true ;
-	}
-	
 	 /**
-	 * it's generate the maze 
+	 * generate the recursive maze
 	 */
-
-	
-	
 	
 	public void generateRecursif() {
 		int visite = 1 ;
@@ -239,8 +234,7 @@ public class Board {
 		
 	}
 	
-	/*	
-
+	/**	
 	 * display the board
 	 */
 	public void Display() {
@@ -272,10 +266,6 @@ public class Board {
 
 		}
 		
-		
-		public void addHeros() {
-			
-		}
 	
     
 

@@ -1,5 +1,4 @@
 package objets;
-import java.util.Random;
 import characters.*;
 import grille.*;
 

@@ -13,7 +13,7 @@ public class Quest {
 	
 	public Quest(Board board) {
 		this.board = board;
-		this.position = board.getCell(0,0);
+		this.position = board.getCell(8,3);
 		this.goldvalue = 50;
 	}
 	
